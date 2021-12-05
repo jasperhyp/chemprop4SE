@@ -303,6 +303,3 @@ class MPN(nn.Module):
             output = reduce(lambda x, y: x+y-x*y, output)  # CAHNGED  
         
         return output
-# -
-
-np.shape([[1,2],[2,3],[3,4]])

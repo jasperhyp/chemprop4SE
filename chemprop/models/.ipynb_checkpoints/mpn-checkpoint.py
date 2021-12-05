@@ -288,18 +288,7 @@ class MPN(nn.Module):
                 features_batch_out =  [self.ft_layers[0](features_batch[0]), self.ft_layers[1](features_batch[1])]
                 
             else:
-                print(np.shape(features_batch))
-                print(np.shape(features_batch[0]))
-                print(np.shape(features_batch[1]))
-#                 print(features_batch[0])
-                print(np.shape(features_batch[0][0]))
-                print(np.shape(features_batch[0][1]))
-                print(np.shape(features_batch[1][0]))
-                print(np.shape(features_batch[1][1]))
                 
-#                 for feature_batch in features_batch:
-#                     print(feature_batch)
-    
                 features_batch_out = [torch.from_numpy(np.stack(features_batch)[0]).float().to(self.device),
                                       torch.from_numpy(np.stack(features_batch)[1]).float().to(self.device)]
                 # Confused about dtype stuff...  Use below temporarily
@@ -314,6 +303,3 @@ class MPN(nn.Module):
             output = reduce(lambda x, y: x+y-x*y, output)  # CAHNGED  
         
         return output
-# -
-
-np.shape([[1,2],[2,3],[3,4]])
