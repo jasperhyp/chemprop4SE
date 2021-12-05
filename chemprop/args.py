@@ -289,7 +289,7 @@ class TrainArgs(CommonArgs):
     """Whether to skip training and only test the model."""
     quiet: bool = False
     """Skip non-essential print statements."""
-    log_frequency: int = 10
+    log_frequency: int = 20
     """The number of batches between each logging of the training loss."""
     show_individual_scores: bool = True  # CHANGED
     """Show all scores for individual targets, not just average, at the end."""
