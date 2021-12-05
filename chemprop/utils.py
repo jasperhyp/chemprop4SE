@@ -264,6 +264,9 @@ def load_frzn_model(model: torch.nn,
     # Load pretrained weights
     model.load_state_dict(model_state_dict)
     
+    if current_args.set_all_ckpt_trainable:
+        for params in model.parameters():
+            params.requires_grad = True
     return model
     
 def load_scalers(path: str) -> Tuple[StandardScaler, StandardScaler, StandardScaler, StandardScaler]:

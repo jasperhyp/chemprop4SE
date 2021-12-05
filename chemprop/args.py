@@ -118,6 +118,7 @@ class CommonArgs(Tap):
     """
     Whether reduce the dimension of the single drug SE feature vector. If not none, can be "svd" or "linear-layer".
     """
+    set_all_ckpt_trainable: bool = False # CHANGED
 
     def __init__(self, *args, **kwargs):
         super(CommonArgs, self).__init__(*args, **kwargs)
