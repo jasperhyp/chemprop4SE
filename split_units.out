@@ -1,0 +1,3624 @@
+WARNING:root:No normalization for BCUT2D_MWHI
+WARNING:root:No normalization for BCUT2D_MWLOW
+WARNING:root:No normalization for BCUT2D_CHGHI
+WARNING:root:No normalization for BCUT2D_CHGLO
+WARNING:root:No normalization for BCUT2D_LOGPHI
+WARNING:root:No normalization for BCUT2D_LOGPLOW
+WARNING:root:No normalization for BCUT2D_MRHI
+WARNING:root:No normalization for BCUT2D_MRLOW
+Command line
+python train.py --data_path data_processed/train_units.csv --separate_val_path data_processed/valid_units.csv --separate_test_path data_processe/test_units.csv --dataset_type classification --feature_dimension_reduction linear-layer
+Args
+{'activation': 'ReLU',
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'alternative_loss_function': None,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 256,
+ 'bias': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'calc_train_auc': False,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': 'data_processed/train_units.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 3,
+ 'device': device(type='cuda'),
+ 'dropout': 0.2,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 25,
+ 'explicit_h': False,
+ 'extra_metrics': ['prc-auc', 'accuracy', 'ap50'],
+ 'feature_dimension_reduction': 'linear-layer',
+ 'features_generator': ['mono'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 300,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'max_data_size': None,
+ 'max_lr': 0.005,
+ 'metric': 'auc',
+ 'metrics': ['auc', 'prc-auc', 'accuracy', 'ap50'],
+ 'minimize_score': False,
+ 'mono_path': 'data/mono.csv',
+ 'mpn_shared': True,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 964,
+ 'num_workers': 2,
+ 'number_of_molecules': 2,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'resume_experiment': False,
+ 'save_dir': 'checkpoint/',
+ 'save_preds': True,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': 'data_processe/test_units.csv',
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': 'data_processed/valid_units.csv',
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': True,
+ 'smiles_columns': ['smiles_1', 'smiles_2'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_sizes': (0.8, 0.1, 0.1),
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['atelectasis',
+                'back ache',
+                'lung edema',
+                'agitated',
+                'abnormal movements',
+                'acidosis',
+                'peliosis',
+                'apnea',
+                'drug hypersensitivity',
+                'flatulence',
+                'pain in throat',
+                'allergies',
+                'thrombocytopenia',
+                'bradycardia',
+                'lung infiltration',
+                'bleeding',
+                'hypoglycaemia neonatal',
+                'hyperglycaemia',
+                'peritonitis',
+                'hypoglycaemia',
+                'abdominal distension',
+                'asystole',
+                'cerebral infarct',
+                'hypoxia',
+                'difficulty breathing',
+                'decreased body temperature',
+                'adynamic ileus',
+                'sepsis',
+                'hypomagnesaemia',
+                'neonatal respiratory distress syndrome',
+                'acute respiratory distress syndrome',
+                'lipoma',
+                'appendectomy',
+                'flank pain',
+                'pneumothorax',
+                'appendicitis',
+                'strabismus',
+                'blood calcium decreased',
+                'respiratory failure',
+                'pulmonary hypertension',
+                'hypercapnia',
+                'intestinal perforation',
+                'leucocytosis',
+                'disorder lung',
+                'hot flash',
+                'arterial pressure nos decreased',
+                'metabolic acidosis',
+                'bladder inflammation',
+                'ascites',
+                'patent ductus arteriosis',
+                'sinus tachycardia',
+                'stridor',
+                'arterial pressure nos increased',
+                'hypoventilation',
+                'edema',
+                'disease of liver',
+                'aspartate aminotransferase increase',
+                'cold extremities',
+                'facial flushing',
+                'anaphylactic reaction',
+                'eruption',
+                'acute pancreatitis',
+                'neumonia',
+                'adenocarcinoma',
+                'confusion',
+                'malnourished',
+                'haemorrhoids',
+                'still birth',
+                'anaemia',
+                'drug toxicity nos',
+                'increased white blood cell count',
+                'encephalopathy',
+                'anorexia',
+                'tremor',
+                'hallucination',
+                'chronic obstructive airway disease',
+                'drowsiness',
+                'head ache',
+                'back injury',
+                'erythema',
+                'diplopia',
+                'enlarged spleen',
+                'narcolepsy',
+                'esophageal spasm',
+                'erosive gastritis',
+                'gastroenteritis viral',
+                'lymphocytes decreased',
+                'breast cancer',
+                'itch',
+                'haemolytic anaemia',
+                'upper gastrointestinal bleeding',
+                'icterus',
+                'gastroenteritis',
+                'optic disc edema',
+                'sleep disorder',
+                'septic shock',
+                'bladder retention',
+                'aphonia',
+                'pain',
+                'idiopathic thrombocytopenic purpura',
+                'pneumonia staphylococcal',
+                'alopecia',
+                'conjunctivitis',
+                'lobar pneumonia',
+                'glomerulonephritis',
+                'duodenal ulcer',
+                'deep vein thromboses',
+                'leucopenia',
+                'rhinorrhea',
+                'bursitis',
+                'bleeding vaginal',
+                'excoriation',
+                'ekbom syndrome',
+                'nephrocalcinosis',
+                'blurred vision',
+                'thrombotic microangiopathy',
+                'dizziness',
+                'pleurisy',
+                'sunburn',
+                'hoarseness',
+                'bleeding hemorrhoids',
+                'fatigue',
+                'aspiration pneumonia',
+                'perirectal abscess',
+                'diarrhea',
+                'asthma',
+                'skin lesion',
+                'tinnitus',
+                'muscle spasm',
+                'fib',
+                'candida infection',
+                'abnormal gait',
+                'glossodynia',
+                'anal fissure',
+                'infection viral',
+                'cellulitis',
+                'allergic dermatitis',
+                'constipated',
+                'clotting',
+                'muscle paresis',
+                'deafness',
+                'vocal cord paralysis',
+                'dry skin',
+                'ear discharge',
+                'eye pain',
+                'leukaemia',
+                'myopia',
+                'chronic kidney disease',
+                'acute kidney failure',
+                'retrocollis',
+                'cognitive disorder',
+                'cholangitis',
+                'hypothyroid',
+                'dermatitides',
+                'abnormal lfts',
+                'dermatitis medicamentosa',
+                'acute brain syndrome',
+                'deafness neurosensory',
+                'fungal disease',
+                'nasal sinus congestion',
+                'near syncope',
+                'erythema multiforme',
+                'haematoma',
+                'bleb',
+                'nasal congestion',
+                'amenorrhea',
+                'epistaxis',
+                'hepatitis',
+                'coated tongue',
+                'neutropenia',
+                'wheeze',
+                'haemorrhage rectum',
+                'abdominal pain',
+                'chest pain',
+                'mycobacterium tuberculosis infection',
+                'cholelithiasis',
+                'pyoderma',
+                'blood disorder',
+                'psychoses',
+                'aching muscles',
+                'abscess',
+                'loss of consciousness',
+                'attempted suicide',
+                'bad breath',
+                'arthritis infective',
+                'loss of weight',
+                'nasopharyngitis',
+                'belching',
+                'rhinitis',
+                'colon spastic',
+                'heart attack',
+                'hepatic neoplasia',
+                'azotaemia',
+                'nervous tension',
+                'muscle weakness',
+                'hypochloraemia',
+                'cataract',
+                'abdominal pain upper',
+                'insomnia',
+                'dyspepsia',
+                'asthenia',
+                'emesis',
+                'embolism pulmonary',
+                'biliary tract disorder',
+                'colitis ischemic',
+                'extremity pain',
+                'arteriosclerotic heart disease',
+                'small intestinal obstruction',
+                'paraesthesia',
+                'neoplasia',
+                'fainting',
+                'blood sodium decreased',
+                'sneezing',
+                'feeling unwell',
+                'hypokalaemia',
+                'lower gi bleeding',
+                'migraine',
+                'intervertebral disc disorder',
+                'osteoporosis',
+                'high blood pressure',
+                'road traffic accident',
+                'diverticulosis',
+                'arthritis rheumatoid',
+                'abnormal vision',
+                'arteriosclerosis',
+                'bulging',
+                'osteoarthritis',
+                'pleural pain',
+                'acid reflux',
+                'fibromyalgia',
+                'breast pain',
+                'palpitation',
+                'herpes zoster',
+                'breast cyst',
+                'myoglobinuria',
+                'osteomalacia',
+                'ischias',
+                'aching joints',
+                'arthritis',
+                'abuse',
+                'colonic polyp',
+                'cholecystitis',
+                'dyspnea exertional',
+                'extrasystoles ventricular',
+                'acne rosacea',
+                'incontinence',
+                'gall bladder',
+                'diabetic acidosis',
+                'diabetic retinopathy',
+                'blepharitis',
+                'pyelonephritis',
+                'aptyalism',
+                'blepharospasm',
+                'aneurysm',
+                'benign prostatic hyperplasia',
+                'wrist fracture',
+                'dislocation',
+                'superficial thrombophlebitis',
+                'decreased libido',
+                'decubitus ulcer',
+                'kidney failure',
+                'meningitides',
+                'ild',
+                'atrioventricular block first degree',
+                'cough',
+                'vestibular disorder',
+                'panic attack',
+                'nightmare',
+                'breast lump',
+                'nocturia',
+                'spinning sensation',
+                'diabetes',
+                'bronchitis',
+                'polyp',
+                'osteomyelitis',
+                'lung fibrosis',
+                'enlarged liver',
+                'laceration',
+                'coma',
+                'amyotrophy',
+                'cachectic',
+                'renal cyst',
+                'neuropathy peripheral',
+                'bacterial infection',
+                'angiitis',
+                'convulsion',
+                'iron deficiency anaemia',
+                'cardiomyopathy',
+                'bronchial spasm',
+                'femur fracture',
+                'fascitis plantar',
+                'cardiac decompensation',
+                'mucositis oral',
+                'joint swelling',
+                'hernia',
+                'glaucoma',
+                'mitral valve disease nos',
+                'edema extremities',
+                'pulmonary mass',
+                'breast dysplasia',
+                'phlebitis',
+                'lung neoplasms',
+                'balance disorder',
+                'bone marrow failure',
+                'deglutition disorder',
+                'adrenal insufficiency',
+                'sensory disturbance',
+                'polyneuropathy',
+                'nephrolithiasis',
+                'dysarthria',
+                'hypotension orthostatic',
+                'scoliosis',
+                'autonomic instability',
+                'rhabdomyolysis',
+                'renal colic',
+                'bundle branch block left',
+                'apoplexy',
+                'malabsorption',
+                'aphasia',
+                'amnesia',
+                'body temperature increased',
+                'burning sensation',
+                'chill',
+                'infection urinary tract',
+                'night sweat',
+                'keratitis sicca',
+                'dehydration',
+                'ataxia',
+                'transient ischaemic attack',
+                'cerebral haemorrhage',
+                'mod',
+                'elevated cholesterol',
+                'heart rate increased',
+                'eye swelling',
+                'psychosexual disorder',
+                'anxiety',
+                'facial palsy',
+                'ureteral obstruction',
+                'disorder renal',
+                'nephrosclerosis',
+                'psoriatic arthritis',
+                'post traumatic stress disorder',
+                'laryngitis',
+                'angiopathy',
+                'flu',
+                'coeliac disease',
+                'adjustment disorder',
+                'carcinoid syndrome',
+                'nausea',
+                'dysphasia',
+                'drug withdrawal',
+                'pleural effusion',
+                'sinusitis',
+                'bilirubinaemia',
+                'amentia',
+                'cerebral atrophy',
+                'cervicalgia',
+                'hyperlipaemia',
+                'metabolic encephalopathy',
+                'diabetic nephropathy',
+                'encephalitis',
+                'intervertebral disc herniation',
+                'atherosclerosis',
+                'aortic regurgitation',
+                'neuralgia',
+                'hemiplegia',
+                'pneumonia klebsiella',
+                'emphysema',
+                'afib',
+                'postherpetic neuralgia',
+                'eosinophil count increased',
+                'neuritis',
+                'abnormal ecg',
+                'bone fracture spontaneous',
+                'gingivitis',
+                'soft tissue infection',
+                'floaters',
+                'thyroid neoplasia',
+                'dental abscess',
+                'dental pain',
+                'aseptic necrosis bone',
+                'bruxism',
+                'retinal bleeding',
+                'gingival pain',
+                'bone inflammation',
+                'candidiasis of mouth',
+                'tooth disease',
+                'mouth pain',
+                'arthropathy',
+                'pericardial effusion',
+                'lung neoplasm malignant',
+                'infection',
+                'blindness',
+                'herpes simplex',
+                'blood in urine',
+                'acute myeloblastic leukemia',
+                'abnormal eeg',
+                'gastric inflammation',
+                'transfusion reaction',
+                'abortion spontaneous',
+                'urosepsis',
+                'eating disorder',
+                'schizophrenia',
+                'cardiac murmur',
+                'cardiac enlargement',
+                'proteinuria',
+                'increased platelet count',
+                'odynophagia',
+                'multiple sclerosis',
+                'intraocular inflammation',
+                'weight gain',
+                'convulsions grand mal',
+                'enuresis',
+                'bundle branch block right',
+                'personality disorder',
+                'salivary gland inflammation',
+                'cervicitis',
+                'hernia hiatal',
+                'cervical dysplasia',
+                'adenitis',
+                'ecchymoses',
+                'tardive dyskinesia',
+                'blood pressure abnormal',
+                'muscle strain',
+                'ejaculation premature',
+                'excessive thirst',
+                'ear ache',
+                'elevated erythrocyte sedimentation rate',
+                'blood calcium increased',
+                'joint stiffness',
+                'esophagitis',
+                'nephrotic syndrome',
+                'proctalgia',
+                'bone pain',
+                'contracture',
+                'proctitis',
+                'spondylitis',
+                'spondylosis',
+                'dyspareunia',
+                'hyperparathyroidism',
+                'sleep apnea',
+                'raynauds phenomenon',
+                'wound dehiscence',
+                'portal vein thrombosis',
+                'head injury',
+                'arachnoiditis',
+                'synovitis',
+                'hyperhidrosis',
+                'nystagmus',
+                'gastrointestinal bleed',
+                'apraxia',
+                'amyloidosis',
+                'drug addiction',
+                'prostatitis',
+                'femoral neck fracture',
+                'sleep walking',
+                'monoclonal gammopathy',
+                'bruise',
+                'scar',
+                'cardiac disease',
+                'pain pelvic',
+                'hip fracture',
+                'difficulty in walking',
+                'panic disorder',
+                'atrial septal defect',
+                'tendinitis',
+                'obstructive uropathy',
+                'colpitis',
+                'rhagades',
+                'bone spur',
+                'pancreatitis',
+                'allergic rhinitis',
+                'otitis media',
+                'intestinal functional disorder',
+                'faecal incontinence',
+                'carpal tunnel',
+                'haematochezia',
+                'adh inappropriate',
+                'neuropathy',
+                'chest infection',
+                'radiculopathy',
+                'dysphonia',
+                'myelopathy',
+                'black stools',
+                'dysuria',
+                'flashing lights',
+                'electrolyte disorder',
+                'decreased hearing',
+                'mitral valve prolapse',
+                'fatty liver',
+                'mouth bleeding',
+                'bipolar disorder',
+                'embolism',
+                'duodenitis',
+                'malignant melanoma',
+                'ear infection',
+                'sinus bradycardia',
+                'atrial ectopic beats',
+                'external ear infection',
+                'muscle inflammation',
+                'cervical vertebral fracture',
+                'hydronephrosis',
+                'dental caries',
+                'elevated prostate specific antigen',
+                'mouth ulcer',
+                'gastroduodenal ulcer',
+                'fistula',
+                'acute bronchitis',
+                'gynaecomastia',
+                'hypophosphataemia',
+                'excess potassium',
+                'esophageal ulcer',
+                'renal tubular acidosis',
+                'phlebothrombosis',
+                'dysaesthesia',
+                'goiter',
+                'metabolic alkalosis',
+                'adenopathy',
+                'tympanic membrane perforation',
+                'arrhythmia',
+                'hepatic failure',
+                'hyperalimentation',
+                'spinal fracture',
+                'parkinson',
+                'movement disorder',
+                'macula lutea degeneration',
+                'musculoskeletal pain',
+                'cardiac ischemia',
+                'paranoia',
+                'chronic sinusitis',
+                'ulcer',
+                'rib fracture',
+                'rotator cuff syndrome',
+                'impetigo',
+                'fractured pelvis nos',
+                'infection upper respiratory',
+                'angioedema',
+                'sick sinus syndrome',
+                'hyperthyroidism',
+                'cardiac failure',
+                'atrioventricular block second degree',
+                'pharyngeal inflammation',
+                'adenoma',
+                'epilepsy',
+                'sinus arrest',
+                'angina',
+                'muscle disorder',
+                'bundle branch block',
+                'tachycardia ventricular',
+                'melanocytic naevus',
+                'cramp',
+                'atrial flutter',
+                'cardiovascular collapse',
+                'hypernatraemia',
+                'hive',
+                'mpd',
+                'syncope vasovagal',
+                'streptococcal infection',
+                'aspergillosis',
+                'light sensitivity',
+                'enteritis',
+                'bone marrow transplant',
+                'sclc',
+                'colitis',
+                'elevated triglycerides',
+                'glucose intolerance',
+                'multiple myeloma',
+                'duodenal ulcer haemorrhage',
+                'cmv infection',
+                'hemiparesis',
+                'polymyositis',
+                'bacteraemia',
+                'onychomycosis',
+                'carcinoma of the colon',
+                'myocarditis',
+                'cardiac valvulopathy',
+                'endocarditis',
+                'atrioventricular block complete',
+                'ventricular fibrillation',
+                'gangrene',
+                'ischaemia',
+                'adverse drug effect',
+                'defaecation urgency',
+                'cirrhosis',
+                'trigeminal neuralgia',
+                'hordeolum',
+                'polyuria',
+                'periodontal disease',
+                'obesity',
+                'glucosuria',
+                'basal cell carcinoma',
+                'pulmonary arrest',
+                'haematemesis',
+                'granuloma',
+                'insulin dependent diabetes mellitus',
+                'failure to thrive',
+                'cardiac tamponade',
+                'ankle fracture',
+                'hepatitis toxic',
+                'endocrine disorder',
+                'sinus headache',
+                'diverticulitis',
+                'dermatitis exfoliative',
+                'distended bladder',
+                'pancreatitis relapsing',
+                'thrombophlebitis',
+                'shoulder pain',
+                'abnormal laboratory findings',
+                'duodenal ulcer perforation',
+                'joint effusion',
+                'ventricular septal defect',
+                'gouty arthritis',
+                'supraventricular tachycardia',
+                'respiratory alkalosis',
+                'haemorrhage intracranial',
+                'major depression',
+                'excessive sleepiness',
+                'lymphoma',
+                'substance abuse',
+                'animal bite',
+                'cerebral vascular disorder',
+                'dry eye',
+                'ovarian cyst',
+                'micturition urgency',
+                'stress incontinence',
+                'hesitancy',
+                'bone fracture',
+                'nodule',
+                'cyst',
+                'abdominal hernia',
+                'scleroderma',
+                'cor pulmonale',
+                'excessive salivation',
+                'right heart failure',
+                'subarachnoid haemorrhage',
+                'cancer',
+                'soft tissue injuries',
+                'colitis pseudomembranous',
+                'heavy menstrual period',
+                'premature menopause',
+                'umbilical hernia',
+                'psoriasis',
+                'contact dermatitis',
+                'blepharoptosis',
+                'bleeding gums',
+                'epicondylitis',
+                'ingrowing nail',
+                'dermatitis seborrheic',
+                'candidiasis of vagina',
+                'spinal compression fracture',
+                'palsies',
+                'petit mal',
+                'gout',
+                'cerebral ischaemia',
+                'eyelid diseases',
+                'gastric ulcer',
+                'periodontitis',
+                'lyell',
+                'seborrhoeic keratosis',
+                'actinic keratosis',
+                'choking',
+                'dyshidrosis',
+                'aortic stenosis',
+                'coughing blood',
+                'glossitis',
+                'bacterial pneumonia',
+                'alcohol consumption',
+                'squamous cell carcinoma of skin',
+                'pancreatic cancer',
+                'tenosynovitis',
+                'liver abscess',
+                'myelodysplasia',
+                'rectal polyp',
+                'brain concussion',
+                'cutaneous ulcer',
+                'face pain',
+                'atrioventricular block',
+                'breast enlargement',
+                'eustachian tube disorder',
+                'acute sinusitis',
+                'pelvic inflammatory disease',
+                'altered bowel function',
+                'antinuclear antibody positive',
+                'galactorrhea',
+                'schizoaffective disorder',
+                'borderline personality disorder',
+                'injury of neck',
+                'pharyngitis streptococcal',
+                'nephrogenic diabetes insipidus',
+                'hepatic necrosis',
+                'portal hypertension',
+                'diabetic neuropathy',
+                'brain neoplasm',
+                'reflux esophagitis',
+                'breakthrough bleeding',
+                'hair disease',
+                'seroma',
+                'trigger finger',
+                'interstitial nephritis',
+                'nail disorder',
+                'allergic vasculitis',
+                'lichen planus',
+                'carotid artery stenosis',
+                'gastric polyps',
+                'hyperkeratosis',
+                'toxic shock',
+                'essential hypertension',
+                'hepatitis b',
+                'congenital heart disease',
+                'colon neoplasm',
+                'cholecystectomies',
+                'carcinoma of prostate',
+                'orthopnea',
+                'renal mass',
+                'breast disorder',
+                'disseminated lupus erythematosus',
+                'breast tenderness',
+                'breast discharge',
+                'disorder peripheral vascular',
+                'hyperprolactinaemia',
+                'acute psychosis',
+                'ketoacidosis',
+                'sarcoidosis',
+                'detached retina',
+                'eosinophilic pneumonia',
+                'chest wall pain',
+                'hyperpigmentation',
+                'costochondritis',
+                'agoraphobia',
+                'cheilosis',
+                'easy bruisability',
+                'optic neuritis',
+                'eye injury',
+                'scotoma',
+                'eczema',
+                'tracheostomy',
+                'erysipelas',
+                'paraparesis',
+                'hepatorenal syndrome',
+                'hepatitis c',
+                'eye infection',
+                'ebv infection',
+                'caesarean section',
+                'agranulocytoses',
+                'petechia',
+                'hematoma subdural',
+                'pyoderma gangrenosum',
+                'benign intracranial hypertension',
+                'cerebral artery embolism',
+                'hydrocephalus',
+                'hypogammaglobulinaemia',
+                'acne',
+                'malignant hypertension',
+                'post nasal drip',
+                'labyrinthitis',
+                'nodule skin',
+                'atrophy of skin',
+                'neck mass',
+                'tracheitis',
+                'vitamin d deficiency',
+                'kidney pain',
+                'hyperuricaemia',
+                'splenectomy',
+                'atypical mycobacterial infection',
+                'parotitis',
+                'choreoathetosis',
+                'disorder retinal',
+                'pericarditis',
+                'cerumen impaction',
+                'paronychia',
+                'colostomy',
+                'tooth impacted',
+                'thyroid disease',
+                'aortic aneurysm',
+                'dermatomyositis',
+                'hyperaesthesia',
+                'als',
+                'bronchiectasis',
+                'aplasia pure red cell',
+                'anaemia hypochromic',
+                'furuncle',
+                'birth defect',
+                'autonomic neuropathy',
+                'corneal disorder',
+                'polymyalgia rheumatica',
+                'diaphragmatic hernia',
+                'lymphedema',
+                'coronary artery bypass graft',
+                'pleural fibrosis',
+                'temporal arteritis',
+                'polyarthritis',
+                'phimosis',
+                'fecal occult blood',
+                'cholecystitis acute',
+                'inflammatory bowel disease',
+                'tendon injury',
+                'hiccough',
+                'serum sickness',
+                'anemia aplastic',
+                'brain abscess',
+                'synovial cyst',
+                'pneumonia primary atypical',
+                'ovarian cancer',
+                'lung adenocarcinoma',
+                'gastric cancer',
+                'varicose vein',
+                'aphthous stomatitis',
+                'intestinal ulcer',
+                'cutaneous mycosis',
+                'humerus fracture',
+                'volvulus',
+                'vaginal discharge',
+                'primary biliary cirrhosis',
+                'left ventricular hypertrophy',
+                'anosmia',
+                'abnormal cervical smear',
+                'haemangioma',
+                'incisional hernia',
+                'abnormal mammogram',
+                'arthritis bacterial',
+                'splenic infarction',
+                'hernia inguinal',
+                'meningioma',
+                'pneumocystis carinii pneumonia',
+                'phlebitis superficial',
+                'hypovitaminosis',
+                'hepatic encephalopathy',
+                'dyspnoea paroxysmal nocturnal',
+                'carotid bruit',
+                'vitamin b 12 deficiency',
+                'normal pressure hydrocephalus',
+                'paraplegia',
+                'aseptic meningitis',
+                'alcoholic intoxication',
+                'causalgia',
+                'irritation skin',
+                'bradyarrhythmia',
+                'conversion disorder',
+                'epidural abscess',
+                'cholecystitis chronic',
+                'swollen scrotum',
+                'hay fever',
+                'myasthenia gravis',
+                'fibroids',
+                'superior vena cava syndrome',
+                'mediastinal disorder',
+                'bladder cancer',
+                'quadriplegia',
+                'breast swelling',
+                'histoplasmosis',
+                'telangiectases',
+                'neurodermatitis',
+                'ganglion',
+                'bacterial vaginitis',
+                'hirsuitism',
+                'sjogrens syndrome',
+                'vitreous detachment',
+                'vitreous haemorrhage',
+                'venous insufficiency',
+                'carcinoma of the cervix',
+                'burns second degree',
+                'tension headache',
+                'night cramps',
+                'pigmentation disorder',
+                'keratitis',
+                'kidney transplant',
+                'diabetes insipidus',
+                'fracture nonunion',
+                'carbuncle',
+                'folliculitis',
+                'empyema',
+                'gastric ulcer perforated',
+                'platelet disorder',
+                'allergic alveolitis',
+                'cutaneous candidiasis',
+                'chronic ulcerative colitis',
+                'meningitis viral',
+                'anal fistula',
+                'esophageal cancer',
+                'neurogenic bladder',
+                'nasal polyp',
+                'uterine bleeding',
+                'uterine polyp',
+                'tonsillitis',
+                'hyperacusia',
+                'enterocolitis',
+                'motor retardation',
+                'cryptococcosis',
+                'epidural hematoma',
+                'retinal artery occlusion',
+                'chronic hepatitis',
+                'food intolerance',
+                'cluster headache',
+                'mycosis fungoides',
+                'connective tissue disease',
+                'macrocytosis',
+                'anisocoria',
+                'calculus ureteric',
+                'hiv disease',
+                'menstrual disorder',
+                'dysphemia',
+                'oophorectomy',
+                'irregular menstrual cycle',
+                'infectious mononucleosis',
+                'methaemoglobinaemia',
+                'pancreatic pseudocyst',
+                'cerebral thrombosis',
+                'lyme disease',
+                'lung abscess',
+                'testicular swelling',
+                'pneumoconiosis',
+                'coronary angioplasty',
+                'skin striae',
+                'corneal ulcer',
+                'hyperphosphatemia',
+                'panniculitis',
+                'status epilepticus',
+                'sacroiliitis',
+                'tracheobronchitis',
+                'pyuria',
+                'fibrosing alveolitis',
+                'optic atrophy',
+                'breast inflammation',
+                'xerosis',
+                'postmenopausal bleeding',
+                'food poisoning',
+                'rectal prolapse',
+                'multifocal leukoencephalopathy',
+                'mumps',
+                'encephalitis viral',
+                'megacolon',
+                'haemarthrosis',
+                'fasciitis',
+                'tinea pedis',
+                'hypogonadism',
+                'hydroureter',
+                'collagen disease',
+                'hepatitis a',
+                'testes pain',
+                'colonic obstruction',
+                'esophageal stenosis',
+                'parotid gland enlargement',
+                'epididymitis',
+                'chicken pox',
+                'bronchiolitis',
+                'coccydynia',
+                'dysmenorrhea',
+                'corneal abrasion',
+                'night blindness',
+                'glioblastoma multiforme',
+                'bunion',
+                'sarcoma',
+                'lymphocytosis',
+                'exophthalmos',
+                'viral pharyngitis',
+                'cystitis interstitial',
+                'viral pneumonia',
+                'asthenopia',
+                'endometriosis',
+                'myelitis',
+                'folate deficiency',
+                'hypermetropia',
+                'balanitis',
+                '[UNK]'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+0it [00:00, ?it/s]161it [00:00, 1606.84it/s]322it [00:00, 1283.87it/s]481it [00:00, 1403.17it/s]626it [00:00, 1152.30it/s]783it [00:00, 1275.87it/s]918it [00:00, 1211.09it/s]1067it [00:00, 1289.99it/s]1237it [00:00, 1407.26it/s]1406it [00:01, 1488.31it/s]1585it [00:01, 1576.22it/s]1756it [00:01, 1613.51it/s]1934it [00:01, 1660.58it/s]2102it [00:01, 1662.42it/s]2272it [00:01, 1672.33it/s]2440it [00:01, 1666.21it/s]2610it [00:01, 1675.10it/s]2778it [00:01, 1676.24it/s]2952it [00:01, 1694.59it/s]3122it [00:02, 1682.24it/s]3291it [00:02, 1682.99it/s]3460it [00:02, 1669.87it/s]3634it [00:02, 1689.99it/s]3804it [00:02, 1687.49it/s]3973it [00:02, 1686.67it/s]4142it [00:02, 1482.93it/s]4317it [00:02, 1553.34it/s]4485it [00:02, 1588.73it/s]4662it [00:02, 1639.84it/s]4829it [00:03, 1628.02it/s]5001it [00:03, 1652.24it/s]5168it [00:03, 1649.47it/s]5355it [00:03, 1712.87it/s]5533it [00:03, 1730.13it/s]5708it [00:03, 1734.15it/s]5882it [00:03, 1702.57it/s]6053it [00:03, 1697.83it/s]6224it [00:03, 1686.36it/s]6397it [00:04, 1696.57it/s]6567it [00:04, 1676.90it/s]6739it [00:04, 1689.12it/s]6909it [00:04, 1674.13it/s]7077it [00:04, 1661.68it/s]7244it [00:04, 1644.04it/s]7416it [00:04, 1665.56it/s]7583it [00:04, 1661.68it/s]7755it [00:04, 1678.70it/s]7923it [00:04, 1676.32it/s]8095it [00:05, 1687.22it/s]8266it [00:05, 1692.94it/s]8436it [00:05, 1514.71it/s]8739it [00:05, 1931.29it/s]9026it [00:05, 2195.01it/s]9331it [00:05, 2439.94it/s]9643it [00:05, 2637.59it/s]9937it [00:05, 2725.99it/s]10233it [00:05, 2794.39it/s]10532it [00:05, 2851.83it/s]10819it [00:06, 2554.46it/s]11082it [00:06, 1910.47it/s]11301it [00:06, 1840.43it/s]11504it [00:06, 1565.56it/s]11679it [00:06, 1402.25it/s]11835it [00:06, 1435.19it/s]11990it [00:07, 1357.27it/s]12133it [00:07, 1239.77it/s]12263it [00:07, 1189.62it/s]12394it [00:07, 1216.87it/s]12519it [00:07, 1035.24it/s]12636it [00:07, 1066.68it/s]12758it [00:07, 1104.76it/s]12873it [00:07, 1023.13it/s]12979it [00:08, 1025.40it/s]13149it [00:08, 1204.74it/s]13274it [00:08, 1199.65it/s]13447it [00:08, 1346.17it/s]13610it [00:08, 1426.86it/s]13785it [00:08, 1518.83it/s]13951it [00:08, 1559.76it/s]14125it [00:08, 1612.70it/s]14292it [00:08, 1629.34it/s]14472it [00:08, 1678.36it/s]14641it [00:09, 1679.45it/s]14812it [00:09, 1687.65it/s]14982it [00:09, 1676.04it/s]15156it [00:09, 1692.72it/s]15326it [00:09, 1684.70it/s]15496it [00:09, 1688.66it/s]15665it [00:09, 1675.86it/s]15836it [00:09, 1682.93it/s]16005it [00:09, 1670.89it/s]16174it [00:09, 1674.86it/s]16354it [00:10, 1709.81it/s]16526it [00:10, 1673.59it/s]16694it [00:10, 1458.81it/s]16867it [00:10, 1529.57it/s]17025it [00:10, 856.87it/s] 17197it [00:10, 1011.59it/s]17366it [00:11, 1148.89it/s]17540it [00:11, 1281.07it/s]17702it [00:11, 1362.92it/s]17875it [00:11, 1457.25it/s]18043it [00:11, 1515.66it/s]18215it [00:11, 1571.88it/s]18381it [00:11, 1594.15it/s]18552it [00:11, 1625.81it/s]18720it [00:11, 1637.16it/s]18893it [00:11, 1663.03it/s]19062it [00:12, 1665.60it/s]19235it [00:12, 1684.39it/s]19405it [00:12, 1666.90it/s]19578it [00:12, 1684.63it/s]19748it [00:12, 1674.47it/s]19917it [00:12, 1676.48it/s]20088it [00:12, 1685.46it/s]20257it [00:12, 1668.79it/s]20430it [00:12, 1684.43it/s]20599it [00:12, 1671.78it/s]20774it [00:13, 1694.39it/s]20953it [00:13, 1720.66it/s]21136it [00:13, 1751.15it/s]21312it [00:13, 1516.31it/s]21485it [00:13, 1573.60it/s]21650it [00:13, 1592.67it/s]21823it [00:13, 1629.30it/s]21989it [00:13, 1625.39it/s]22154it [00:13, 1627.55it/s]22324it [00:13, 1647.84it/s]22492it [00:14, 1656.60it/s]22659it [00:14, 1649.67it/s]22825it [00:14, 1625.64it/s]22988it [00:14, 1604.67it/s]23159it [00:14, 1635.28it/s]23323it [00:14, 1279.64it/s]23497it [00:14, 1392.69it/s]23648it [00:14, 1326.03it/s]23822it [00:15, 1432.63it/s]23989it [00:15, 1495.34it/s]24163it [00:15, 1562.83it/s]24331it [00:15, 1595.98it/s]24506it [00:15, 1638.03it/s]24674it [00:15, 1649.94it/s]24846it [00:15, 1669.81it/s]25018it [00:15, 1682.54it/s]25193it [00:15, 1700.53it/s]25364it [00:15, 1489.23it/s]25535it [00:16, 1546.84it/s]25703it [00:16, 1582.77it/s]25876it [00:16, 1622.28it/s]26041it [00:16, 1295.12it/s]26183it [00:16, 1264.61it/s]26354it [00:16, 1335.94it/s]26494it [00:16, 1339.75it/s]26633it [00:16, 1135.84it/s]26755it [00:17, 1071.55it/s]26922it [00:17, 1216.16it/s]27089it [00:17, 1331.63it/s]27262it [00:17, 1438.14it/s]27423it [00:17, 1477.99it/s]27610it [00:17, 1587.11it/s]27783it [00:17, 1627.20it/s]27958it [00:17, 1661.25it/s]28127it [00:17, 1668.19it/s]28306it [00:18, 1701.51it/s]28478it [00:18, 1683.36it/s]28652it [00:18, 1699.96it/s]28823it [00:18, 1691.77it/s]28997it [00:18, 1703.79it/s]29168it [00:18, 1689.51it/s]29338it [00:18, 1679.15it/s]29511it [00:18, 1693.09it/s]29681it [00:18, 1492.26it/s]29857it [00:18, 1564.32it/s]30027it [00:19, 1601.49it/s]30202it [00:19, 1642.67it/s]30370it [00:19, 1651.52it/s]30544it [00:19, 1676.53it/s]30714it [00:19, 1681.93it/s]30885it [00:19, 1689.92it/s]31055it [00:19, 1688.43it/s]31226it [00:19, 1693.06it/s]31396it [00:19, 1688.36it/s]31577it [00:19, 1723.87it/s]31750it [00:20, 1704.56it/s]31926it [00:20, 1720.08it/s]32099it [00:20, 1700.01it/s]32273it [00:20, 1711.20it/s]32445it [00:20, 1703.33it/s]32624it [00:20, 1727.86it/s]32807it [00:20, 1757.62it/s]32990it [00:20, 1777.28it/s]33168it [00:20, 1751.17it/s]33344it [00:20, 1749.28it/s]33520it [00:21, 1731.75it/s]33699it [00:21, 1746.88it/s]33874it [00:21, 1517.42it/s]34050it [00:21, 1566.73it/s]34225it [00:21, 1615.57it/s]34399it [00:21, 1636.30it/s]34575it [00:21, 1670.21it/s]34748it [00:21, 1667.51it/s]34922it [00:21, 1687.50it/s]35092it [00:22, 1686.42it/s]35262it [00:22, 1685.59it/s]35439it [00:22, 1709.29it/s]35611it [00:22, 1695.24it/s]35781it [00:22, 1693.91it/s]35951it [00:22, 1669.51it/s]36144it [00:22, 1726.10it/s]36337it [00:22, 1785.08it/s]36518it [00:22, 1791.69it/s]36701it [00:22, 1802.37it/s]36882it [00:23, 1774.06it/s]37060it [00:23, 1721.29it/s]37233it [00:23, 1716.23it/s]37405it [00:23, 1672.65it/s]37573it [00:23, 1505.08it/s]37729it [00:23, 1519.17it/s]37884it [00:23, 1463.78it/s]38033it [00:24, 966.36it/s] 38153it [00:24, 926.29it/s]38277it [00:24, 991.71it/s]38430it [00:24, 1115.14it/s]38595it [00:24, 1247.47it/s]38764it [00:24, 1362.52it/s]38932it [00:24, 1448.55it/s]39085it [00:24, 1427.97it/s]39251it [00:24, 1491.51it/s]39412it [00:25, 1524.42it/s]39577it [00:25, 1559.76it/s]39631it [00:25, 1576.64it/s]
+  0%|          | 0/39631 [00:00<?, ?it/s]  1%|          | 395/39631 [00:00<00:09, 3946.42it/s]  4%|▎         | 1396/39631 [00:00<00:05, 7511.62it/s]  7%|▋         | 2903/39631 [00:00<00:03, 10959.76it/s] 12%|█▏        | 4569/39631 [00:00<00:02, 13207.09it/s] 16%|█▌        | 6300/39631 [00:00<00:02, 14683.33it/s] 20%|██        | 8028/39631 [00:00<00:02, 15565.21it/s] 25%|██▍       | 9761/39631 [00:00<00:01, 16140.32it/s] 29%|██▉       | 11500/39631 [00:00<00:01, 16534.94it/s] 33%|███▎      | 13154/39631 [00:01<00:04, 6022.28it/s]  38%|███▊      | 14879/39631 [00:01<00:03, 7592.02it/s] 42%|████▏     | 16575/39631 [00:01<00:02, 9151.27it/s] 46%|████▌     | 18160/39631 [00:01<00:02, 10437.43it/s] 50%|█████     | 19831/39631 [00:01<00:01, 11787.40it/s] 54%|█████▍    | 21519/39631 [00:01<00:01, 12983.52it/s] 59%|█████▊    | 23219/39631 [00:02<00:01, 13991.97it/s] 63%|██████▎   | 24846/39631 [00:02<00:01, 11990.45it/s] 66%|██████▋   | 26304/39631 [00:02<00:01, 12601.92it/s] 71%|███████   | 28022/39631 [00:02<00:00, 13758.30it/s] 75%|███████▍  | 29533/39631 [00:02<00:00, 14052.20it/s] 78%|███████▊  | 31036/39631 [00:02<00:00, 13167.20it/s] 82%|████████▏ | 32430/39631 [00:02<00:00, 13334.43it/s] 86%|████████▌ | 34129/39631 [00:02<00:00, 14334.47it/s] 90%|████████▉ | 35612/39631 [00:03<00:00, 12650.50it/s] 93%|█████████▎| 36972/39631 [00:03<00:00, 12896.89it/s] 98%|█████████▊| 38675/39631 [00:03<00:00, 14013.95it/s]100%|██████████| 39631/39631 [00:03<00:00, 11888.03it/s]
+  0%|          | 0/39631 [00:00<?, ?it/s] 16%|█▌        | 6344/39631 [00:00<00:00, 63431.74it/s] 35%|███▍      | 13713/39631 [00:00<00:00, 69460.76it/s] 54%|█████▎    | 21232/39631 [00:00<00:00, 72072.47it/s] 72%|███████▏  | 28701/39631 [00:00<00:00, 73100.84it/s] 91%|█████████ | 36012/39631 [00:00<00:00, 72079.08it/s]100%|██████████| 39631/39631 [00:00<00:00, 71825.75it/s]
+Number of tasks = 964
+Fold 0
+Splitting data with seed 0
+Traceback (most recent call last):
+  File "train.py", line 7, in <module>
+    chemprop_train()
+  File "/home/Yepeng/chem/chemprop/train/cross_validate.py", line 189, in chemprop_train
+    cross_validate(args=TrainArgs().parse_args(), train_func=run_training)
+  File "/home/Yepeng/chem/chemprop/utils.py", line 577, in wrap
+    result = func(*args, **kwargs)
+  File "/home/Yepeng/chem/chemprop/train/cross_validate.py", line 112, in cross_validate
+    model_scores = train_func(args, data, logger)
+  File "/home/Yepeng/chem/chemprop/train/run_training.py", line 50, in run_training
+    test_data = get_data(path=args.separate_test_path,
+  File "/home/Yepeng/chem/chemprop/data/utils.py", line 267, in get_data
+    with open(path) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data_processe/test_units.csv'
+WARNING:root:No normalization for BCUT2D_MWHI
+WARNING:root:No normalization for BCUT2D_MWLOW
+WARNING:root:No normalization for BCUT2D_CHGHI
+WARNING:root:No normalization for BCUT2D_CHGLO
+WARNING:root:No normalization for BCUT2D_LOGPHI
+WARNING:root:No normalization for BCUT2D_LOGPLOW
+WARNING:root:No normalization for BCUT2D_MRHI
+WARNING:root:No normalization for BCUT2D_MRLOW
+Command line
+python train.py --data_path data_processed/train_units.csv --separate_val_path data_processed/valid_units.csv --separate_test_path data_processed/test_units.csv --dataset_type classification --feature_dimension_reduction linear-layer
+Args
+{'activation': 'ReLU',
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'alternative_loss_function': None,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 256,
+ 'bias': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'calc_train_auc': False,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': 'data_processed/train_units.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'classification',
+ 'depth': 3,
+ 'device': device(type='cuda'),
+ 'dropout': 0.2,
+ 'empty_cache': False,
+ 'ensemble_size': 1,
+ 'epochs': 25,
+ 'explicit_h': False,
+ 'extra_metrics': ['prc-auc', 'accuracy', 'ap50'],
+ 'feature_dimension_reduction': 'linear-layer',
+ 'features_generator': ['mono'],
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': False,
+ 'features_size': None,
+ 'ffn_hidden_size': 300,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'log_frequency': 10,
+ 'max_data_size': None,
+ 'max_lr': 0.005,
+ 'metric': 'auc',
+ 'metrics': ['auc', 'prc-auc', 'accuracy', 'ap50'],
+ 'minimize_score': False,
+ 'mono_path': 'data/mono.csv',
+ 'mpn_shared': True,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': True,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 964,
+ 'num_workers': 2,
+ 'number_of_molecules': 2,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'phase_features_path': None,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'resume_experiment': False,
+ 'save_dir': 'checkpoint/',
+ 'save_preds': True,
+ 'save_smiles_splits': False,
+ 'seed': 0,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': 'data_processed/test_units.csv',
+ 'separate_test_phase_features_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': 'data_processed/valid_units.csv',
+ 'separate_val_phase_features_path': None,
+ 'show_individual_scores': True,
+ 'smiles_columns': ['smiles_1', 'smiles_2'],
+ 'spectra_activation': 'exp',
+ 'spectra_phase_mask_path': None,
+ 'spectra_target_floor': 1e-08,
+ 'split_sizes': (0.8, 0.1, 0.1),
+ 'split_type': 'random',
+ 'target_columns': None,
+ 'target_weights': None,
+ 'task_names': ['atelectasis',
+                'back ache',
+                'lung edema',
+                'agitated',
+                'abnormal movements',
+                'acidosis',
+                'peliosis',
+                'apnea',
+                'drug hypersensitivity',
+                'flatulence',
+                'pain in throat',
+                'allergies',
+                'thrombocytopenia',
+                'bradycardia',
+                'lung infiltration',
+                'bleeding',
+                'hypoglycaemia neonatal',
+                'hyperglycaemia',
+                'peritonitis',
+                'hypoglycaemia',
+                'abdominal distension',
+                'asystole',
+                'cerebral infarct',
+                'hypoxia',
+                'difficulty breathing',
+                'decreased body temperature',
+                'adynamic ileus',
+                'sepsis',
+                'hypomagnesaemia',
+                'neonatal respiratory distress syndrome',
+                'acute respiratory distress syndrome',
+                'lipoma',
+                'appendectomy',
+                'flank pain',
+                'pneumothorax',
+                'appendicitis',
+                'strabismus',
+                'blood calcium decreased',
+                'respiratory failure',
+                'pulmonary hypertension',
+                'hypercapnia',
+                'intestinal perforation',
+                'leucocytosis',
+                'disorder lung',
+                'hot flash',
+                'arterial pressure nos decreased',
+                'metabolic acidosis',
+                'bladder inflammation',
+                'ascites',
+                'patent ductus arteriosis',
+                'sinus tachycardia',
+                'stridor',
+                'arterial pressure nos increased',
+                'hypoventilation',
+                'edema',
+                'disease of liver',
+                'aspartate aminotransferase increase',
+                'cold extremities',
+                'facial flushing',
+                'anaphylactic reaction',
+                'eruption',
+                'acute pancreatitis',
+                'neumonia',
+                'adenocarcinoma',
+                'confusion',
+                'malnourished',
+                'haemorrhoids',
+                'still birth',
+                'anaemia',
+                'drug toxicity nos',
+                'increased white blood cell count',
+                'encephalopathy',
+                'anorexia',
+                'tremor',
+                'hallucination',
+                'chronic obstructive airway disease',
+                'drowsiness',
+                'head ache',
+                'back injury',
+                'erythema',
+                'diplopia',
+                'enlarged spleen',
+                'narcolepsy',
+                'esophageal spasm',
+                'erosive gastritis',
+                'gastroenteritis viral',
+                'lymphocytes decreased',
+                'breast cancer',
+                'itch',
+                'haemolytic anaemia',
+                'upper gastrointestinal bleeding',
+                'icterus',
+                'gastroenteritis',
+                'optic disc edema',
+                'sleep disorder',
+                'septic shock',
+                'bladder retention',
+                'aphonia',
+                'pain',
+                'idiopathic thrombocytopenic purpura',
+                'pneumonia staphylococcal',
+                'alopecia',
+                'conjunctivitis',
+                'lobar pneumonia',
+                'glomerulonephritis',
+                'duodenal ulcer',
+                'deep vein thromboses',
+                'leucopenia',
+                'rhinorrhea',
+                'bursitis',
+                'bleeding vaginal',
+                'excoriation',
+                'ekbom syndrome',
+                'nephrocalcinosis',
+                'blurred vision',
+                'thrombotic microangiopathy',
+                'dizziness',
+                'pleurisy',
+                'sunburn',
+                'hoarseness',
+                'bleeding hemorrhoids',
+                'fatigue',
+                'aspiration pneumonia',
+                'perirectal abscess',
+                'diarrhea',
+                'asthma',
+                'skin lesion',
+                'tinnitus',
+                'muscle spasm',
+                'fib',
+                'candida infection',
+                'abnormal gait',
+                'glossodynia',
+                'anal fissure',
+                'infection viral',
+                'cellulitis',
+                'allergic dermatitis',
+                'constipated',
+                'clotting',
+                'muscle paresis',
+                'deafness',
+                'vocal cord paralysis',
+                'dry skin',
+                'ear discharge',
+                'eye pain',
+                'leukaemia',
+                'myopia',
+                'chronic kidney disease',
+                'acute kidney failure',
+                'retrocollis',
+                'cognitive disorder',
+                'cholangitis',
+                'hypothyroid',
+                'dermatitides',
+                'abnormal lfts',
+                'dermatitis medicamentosa',
+                'acute brain syndrome',
+                'deafness neurosensory',
+                'fungal disease',
+                'nasal sinus congestion',
+                'near syncope',
+                'erythema multiforme',
+                'haematoma',
+                'bleb',
+                'nasal congestion',
+                'amenorrhea',
+                'epistaxis',
+                'hepatitis',
+                'coated tongue',
+                'neutropenia',
+                'wheeze',
+                'haemorrhage rectum',
+                'abdominal pain',
+                'chest pain',
+                'mycobacterium tuberculosis infection',
+                'cholelithiasis',
+                'pyoderma',
+                'blood disorder',
+                'psychoses',
+                'aching muscles',
+                'abscess',
+                'loss of consciousness',
+                'attempted suicide',
+                'bad breath',
+                'arthritis infective',
+                'loss of weight',
+                'nasopharyngitis',
+                'belching',
+                'rhinitis',
+                'colon spastic',
+                'heart attack',
+                'hepatic neoplasia',
+                'azotaemia',
+                'nervous tension',
+                'muscle weakness',
+                'hypochloraemia',
+                'cataract',
+                'abdominal pain upper',
+                'insomnia',
+                'dyspepsia',
+                'asthenia',
+                'emesis',
+                'embolism pulmonary',
+                'biliary tract disorder',
+                'colitis ischemic',
+                'extremity pain',
+                'arteriosclerotic heart disease',
+                'small intestinal obstruction',
+                'paraesthesia',
+                'neoplasia',
+                'fainting',
+                'blood sodium decreased',
+                'sneezing',
+                'feeling unwell',
+                'hypokalaemia',
+                'lower gi bleeding',
+                'migraine',
+                'intervertebral disc disorder',
+                'osteoporosis',
+                'high blood pressure',
+                'road traffic accident',
+                'diverticulosis',
+                'arthritis rheumatoid',
+                'abnormal vision',
+                'arteriosclerosis',
+                'bulging',
+                'osteoarthritis',
+                'pleural pain',
+                'acid reflux',
+                'fibromyalgia',
+                'breast pain',
+                'palpitation',
+                'herpes zoster',
+                'breast cyst',
+                'myoglobinuria',
+                'osteomalacia',
+                'ischias',
+                'aching joints',
+                'arthritis',
+                'abuse',
+                'colonic polyp',
+                'cholecystitis',
+                'dyspnea exertional',
+                'extrasystoles ventricular',
+                'acne rosacea',
+                'incontinence',
+                'gall bladder',
+                'diabetic acidosis',
+                'diabetic retinopathy',
+                'blepharitis',
+                'pyelonephritis',
+                'aptyalism',
+                'blepharospasm',
+                'aneurysm',
+                'benign prostatic hyperplasia',
+                'wrist fracture',
+                'dislocation',
+                'superficial thrombophlebitis',
+                'decreased libido',
+                'decubitus ulcer',
+                'kidney failure',
+                'meningitides',
+                'ild',
+                'atrioventricular block first degree',
+                'cough',
+                'vestibular disorder',
+                'panic attack',
+                'nightmare',
+                'breast lump',
+                'nocturia',
+                'spinning sensation',
+                'diabetes',
+                'bronchitis',
+                'polyp',
+                'osteomyelitis',
+                'lung fibrosis',
+                'enlarged liver',
+                'laceration',
+                'coma',
+                'amyotrophy',
+                'cachectic',
+                'renal cyst',
+                'neuropathy peripheral',
+                'bacterial infection',
+                'angiitis',
+                'convulsion',
+                'iron deficiency anaemia',
+                'cardiomyopathy',
+                'bronchial spasm',
+                'femur fracture',
+                'fascitis plantar',
+                'cardiac decompensation',
+                'mucositis oral',
+                'joint swelling',
+                'hernia',
+                'glaucoma',
+                'mitral valve disease nos',
+                'edema extremities',
+                'pulmonary mass',
+                'breast dysplasia',
+                'phlebitis',
+                'lung neoplasms',
+                'balance disorder',
+                'bone marrow failure',
+                'deglutition disorder',
+                'adrenal insufficiency',
+                'sensory disturbance',
+                'polyneuropathy',
+                'nephrolithiasis',
+                'dysarthria',
+                'hypotension orthostatic',
+                'scoliosis',
+                'autonomic instability',
+                'rhabdomyolysis',
+                'renal colic',
+                'bundle branch block left',
+                'apoplexy',
+                'malabsorption',
+                'aphasia',
+                'amnesia',
+                'body temperature increased',
+                'burning sensation',
+                'chill',
+                'infection urinary tract',
+                'night sweat',
+                'keratitis sicca',
+                'dehydration',
+                'ataxia',
+                'transient ischaemic attack',
+                'cerebral haemorrhage',
+                'mod',
+                'elevated cholesterol',
+                'heart rate increased',
+                'eye swelling',
+                'psychosexual disorder',
+                'anxiety',
+                'facial palsy',
+                'ureteral obstruction',
+                'disorder renal',
+                'nephrosclerosis',
+                'psoriatic arthritis',
+                'post traumatic stress disorder',
+                'laryngitis',
+                'angiopathy',
+                'flu',
+                'coeliac disease',
+                'adjustment disorder',
+                'carcinoid syndrome',
+                'nausea',
+                'dysphasia',
+                'drug withdrawal',
+                'pleural effusion',
+                'sinusitis',
+                'bilirubinaemia',
+                'amentia',
+                'cerebral atrophy',
+                'cervicalgia',
+                'hyperlipaemia',
+                'metabolic encephalopathy',
+                'diabetic nephropathy',
+                'encephalitis',
+                'intervertebral disc herniation',
+                'atherosclerosis',
+                'aortic regurgitation',
+                'neuralgia',
+                'hemiplegia',
+                'pneumonia klebsiella',
+                'emphysema',
+                'afib',
+                'postherpetic neuralgia',
+                'eosinophil count increased',
+                'neuritis',
+                'abnormal ecg',
+                'bone fracture spontaneous',
+                'gingivitis',
+                'soft tissue infection',
+                'floaters',
+                'thyroid neoplasia',
+                'dental abscess',
+                'dental pain',
+                'aseptic necrosis bone',
+                'bruxism',
+                'retinal bleeding',
+                'gingival pain',
+                'bone inflammation',
+                'candidiasis of mouth',
+                'tooth disease',
+                'mouth pain',
+                'arthropathy',
+                'pericardial effusion',
+                'lung neoplasm malignant',
+                'infection',
+                'blindness',
+                'herpes simplex',
+                'blood in urine',
+                'acute myeloblastic leukemia',
+                'abnormal eeg',
+                'gastric inflammation',
+                'transfusion reaction',
+                'abortion spontaneous',
+                'urosepsis',
+                'eating disorder',
+                'schizophrenia',
+                'cardiac murmur',
+                'cardiac enlargement',
+                'proteinuria',
+                'increased platelet count',
+                'odynophagia',
+                'multiple sclerosis',
+                'intraocular inflammation',
+                'weight gain',
+                'convulsions grand mal',
+                'enuresis',
+                'bundle branch block right',
+                'personality disorder',
+                'salivary gland inflammation',
+                'cervicitis',
+                'hernia hiatal',
+                'cervical dysplasia',
+                'adenitis',
+                'ecchymoses',
+                'tardive dyskinesia',
+                'blood pressure abnormal',
+                'muscle strain',
+                'ejaculation premature',
+                'excessive thirst',
+                'ear ache',
+                'elevated erythrocyte sedimentation rate',
+                'blood calcium increased',
+                'joint stiffness',
+                'esophagitis',
+                'nephrotic syndrome',
+                'proctalgia',
+                'bone pain',
+                'contracture',
+                'proctitis',
+                'spondylitis',
+                'spondylosis',
+                'dyspareunia',
+                'hyperparathyroidism',
+                'sleep apnea',
+                'raynauds phenomenon',
+                'wound dehiscence',
+                'portal vein thrombosis',
+                'head injury',
+                'arachnoiditis',
+                'synovitis',
+                'hyperhidrosis',
+                'nystagmus',
+                'gastrointestinal bleed',
+                'apraxia',
+                'amyloidosis',
+                'drug addiction',
+                'prostatitis',
+                'femoral neck fracture',
+                'sleep walking',
+                'monoclonal gammopathy',
+                'bruise',
+                'scar',
+                'cardiac disease',
+                'pain pelvic',
+                'hip fracture',
+                'difficulty in walking',
+                'panic disorder',
+                'atrial septal defect',
+                'tendinitis',
+                'obstructive uropathy',
+                'colpitis',
+                'rhagades',
+                'bone spur',
+                'pancreatitis',
+                'allergic rhinitis',
+                'otitis media',
+                'intestinal functional disorder',
+                'faecal incontinence',
+                'carpal tunnel',
+                'haematochezia',
+                'adh inappropriate',
+                'neuropathy',
+                'chest infection',
+                'radiculopathy',
+                'dysphonia',
+                'myelopathy',
+                'black stools',
+                'dysuria',
+                'flashing lights',
+                'electrolyte disorder',
+                'decreased hearing',
+                'mitral valve prolapse',
+                'fatty liver',
+                'mouth bleeding',
+                'bipolar disorder',
+                'embolism',
+                'duodenitis',
+                'malignant melanoma',
+                'ear infection',
+                'sinus bradycardia',
+                'atrial ectopic beats',
+                'external ear infection',
+                'muscle inflammation',
+                'cervical vertebral fracture',
+                'hydronephrosis',
+                'dental caries',
+                'elevated prostate specific antigen',
+                'mouth ulcer',
+                'gastroduodenal ulcer',
+                'fistula',
+                'acute bronchitis',
+                'gynaecomastia',
+                'hypophosphataemia',
+                'excess potassium',
+                'esophageal ulcer',
+                'renal tubular acidosis',
+                'phlebothrombosis',
+                'dysaesthesia',
+                'goiter',
+                'metabolic alkalosis',
+                'adenopathy',
+                'tympanic membrane perforation',
+                'arrhythmia',
+                'hepatic failure',
+                'hyperalimentation',
+                'spinal fracture',
+                'parkinson',
+                'movement disorder',
+                'macula lutea degeneration',
+                'musculoskeletal pain',
+                'cardiac ischemia',
+                'paranoia',
+                'chronic sinusitis',
+                'ulcer',
+                'rib fracture',
+                'rotator cuff syndrome',
+                'impetigo',
+                'fractured pelvis nos',
+                'infection upper respiratory',
+                'angioedema',
+                'sick sinus syndrome',
+                'hyperthyroidism',
+                'cardiac failure',
+                'atrioventricular block second degree',
+                'pharyngeal inflammation',
+                'adenoma',
+                'epilepsy',
+                'sinus arrest',
+                'angina',
+                'muscle disorder',
+                'bundle branch block',
+                'tachycardia ventricular',
+                'melanocytic naevus',
+                'cramp',
+                'atrial flutter',
+                'cardiovascular collapse',
+                'hypernatraemia',
+                'hive',
+                'mpd',
+                'syncope vasovagal',
+                'streptococcal infection',
+                'aspergillosis',
+                'light sensitivity',
+                'enteritis',
+                'bone marrow transplant',
+                'sclc',
+                'colitis',
+                'elevated triglycerides',
+                'glucose intolerance',
+                'multiple myeloma',
+                'duodenal ulcer haemorrhage',
+                'cmv infection',
+                'hemiparesis',
+                'polymyositis',
+                'bacteraemia',
+                'onychomycosis',
+                'carcinoma of the colon',
+                'myocarditis',
+                'cardiac valvulopathy',
+                'endocarditis',
+                'atrioventricular block complete',
+                'ventricular fibrillation',
+                'gangrene',
+                'ischaemia',
+                'adverse drug effect',
+                'defaecation urgency',
+                'cirrhosis',
+                'trigeminal neuralgia',
+                'hordeolum',
+                'polyuria',
+                'periodontal disease',
+                'obesity',
+                'glucosuria',
+                'basal cell carcinoma',
+                'pulmonary arrest',
+                'haematemesis',
+                'granuloma',
+                'insulin dependent diabetes mellitus',
+                'failure to thrive',
+                'cardiac tamponade',
+                'ankle fracture',
+                'hepatitis toxic',
+                'endocrine disorder',
+                'sinus headache',
+                'diverticulitis',
+                'dermatitis exfoliative',
+                'distended bladder',
+                'pancreatitis relapsing',
+                'thrombophlebitis',
+                'shoulder pain',
+                'abnormal laboratory findings',
+                'duodenal ulcer perforation',
+                'joint effusion',
+                'ventricular septal defect',
+                'gouty arthritis',
+                'supraventricular tachycardia',
+                'respiratory alkalosis',
+                'haemorrhage intracranial',
+                'major depression',
+                'excessive sleepiness',
+                'lymphoma',
+                'substance abuse',
+                'animal bite',
+                'cerebral vascular disorder',
+                'dry eye',
+                'ovarian cyst',
+                'micturition urgency',
+                'stress incontinence',
+                'hesitancy',
+                'bone fracture',
+                'nodule',
+                'cyst',
+                'abdominal hernia',
+                'scleroderma',
+                'cor pulmonale',
+                'excessive salivation',
+                'right heart failure',
+                'subarachnoid haemorrhage',
+                'cancer',
+                'soft tissue injuries',
+                'colitis pseudomembranous',
+                'heavy menstrual period',
+                'premature menopause',
+                'umbilical hernia',
+                'psoriasis',
+                'contact dermatitis',
+                'blepharoptosis',
+                'bleeding gums',
+                'epicondylitis',
+                'ingrowing nail',
+                'dermatitis seborrheic',
+                'candidiasis of vagina',
+                'spinal compression fracture',
+                'palsies',
+                'petit mal',
+                'gout',
+                'cerebral ischaemia',
+                'eyelid diseases',
+                'gastric ulcer',
+                'periodontitis',
+                'lyell',
+                'seborrhoeic keratosis',
+                'actinic keratosis',
+                'choking',
+                'dyshidrosis',
+                'aortic stenosis',
+                'coughing blood',
+                'glossitis',
+                'bacterial pneumonia',
+                'alcohol consumption',
+                'squamous cell carcinoma of skin',
+                'pancreatic cancer',
+                'tenosynovitis',
+                'liver abscess',
+                'myelodysplasia',
+                'rectal polyp',
+                'brain concussion',
+                'cutaneous ulcer',
+                'face pain',
+                'atrioventricular block',
+                'breast enlargement',
+                'eustachian tube disorder',
+                'acute sinusitis',
+                'pelvic inflammatory disease',
+                'altered bowel function',
+                'antinuclear antibody positive',
+                'galactorrhea',
+                'schizoaffective disorder',
+                'borderline personality disorder',
+                'injury of neck',
+                'pharyngitis streptococcal',
+                'nephrogenic diabetes insipidus',
+                'hepatic necrosis',
+                'portal hypertension',
+                'diabetic neuropathy',
+                'brain neoplasm',
+                'reflux esophagitis',
+                'breakthrough bleeding',
+                'hair disease',
+                'seroma',
+                'trigger finger',
+                'interstitial nephritis',
+                'nail disorder',
+                'allergic vasculitis',
+                'lichen planus',
+                'carotid artery stenosis',
+                'gastric polyps',
+                'hyperkeratosis',
+                'toxic shock',
+                'essential hypertension',
+                'hepatitis b',
+                'congenital heart disease',
+                'colon neoplasm',
+                'cholecystectomies',
+                'carcinoma of prostate',
+                'orthopnea',
+                'renal mass',
+                'breast disorder',
+                'disseminated lupus erythematosus',
+                'breast tenderness',
+                'breast discharge',
+                'disorder peripheral vascular',
+                'hyperprolactinaemia',
+                'acute psychosis',
+                'ketoacidosis',
+                'sarcoidosis',
+                'detached retina',
+                'eosinophilic pneumonia',
+                'chest wall pain',
+                'hyperpigmentation',
+                'costochondritis',
+                'agoraphobia',
+                'cheilosis',
+                'easy bruisability',
+                'optic neuritis',
+                'eye injury',
+                'scotoma',
+                'eczema',
+                'tracheostomy',
+                'erysipelas',
+                'paraparesis',
+                'hepatorenal syndrome',
+                'hepatitis c',
+                'eye infection',
+                'ebv infection',
+                'caesarean section',
+                'agranulocytoses',
+                'petechia',
+                'hematoma subdural',
+                'pyoderma gangrenosum',
+                'benign intracranial hypertension',
+                'cerebral artery embolism',
+                'hydrocephalus',
+                'hypogammaglobulinaemia',
+                'acne',
+                'malignant hypertension',
+                'post nasal drip',
+                'labyrinthitis',
+                'nodule skin',
+                'atrophy of skin',
+                'neck mass',
+                'tracheitis',
+                'vitamin d deficiency',
+                'kidney pain',
+                'hyperuricaemia',
+                'splenectomy',
+                'atypical mycobacterial infection',
+                'parotitis',
+                'choreoathetosis',
+                'disorder retinal',
+                'pericarditis',
+                'cerumen impaction',
+                'paronychia',
+                'colostomy',
+                'tooth impacted',
+                'thyroid disease',
+                'aortic aneurysm',
+                'dermatomyositis',
+                'hyperaesthesia',
+                'als',
+                'bronchiectasis',
+                'aplasia pure red cell',
+                'anaemia hypochromic',
+                'furuncle',
+                'birth defect',
+                'autonomic neuropathy',
+                'corneal disorder',
+                'polymyalgia rheumatica',
+                'diaphragmatic hernia',
+                'lymphedema',
+                'coronary artery bypass graft',
+                'pleural fibrosis',
+                'temporal arteritis',
+                'polyarthritis',
+                'phimosis',
+                'fecal occult blood',
+                'cholecystitis acute',
+                'inflammatory bowel disease',
+                'tendon injury',
+                'hiccough',
+                'serum sickness',
+                'anemia aplastic',
+                'brain abscess',
+                'synovial cyst',
+                'pneumonia primary atypical',
+                'ovarian cancer',
+                'lung adenocarcinoma',
+                'gastric cancer',
+                'varicose vein',
+                'aphthous stomatitis',
+                'intestinal ulcer',
+                'cutaneous mycosis',
+                'humerus fracture',
+                'volvulus',
+                'vaginal discharge',
+                'primary biliary cirrhosis',
+                'left ventricular hypertrophy',
+                'anosmia',
+                'abnormal cervical smear',
+                'haemangioma',
+                'incisional hernia',
+                'abnormal mammogram',
+                'arthritis bacterial',
+                'splenic infarction',
+                'hernia inguinal',
+                'meningioma',
+                'pneumocystis carinii pneumonia',
+                'phlebitis superficial',
+                'hypovitaminosis',
+                'hepatic encephalopathy',
+                'dyspnoea paroxysmal nocturnal',
+                'carotid bruit',
+                'vitamin b 12 deficiency',
+                'normal pressure hydrocephalus',
+                'paraplegia',
+                'aseptic meningitis',
+                'alcoholic intoxication',
+                'causalgia',
+                'irritation skin',
+                'bradyarrhythmia',
+                'conversion disorder',
+                'epidural abscess',
+                'cholecystitis chronic',
+                'swollen scrotum',
+                'hay fever',
+                'myasthenia gravis',
+                'fibroids',
+                'superior vena cava syndrome',
+                'mediastinal disorder',
+                'bladder cancer',
+                'quadriplegia',
+                'breast swelling',
+                'histoplasmosis',
+                'telangiectases',
+                'neurodermatitis',
+                'ganglion',
+                'bacterial vaginitis',
+                'hirsuitism',
+                'sjogrens syndrome',
+                'vitreous detachment',
+                'vitreous haemorrhage',
+                'venous insufficiency',
+                'carcinoma of the cervix',
+                'burns second degree',
+                'tension headache',
+                'night cramps',
+                'pigmentation disorder',
+                'keratitis',
+                'kidney transplant',
+                'diabetes insipidus',
+                'fracture nonunion',
+                'carbuncle',
+                'folliculitis',
+                'empyema',
+                'gastric ulcer perforated',
+                'platelet disorder',
+                'allergic alveolitis',
+                'cutaneous candidiasis',
+                'chronic ulcerative colitis',
+                'meningitis viral',
+                'anal fistula',
+                'esophageal cancer',
+                'neurogenic bladder',
+                'nasal polyp',
+                'uterine bleeding',
+                'uterine polyp',
+                'tonsillitis',
+                'hyperacusia',
+                'enterocolitis',
+                'motor retardation',
+                'cryptococcosis',
+                'epidural hematoma',
+                'retinal artery occlusion',
+                'chronic hepatitis',
+                'food intolerance',
+                'cluster headache',
+                'mycosis fungoides',
+                'connective tissue disease',
+                'macrocytosis',
+                'anisocoria',
+                'calculus ureteric',
+                'hiv disease',
+                'menstrual disorder',
+                'dysphemia',
+                'oophorectomy',
+                'irregular menstrual cycle',
+                'infectious mononucleosis',
+                'methaemoglobinaemia',
+                'pancreatic pseudocyst',
+                'cerebral thrombosis',
+                'lyme disease',
+                'lung abscess',
+                'testicular swelling',
+                'pneumoconiosis',
+                'coronary angioplasty',
+                'skin striae',
+                'corneal ulcer',
+                'hyperphosphatemia',
+                'panniculitis',
+                'status epilepticus',
+                'sacroiliitis',
+                'tracheobronchitis',
+                'pyuria',
+                'fibrosing alveolitis',
+                'optic atrophy',
+                'breast inflammation',
+                'xerosis',
+                'postmenopausal bleeding',
+                'food poisoning',
+                'rectal prolapse',
+                'multifocal leukoencephalopathy',
+                'mumps',
+                'encephalitis viral',
+                'megacolon',
+                'haemarthrosis',
+                'fasciitis',
+                'tinea pedis',
+                'hypogonadism',
+                'hydroureter',
+                'collagen disease',
+                'hepatitis a',
+                'testes pain',
+                'colonic obstruction',
+                'esophageal stenosis',
+                'parotid gland enlargement',
+                'epididymitis',
+                'chicken pox',
+                'bronchiolitis',
+                'coccydynia',
+                'dysmenorrhea',
+                'corneal abrasion',
+                'night blindness',
+                'glioblastoma multiforme',
+                'bunion',
+                'sarcoma',
+                'lymphocytosis',
+                'exophthalmos',
+                'viral pharyngitis',
+                'cystitis interstitial',
+                'viral pneumonia',
+                'asthenopia',
+                'endometriosis',
+                'myelitis',
+                'folate deficiency',
+                'hypermetropia',
+                'balanitis',
+                '[UNK]'],
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'undirected': False,
+ 'use_input_features': True,
+ 'val_fold_index': None,
+ 'warmup_epochs': 2.0}
+Setting molecule featurization parameters to default.
+Loading data
+0it [00:00, ?it/s]299it [00:00, 2980.03it/s]598it [00:00, 2867.41it/s]886it [00:00, 2750.18it/s]1162it [00:00, 2746.70it/s]1437it [00:00, 2745.74it/s]1741it [00:00, 2841.35it/s]2032it [00:00, 2862.32it/s]2340it [00:00, 2913.37it/s]2632it [00:00, 2823.99it/s]2915it [00:01, 2467.34it/s]3170it [00:01, 2249.94it/s]3403it [00:01, 2097.37it/s]3619it [00:01, 2030.14it/s]3826it [00:01, 1896.61it/s]4019it [00:01, 1863.82it/s]4208it [00:01, 1618.27it/s]4376it [00:01, 1508.23it/s]4531it [00:02, 1324.46it/s]4703it [00:02, 1416.83it/s]4851it [00:02, 1322.25it/s]5000it [00:02, 1363.10it/s]5161it [00:02, 1426.63it/s]5308it [00:02, 1399.69it/s]5451it [00:02, 1203.00it/s]5610it [00:02, 1298.58it/s]5785it [00:03, 1416.62it/s]5933it [00:03, 1403.04it/s]6107it [00:03, 1493.99it/s]6275it [00:03, 1544.70it/s]6444it [00:03, 1586.27it/s]6614it [00:03, 1617.44it/s]6796it [00:03, 1676.65it/s]6966it [00:03, 1681.72it/s]7139it [00:03, 1693.61it/s]7309it [00:03, 1675.47it/s]7482it [00:04, 1689.09it/s]7652it [00:04, 1679.93it/s]7827it [00:04, 1698.36it/s]7999it [00:04, 1702.24it/s]8176it [00:04, 1722.17it/s]8349it [00:04, 1501.62it/s]8525it [00:04, 1571.15it/s]8694it [00:04, 1602.04it/s]8871it [00:04, 1647.27it/s]9041it [00:05, 1660.00it/s]9215it [00:05, 1681.52it/s]9386it [00:05, 1687.91it/s]9568it [00:05, 1724.62it/s]9742it [00:05, 1722.60it/s]9922it [00:05, 1743.11it/s]10102it [00:05, 1757.89it/s]10295it [00:05, 1806.85it/s]10476it [00:05, 1802.14it/s]10664it [00:05, 1823.82it/s]10847it [00:06, 1817.29it/s]11029it [00:06, 1758.54it/s]11206it [00:06, 1722.80it/s]11383it [00:06, 1733.94it/s]11584it [00:06, 1810.69it/s]11766it [00:06, 1774.46it/s]11944it [00:06, 1729.58it/s]12118it [00:06, 1696.36it/s]12290it [00:06, 1700.52it/s]12461it [00:07, 1494.56it/s]12636it [00:07, 1562.48it/s]12802it [00:07, 1537.00it/s]12959it [00:07, 1365.44it/s]13145it [00:07, 1492.54it/s]13321it [00:07, 1563.67it/s]13482it [00:07, 1380.39it/s]13651it [00:07, 1460.13it/s]13827it [00:07, 1539.24it/s]13998it [00:08, 1584.93it/s]14177it [00:08, 1641.63it/s]14347it [00:08, 1656.07it/s]14520it [00:08, 1677.13it/s]14690it [00:08, 1678.74it/s]14865it [00:08, 1699.67it/s]15037it [00:08, 1705.48it/s]15231it [00:08, 1773.16it/s]15415it [00:08, 1790.82it/s]15602it [00:08, 1797.83it/s]15789it [00:09, 1817.71it/s]15971it [00:09, 1810.07it/s]16153it [00:09, 1764.49it/s]16330it [00:09, 1724.37it/s]16503it [00:09, 1436.96it/s]16655it [00:09, 1249.06it/s]16789it [00:09, 1227.48it/s]16973it [00:09, 1378.24it/s]17119it [00:10, 659.93it/s] 17301it [00:10, 833.18it/s]17453it [00:10, 950.02it/s]17619it [00:10, 1091.96it/s]17797it [00:10, 1243.74it/s]17962it [00:10, 1341.37it/s]18126it [00:11, 1415.83it/s]18299it [00:11, 1498.31it/s]18463it [00:11, 1533.33it/s]18636it [00:11, 1586.29it/s]18802it [00:11, 1604.02it/s]18970it [00:11, 1623.47it/s]19154it [00:11, 1685.58it/s]19459it [00:11, 2086.00it/s]19767it [00:11, 2378.70it/s]20083it [00:11, 2609.74it/s]20389it [00:12, 2742.46it/s]20691it [00:12, 2824.99it/s]21000it [00:12, 2903.11it/s]21291it [00:12, 2662.04it/s]21601it [00:12, 2782.76it/s]21906it [00:12, 2858.09it/s]22212it [00:12, 2916.51it/s]22528it [00:12, 2986.07it/s]22834it [00:12, 3006.56it/s]23143it [00:12, 3029.46it/s]23451it [00:13, 3042.22it/s]23756it [00:13, 2965.73it/s]24057it [00:13, 2978.57it/s]24365it [00:13, 3007.50it/s]24676it [00:13, 3037.52it/s]24981it [00:13, 2890.65it/s]25272it [00:13, 2438.94it/s]25529it [00:13, 1986.13it/s]25748it [00:14, 1919.82it/s]25954it [00:14, 1880.10it/s]26151it [00:14, 1834.00it/s]26341it [00:14, 1816.24it/s]26527it [00:14, 1781.21it/s]26708it [00:14, 1777.18it/s]26888it [00:14, 1752.98it/s]27065it [00:14, 1754.28it/s]27242it [00:14, 1740.52it/s]27418it [00:15, 1743.63it/s]27697it [00:15, 2045.45it/s]28001it [00:15, 2334.53it/s]28311it [00:15, 2558.99it/s]28613it [00:15, 2693.50it/s]28920it [00:15, 2804.62it/s]29227it [00:15, 2883.62it/s]29517it [00:15, 2609.35it/s]29832it [00:15, 2758.59it/s]30113it [00:16, 2339.41it/s]30361it [00:16, 2082.43it/s]30583it [00:16, 1939.54it/s]30787it [00:16, 1876.28it/s]30981it [00:16, 1812.35it/s]31166it [00:16, 1458.90it/s]31324it [00:16, 1411.27it/s]31473it [00:17, 1419.47it/s]31623it [00:17, 1437.44it/s]31771it [00:17, 1187.36it/s]31899it [00:17, 1158.37it/s]32066it [00:17, 1282.12it/s]32251it [00:17, 1426.75it/s]32474it [00:17, 1641.85it/s]32753it [00:17, 1960.10it/s]32957it [00:17, 1935.66it/s]33157it [00:18, 1837.87it/s]33346it [00:18, 1796.91it/s]33529it [00:18, 1737.47it/s]33706it [00:18, 1367.30it/s]33877it [00:18, 1446.76it/s]34054it [00:18, 1512.13it/s]34231it [00:18, 1579.40it/s]34397it [00:18, 1546.56it/s]34576it [00:19, 1611.10it/s]34752it [00:19, 1649.16it/s]34921it [00:19, 1445.61it/s]35079it [00:19, 1480.68it/s]35249it [00:19, 1539.53it/s]35420it [00:19, 1586.17it/s]35585it [00:19, 1603.02it/s]35749it [00:19, 1610.90it/s]35912it [00:19, 1573.55it/s]36081it [00:19, 1604.81it/s]36248it [00:20, 1622.93it/s]36422it [00:20, 1656.18it/s]36597it [00:20, 1682.96it/s]36775it [00:20, 1709.49it/s]36947it [00:20, 1703.35it/s]37122it [00:20, 1713.71it/s]37294it [00:20, 1692.84it/s]37468it [00:20, 1706.41it/s]37639it [00:20, 1703.24it/s]37814it [00:20, 1714.35it/s]37986it [00:21, 1495.58it/s]38157it [00:21, 1551.94it/s]38337it [00:21, 1620.93it/s]38519it [00:21, 1676.30it/s]38690it [00:21, 1676.95it/s]38866it [00:21, 1700.67it/s]39038it [00:21, 1691.39it/s]39213it [00:21, 1707.71it/s]39385it [00:21, 1701.59it/s]39561it [00:22, 1717.08it/s]39631it [00:22, 1795.14it/s]
+  0%|          | 0/39631 [00:00<?, ?it/s]  1%|          | 399/39631 [00:00<00:09, 3987.55it/s]  4%|▎         | 1447/39631 [00:00<00:04, 7804.08it/s]  9%|▉         | 3506/39631 [00:00<00:02, 13639.50it/s] 15%|█▍        | 5826/39631 [00:00<00:01, 17411.63it/s] 21%|██        | 8178/39631 [00:00<00:01, 19611.80it/s] 27%|██▋       | 10516/39631 [00:00<00:01, 20891.27it/s] 32%|███▏      | 12623/39631 [00:01<00:03, 7739.25it/s]  36%|███▌      | 14267/39631 [00:01<00:02, 9017.05it/s] 40%|████      | 15978/39631 [00:01<00:02, 10421.48it/s] 45%|████▍     | 17727/39631 [00:01<00:01, 11825.67it/s] 49%|████▉     | 19447/39631 [00:01<00:01, 13012.48it/s] 53%|█████▎    | 21177/39631 [00:01<00:01, 14040.65it/s] 59%|█████▊    | 23188/39631 [00:01<00:01, 15589.90it/s] 64%|██████▍   | 25453/39631 [00:01<00:00, 17475.56it/s] 70%|███████   | 27796/39631 [00:02<00:00, 19118.60it/s] 76%|███████▌  | 29980/39631 [00:02<00:00, 19888.28it/s] 82%|████████▏ | 32339/39631 [00:02<00:00, 20953.58it/s] 87%|████████▋ | 34645/39631 [00:02<00:00, 21565.49it/s] 93%|█████████▎| 36858/39631 [00:02<00:00, 21360.53it/s] 99%|█████████▉| 39178/39631 [00:02<00:00, 21896.98it/s]100%|██████████| 39631/39631 [00:02<00:00, 15552.63it/s]
+  0%|          | 0/39631 [00:00<?, ?it/s] 22%|██▏       | 8620/39631 [00:00<00:00, 86194.33it/s] 44%|████▎     | 17240/39631 [00:00<00:00, 76575.93it/s] 63%|██████▎   | 24968/39631 [00:00<00:00, 68146.64it/s] 80%|████████  | 31882/39631 [00:00<00:00, 67623.22it/s] 98%|█████████▊| 38700/39631 [00:00<00:00, 59114.26it/s]100%|██████████| 39631/39631 [00:00<00:00, 64713.33it/s]
+Number of tasks = 964
+Fold 0
+Splitting data with seed 0
+0it [00:00, ?it/s]178it [00:00, 1774.40it/s]356it [00:00, 1731.57it/s]532it [00:00, 1740.70it/s]707it [00:00, 1712.26it/s]884it [00:00, 1730.53it/s]1058it [00:00, 1715.11it/s]1231it [00:00, 1718.57it/s]1403it [00:00, 1627.97it/s]1578it [00:00, 1662.41it/s]1747it [00:01, 1668.36it/s]1923it [00:01, 1692.93it/s]2094it [00:01, 1697.95it/s]2270it [00:01, 1714.22it/s]2442it [00:01, 1703.76it/s]2613it [00:01, 1699.52it/s]2784it [00:01, 1697.67it/s]2954it [00:01, 1687.78it/s]3123it [00:01, 1683.23it/s]3298it [00:01, 1702.06it/s]3469it [00:02, 1700.69it/s]3644it [00:02, 1714.37it/s]3816it [00:02, 1706.65it/s]3992it [00:02, 1719.73it/s]4169it [00:02, 1732.88it/s]4349it [00:02, 1751.52it/s]4525it [00:02, 1747.67it/s]4701it [00:02, 1750.49it/s]4877it [00:02, 1729.79it/s]5056it [00:02, 1746.88it/s]5231it [00:03, 1718.22it/s]5407it [00:03, 1727.95it/s]5580it [00:03, 1521.68it/s]5756it [00:03, 1583.85it/s]5919it [00:04, 569.64it/s] 6093it [00:04, 715.06it/s]6371it [00:04, 1026.19it/s]6680it [00:04, 1391.16it/s]6985it [00:04, 1725.15it/s]7287it [00:04, 2014.64it/s]7592it [00:04, 2264.71it/s]7907it [00:04, 2491.69it/s]8209it [00:04, 2632.95it/s]8511it [00:05, 2739.34it/s]8806it [00:05, 2388.13it/s]9067it [00:05, 2142.63it/s]9301it [00:05, 2008.32it/s]9516it [00:05, 1885.16it/s]9714it [00:05, 1794.33it/s]9900it [00:05, 1757.69it/s]10080it [00:06, 1542.60it/s]10251it [00:06, 1581.72it/s]10415it [00:06, 1573.56it/s]10580it [00:06, 1591.58it/s]10742it [00:06, 1551.68it/s]10903it [00:06, 1566.83it/s]11070it [00:06, 1595.56it/s]11245it [00:06, 1637.97it/s]11411it [00:06, 1643.29it/s]11594it [00:06, 1696.79it/s]11765it [00:07, 1682.46it/s]11934it [00:07, 1643.50it/s]12104it [00:07, 1658.39it/s]12236it [00:07, 1665.48it/s]
+  0%|          | 0/12236 [00:00<?, ?it/s] 12%|█▏        | 1427/12236 [00:00<00:00, 14260.94it/s] 25%|██▌       | 3080/12236 [00:00<00:00, 15594.77it/s] 38%|███▊      | 4640/12236 [00:00<00:00, 15409.76it/s] 52%|█████▏    | 6332/12236 [00:00<00:00, 15997.85it/s] 66%|██████▌   | 8053/12236 [00:00<00:00, 16431.01it/s] 79%|███████▉  | 9726/12236 [00:00<00:00, 16530.71it/s] 94%|█████████▎| 11449/12236 [00:00<00:00, 16756.03it/s]100%|██████████| 12236/12236 [00:00<00:00, 16348.46it/s]
+  0%|          | 0/12236 [00:00<?, ?it/s] 61%|██████    | 7408/12236 [00:00<00:00, 74068.95it/s]100%|██████████| 12236/12236 [00:00<00:00, 74701.51it/s]
+0it [00:00, ?it/s]175it [00:00, 1749.13it/s]352it [00:00, 1756.67it/s]528it [00:00, 1747.07it/s]714it [00:00, 1791.04it/s]895it [00:00, 1795.19it/s]1075it [00:00, 1794.03it/s]1255it [00:00, 1774.67it/s]1438it [00:00, 1789.49it/s]1618it [00:00, 1790.47it/s]1804it [00:01, 1811.05it/s]1986it [00:01, 1788.78it/s]2167it [00:01, 1794.80it/s]2347it [00:01, 1754.16it/s]2524it [00:01, 1756.25it/s]2700it [00:01, 1737.21it/s]2875it [00:01, 1740.02it/s]3050it [00:01, 1727.54it/s]3225it [00:01, 1731.21it/s]3399it [00:01, 1698.54it/s]3574it [00:02, 1711.10it/s]3746it [00:02, 1685.02it/s]3919it [00:02, 1696.59it/s]4089it [00:02, 1671.80it/s]4261it [00:02, 1685.48it/s]4430it [00:02, 1484.50it/s]4584it [00:02, 1498.17it/s]4737it [00:02, 1354.54it/s]4939it [00:02, 1527.60it/s]5100it [00:03, 1549.11it/s]5259it [00:03, 1392.71it/s]5419it [00:03, 1446.82it/s]5569it [00:03, 1400.20it/s]5713it [00:03, 1316.52it/s]5880it [00:03, 1408.82it/s]6024it [00:03, 1338.31it/s]6161it [00:03, 1314.37it/s]6295it [00:03, 1226.09it/s]6460it [00:04, 1337.47it/s]6597it [00:04, 1242.94it/s]6727it [00:04, 1256.13it/s]6855it [00:04, 1252.51it/s]6982it [00:04, 1224.61it/s]7159it [00:04, 1377.03it/s]7342it [00:04, 1504.94it/s]7517it [00:04, 1574.46it/s]7697it [00:04, 1638.22it/s]7873it [00:05, 1672.13it/s]8048it [00:05, 1693.30it/s]8218it [00:05, 1472.16it/s]8388it [00:05, 1533.26it/s]8546it [00:05, 1374.84it/s]8711it [00:05, 1444.63it/s]8873it [00:05, 1491.35it/s]9044it [00:05, 1552.06it/s]9203it [00:05, 1380.63it/s]9347it [00:06, 1291.99it/s]9516it [00:06, 1394.94it/s]9661it [00:06, 1285.01it/s]9835it [00:06, 1403.17it/s]10004it [00:06, 1478.72it/s]10174it [00:06, 1538.96it/s]10336it [00:06, 1560.98it/s]10506it [00:06, 1600.24it/s]10671it [00:06, 1613.65it/s]10850it [00:07, 1664.78it/s]11022it [00:07, 1679.97it/s]11199it [00:07, 1705.75it/s]11374it [00:07, 1716.68it/s]11558it [00:07, 1752.18it/s]11606it [00:07, 1554.64it/s]
+  0%|          | 0/11606 [00:00<?, ?it/s] 16%|█▋        | 1897/11606 [00:00<00:00, 18960.52it/s] 33%|███▎      | 3794/11606 [00:00<00:00, 17372.23it/s] 48%|████▊     | 5541/11606 [00:00<00:00, 17358.28it/s] 63%|██████▎   | 7282/11606 [00:00<00:00, 17176.36it/s] 78%|███████▊  | 9032/11606 [00:00<00:00, 17286.99it/s] 93%|█████████▎| 10763/11606 [00:01<00:00, 3980.88it/s]100%|██████████| 11606/11606 [00:01<00:00, 6950.78it/s]
+  0%|          | 0/11606 [00:00<?, ?it/s] 65%|██████▍   | 7504/11606 [00:00<00:00, 75035.42it/s]100%|██████████| 11606/11606 [00:00<00:00, 75584.54it/s]
+Class sizes
+atelectasis 0: 81.32%, 1: 18.68%
+back ache 0: 69.50%, 1: 30.50%
+lung edema 0: 80.76%, 1: 19.24%
+agitated 0: 77.38%, 1: 22.62%
+abnormal movements 0: 88.53%, 1: 11.47%
+acidosis 0: 86.57%, 1: 13.43%
+peliosis 0: 94.74%, 1: 5.26%
+apnea 0: 93.60%, 1: 6.40%
+drug hypersensitivity 0: 85.82%, 1: 14.18%
+flatulence 0: 88.10%, 1: 11.90%
+pain in throat 0: 91.06%, 1: 8.94%
+allergies 0: 82.55%, 1: 17.45%
+thrombocytopenia 0: 73.27%, 1: 26.73%
+bradycardia 0: 80.82%, 1: 19.18%
+lung infiltration 0: 86.51%, 1: 13.49%
+bleeding 0: 77.77%, 1: 22.23%
+hypoglycaemia neonatal 0: 98.16%, 1: 1.84%
+hyperglycaemia 0: 71.29%, 1: 28.71%
+peritonitis 0: 93.08%, 1: 6.92%
+hypoglycaemia 0: 80.58%, 1: 19.42%
+abdominal distension 0: 80.75%, 1: 19.25%
+asystole 0: 80.50%, 1: 19.50%
+cerebral infarct 0: 87.19%, 1: 12.81%
+hypoxia 0: 81.32%, 1: 18.68%
+difficulty breathing 0: 59.82%, 1: 40.18%
+decreased body temperature 0: 91.81%, 1: 8.19%
+adynamic ileus 0: 86.59%, 1: 13.41%
+sepsis 0: 73.26%, 1: 26.74%
+hypomagnesaemia 0: 91.35%, 1: 8.65%
+neonatal respiratory distress syndrome 0: 99.18%, 1: 0.82%
+acute respiratory distress syndrome 0: 88.66%, 1: 11.34%
+lipoma 0: 84.98%, 1: 15.02%
+appendectomy 0: 98.33%, 1: 1.67%
+flank pain 0: 93.41%, 1: 6.59%
+pneumothorax 0: 92.12%, 1: 7.88%
+appendicitis 0: 97.33%, 1: 2.67%
+strabismus 0: 96.82%, 1: 3.18%
+blood calcium decreased 0: 83.47%, 1: 16.53%
+respiratory failure 0: 74.93%, 1: 25.07%
+pulmonary hypertension 0: 86.78%, 1: 13.22%
+hypercapnia 0: 96.92%, 1: 3.08%
+intestinal perforation 0: 94.61%, 1: 5.39%
+leucocytosis 0: 88.20%, 1: 11.80%
+disorder lung 0: 86.66%, 1: 13.34%
+hot flash 0: 90.51%, 1: 9.49%
+arterial pressure nos decreased 0: 55.77%, 1: 44.23%
+metabolic acidosis 0: 86.69%, 1: 13.31%
+bladder inflammation 0: 83.50%, 1: 16.50%
+ascites 0: 85.84%, 1: 14.16%
+patent ductus arteriosis 0: 98.77%, 1: 1.23%
+sinus tachycardia 0: 83.91%, 1: 16.09%
+stridor 0: 97.52%, 1: 2.48%
+arterial pressure nos increased 0: 79.36%, 1: 20.64%
+hypoventilation 0: 66.79%, 1: 33.21%
+edema 0: 71.33%, 1: 28.67%
+disease of liver 0: 88.90%, 1: 11.10%
+aspartate aminotransferase increase 0: 79.03%, 1: 20.97%
+cold extremities 0: 95.03%, 1: 4.97%
+facial flushing 0: 84.16%, 1: 15.84%
+anaphylactic reaction 0: 90.97%, 1: 9.03%
+eruption 0: 76.00%, 1: 24.00%
+acute pancreatitis 0: 90.42%, 1: 9.58%
+neumonia 0: 61.44%, 1: 38.56%
+adenocarcinoma 0: 88.38%, 1: 11.62%
+confusion 0: 69.20%, 1: 30.80%
+malnourished 0: 88.58%, 1: 11.42%
+haemorrhoids 0: 88.26%, 1: 11.74%
+still birth 0: 81.50%, 1: 18.50%
+anaemia 0: 57.97%, 1: 42.03%
+drug toxicity nos 0: 82.93%, 1: 17.07%
+increased white blood cell count 0: 81.00%, 1: 19.00%
+encephalopathy 0: 87.53%, 1: 12.47%
+anorexia 0: 71.76%, 1: 28.24%
+tremor 0: 77.31%, 1: 22.69%
+hallucination 0: 80.40%, 1: 19.60%
+chronic obstructive airway disease 0: 81.95%, 1: 18.05%
+drowsiness 0: 75.80%, 1: 24.20%
+head ache 0: 69.25%, 1: 30.75%
+back injury 0: 94.43%, 1: 5.57%
+erythema 0: 78.76%, 1: 21.24%
+diplopia 0: 89.58%, 1: 10.42%
+enlarged spleen 0: 90.22%, 1: 9.78%
+narcolepsy 0: 78.08%, 1: 21.92%
+esophageal spasm 0: 97.10%, 1: 2.90%
+erosive gastritis 0: 94.71%, 1: 5.29%
+gastroenteritis viral 0: 94.34%, 1: 5.66%
+lymphocytes decreased 0: 96.39%, 1: 3.61%
+breast cancer 0: 92.93%, 1: 7.07%
+itch 0: 79.10%, 1: 20.90%
+haemolytic anaemia 0: 95.59%, 1: 4.41%
+upper gastrointestinal bleeding 0: 92.70%, 1: 7.30%
+icterus 0: 87.38%, 1: 12.62%
+gastroenteritis 0: 88.74%, 1: 11.26%
+optic disc edema 0: 97.65%, 1: 2.35%
+sleep disorder 0: 86.67%, 1: 13.33%
+septic shock 0: 85.33%, 1: 14.67%
+bladder retention 0: 88.07%, 1: 11.93%
+aphonia 0: 97.48%, 1: 2.52%
+pain 0: 63.12%, 1: 36.88%
+idiopathic thrombocytopenic purpura 0: 97.46%, 1: 2.54%
+pneumonia staphylococcal 0: 95.97%, 1: 4.03%
+alopecia 0: 87.13%, 1: 12.87%
+conjunctivitis 0: 87.50%, 1: 12.50%
+lobar pneumonia 0: 85.36%, 1: 14.64%
+glomerulonephritis 0: 98.03%, 1: 1.97%
+duodenal ulcer 0: 94.83%, 1: 5.17%
+deep vein thromboses 0: 81.59%, 1: 18.41%
+leucopenia 0: 87.10%, 1: 12.90%
+rhinorrhea 0: 89.53%, 1: 10.47%
+bursitis 0: 90.67%, 1: 9.33%
+bleeding vaginal 0: 94.78%, 1: 5.22%
+excoriation 0: 93.15%, 1: 6.85%
+ekbom syndrome 0: 90.82%, 1: 9.18%
+nephrocalcinosis 0: 95.97%, 1: 4.03%
+blurred vision 0: 79.07%, 1: 20.93%
+thrombotic microangiopathy 0: 95.72%, 1: 4.28%
+dizziness 0: 68.44%, 1: 31.56%
+pleurisy 0: 95.22%, 1: 4.78%
+sunburn 0: 94.78%, 1: 5.22%
+hoarseness 0: 97.34%, 1: 2.66%
+bleeding hemorrhoids 0: 96.56%, 1: 3.44%
+fatigue 0: 62.55%, 1: 37.45%
+aspiration pneumonia 0: 88.33%, 1: 11.67%
+perirectal abscess 0: 98.25%, 1: 1.75%
+diarrhea 0: 62.33%, 1: 37.67%
+asthma 0: 82.80%, 1: 17.20%
+skin lesion 0: 89.62%, 1: 10.38%
+tinnitus 0: 90.35%, 1: 9.65%
+muscle spasm 0: 76.44%, 1: 23.56%
+fib 0: 94.88%, 1: 5.12%
+candida infection 0: 84.54%, 1: 15.46%
+abnormal gait 0: 78.87%, 1: 21.13%
+glossodynia 0: 93.67%, 1: 6.33%
+anal fissure 0: 96.77%, 1: 3.23%
+infection viral 0: 89.94%, 1: 10.06%
+cellulitis 0: 77.46%, 1: 22.54%
+allergic dermatitis 0: 79.60%, 1: 20.40%
+constipated 0: 73.36%, 1: 26.64%
+clotting 0: 89.56%, 1: 10.44%
+muscle paresis 0: 95.61%, 1: 4.39%
+deafness 0: 92.24%, 1: 7.76%
+vocal cord paralysis 0: 98.60%, 1: 1.40%
+dry skin 0: 90.51%, 1: 9.49%
+ear discharge 0: 98.85%, 1: 1.15%
+eye pain 0: 92.80%, 1: 7.20%
+leukaemia 0: 93.46%, 1: 6.54%
+myopia 0: 99.15%, 1: 0.85%
+chronic kidney disease 0: 86.05%, 1: 13.95%
+acute kidney failure 0: 72.04%, 1: 27.96%
+retrocollis 0: 98.83%, 1: 1.17%
+cognitive disorder 0: 89.84%, 1: 10.16%
+cholangitis 0: 97.15%, 1: 2.85%
+hypothyroid 0: 87.69%, 1: 12.31%
+dermatitides 0: 93.38%, 1: 6.62%
+abnormal lfts 0: 82.78%, 1: 17.22%
+dermatitis medicamentosa 0: 94.31%, 1: 5.69%
+acute brain syndrome 0: 88.66%, 1: 11.34%
+deafness neurosensory 0: 97.75%, 1: 2.25%
+fungal disease 0: 87.09%, 1: 12.91%
+nasal sinus congestion 0: 95.16%, 1: 4.84%
+near syncope 0: 95.38%, 1: 4.62%
+erythema multiforme 0: 95.62%, 1: 4.38%
+haematoma 0: 90.25%, 1: 9.75%
+bleb 0: 88.93%, 1: 11.07%
+nasal congestion 0: 89.54%, 1: 10.46%
+amenorrhea 0: 97.51%, 1: 2.49%
+epistaxis 0: 87.48%, 1: 12.52%
+hepatitis 0: 88.90%, 1: 11.10%
+coated tongue 0: 98.55%, 1: 1.45%
+neutropenia 0: 76.33%, 1: 23.67%
+wheeze 0: 87.05%, 1: 12.95%
+haemorrhage rectum 0: 85.46%, 1: 14.54%
+abdominal pain 0: 66.26%, 1: 33.74%
+chest pain 0: 67.37%, 1: 32.63%
+mycobacterium tuberculosis infection 0: 96.87%, 1: 3.13%
+cholelithiasis 0: 83.16%, 1: 16.84%
+pyoderma 0: 89.25%, 1: 10.75%
+blood disorder 0: 95.14%, 1: 4.86%
+psychoses 0: 91.13%, 1: 8.87%
+aching muscles 0: 80.26%, 1: 19.74%
+abscess 0: 89.83%, 1: 10.17%
+loss of consciousness 0: 77.75%, 1: 22.25%
+attempted suicide 0: 91.74%, 1: 8.26%
+bad breath 0: 97.86%, 1: 2.14%
+arthritis infective 0: 97.22%, 1: 2.78%
+loss of weight 0: 71.08%, 1: 28.92%
+nasopharyngitis 0: 90.27%, 1: 9.73%
+belching 0: 94.84%, 1: 5.16%
+rhinitis 0: 92.73%, 1: 7.27%
+colon spastic 0: 92.68%, 1: 7.32%
+heart attack 0: 74.36%, 1: 25.64%
+hepatic neoplasia 0: 98.13%, 1: 1.87%
+azotaemia 0: 93.59%, 1: 6.41%
+nervous tension 0: 87.48%, 1: 12.52%
+muscle weakness 0: 82.21%, 1: 17.79%
+hypochloraemia 0: 89.93%, 1: 10.07%
+cataract 0: 88.15%, 1: 11.85%
+abdominal pain upper 0: 79.95%, 1: 20.05%
+insomnia 0: 76.03%, 1: 23.97%
+dyspepsia 0: 79.87%, 1: 20.13%
+asthenia 0: 63.06%, 1: 36.94%
+emesis 0: 63.92%, 1: 36.08%
+embolism pulmonary 0: 81.13%, 1: 18.87%
+biliary tract disorder 0: 96.82%, 1: 3.18%
+colitis ischemic 0: 94.50%, 1: 5.50%
+extremity pain 0: 72.25%, 1: 27.75%
+arteriosclerotic heart disease 0: 79.08%, 1: 20.92%
+small intestinal obstruction 0: 92.16%, 1: 7.84%
+paraesthesia 0: 79.35%, 1: 20.65%
+neoplasia 0: 96.69%, 1: 3.31%
+fainting 0: 79.11%, 1: 20.89%
+blood sodium decreased 0: 77.03%, 1: 22.97%
+sneezing 0: 95.28%, 1: 4.72%
+feeling unwell 0: 77.79%, 1: 22.21%
+hypokalaemia 0: 80.28%, 1: 19.72%
+lower gi bleeding 0: 95.16%, 1: 4.84%
+migraine 0: 85.29%, 1: 14.71%
+intervertebral disc disorder 0: 91.63%, 1: 8.37%
+osteoporosis 0: 89.14%, 1: 10.86%
+high blood pressure 0: 69.73%, 1: 30.27%
+road traffic accident 0: 86.17%, 1: 13.83%
+diverticulosis 0: 95.67%, 1: 4.33%
+arthritis rheumatoid 0: 91.33%, 1: 8.67%
+abnormal vision 0: 97.77%, 1: 2.23%
+arteriosclerosis 0: 89.07%, 1: 10.93%
+bulging 0: 84.19%, 1: 15.81%
+osteoarthritis 0: 84.44%, 1: 15.56%
+pleural pain 0: 66.93%, 1: 33.07%
+acid reflux 0: 77.60%, 1: 22.40%
+fibromyalgia 0: 88.32%, 1: 11.68%
+breast pain 0: 96.00%, 1: 4.00%
+palpitation 0: 82.12%, 1: 17.88%
+herpes zoster 0: 88.93%, 1: 11.07%
+breast cyst 0: 98.70%, 1: 1.30%
+myoglobinuria 0: 93.52%, 1: 6.48%
+osteomalacia 0: 94.80%, 1: 5.20%
+ischias 0: 93.63%, 1: 6.37%
+aching joints 0: 72.47%, 1: 27.53%
+arthritis 0: 85.29%, 1: 14.71%
+abuse 0: 96.68%, 1: 3.32%
+colonic polyp 0: 92.65%, 1: 7.35%
+cholecystitis 0: 90.11%, 1: 9.89%
+dyspnea exertional 0: 85.36%, 1: 14.64%
+extrasystoles ventricular 0: 89.54%, 1: 10.46%
+acne rosacea 0: 97.23%, 1: 2.77%
+incontinence 0: 84.08%, 1: 15.92%
+gall bladder 0: 89.67%, 1: 10.33%
+diabetic acidosis 0: 94.56%, 1: 5.44%
+diabetic retinopathy 0: 95.10%, 1: 4.90%
+blepharitis 0: 98.08%, 1: 1.92%
+pyelonephritis 0: 93.66%, 1: 6.34%
+aptyalism 0: 85.33%, 1: 14.67%
+blepharospasm 0: 90.86%, 1: 9.14%
+aneurysm 0: 96.23%, 1: 3.77%
+benign prostatic hyperplasia 0: 92.78%, 1: 7.22%
+wrist fracture 0: 96.43%, 1: 3.57%
+dislocation 0: 95.67%, 1: 4.33%
+superficial thrombophlebitis 0: 96.92%, 1: 3.08%
+decreased libido 0: 94.71%, 1: 5.29%
+decubitus ulcer 0: 92.19%, 1: 7.81%
+kidney failure 0: 70.11%, 1: 29.89%
+meningitides 0: 96.34%, 1: 3.66%
+ild 0: 89.76%, 1: 10.24%
+atrioventricular block first degree 0: 93.25%, 1: 6.75%
+cough 0: 72.52%, 1: 27.48%
+vestibular disorder 0: 97.51%, 1: 2.49%
+panic attack 0: 89.97%, 1: 10.03%
+nightmare 0: 93.27%, 1: 6.73%
+breast lump 0: 95.76%, 1: 4.24%
+nocturia 0: 93.42%, 1: 6.58%
+spinning sensation 0: 89.70%, 1: 10.30%
+diabetes 0: 80.16%, 1: 19.84%
+bronchitis 0: 78.87%, 1: 21.13%
+polyp 0: 96.02%, 1: 3.98%
+osteomyelitis 0: 87.97%, 1: 12.03%
+lung fibrosis 0: 92.25%, 1: 7.75%
+enlarged liver 0: 89.06%, 1: 10.94%
+laceration 0: 94.34%, 1: 5.66%
+coma 0: 85.64%, 1: 14.36%
+amyotrophy 0: 94.42%, 1: 5.58%
+cachectic 0: 95.53%, 1: 4.47%
+renal cyst 0: 91.76%, 1: 8.24%
+neuropathy peripheral 0: 82.49%, 1: 17.51%
+bacterial infection 0: 86.26%, 1: 13.74%
+angiitis 0: 91.19%, 1: 8.81%
+convulsion 0: 77.75%, 1: 22.25%
+iron deficiency anaemia 0: 92.12%, 1: 7.88%
+cardiomyopathy 0: 87.64%, 1: 12.36%
+bronchial spasm 0: 90.85%, 1: 9.15%
+femur fracture 0: 95.90%, 1: 4.10%
+fascitis plantar 0: 96.58%, 1: 3.42%
+cardiac decompensation 0: 74.37%, 1: 25.63%
+mucositis oral 0: 87.95%, 1: 12.05%
+joint swelling 0: 85.68%, 1: 14.32%
+hernia 0: 94.37%, 1: 5.63%
+glaucoma 0: 91.07%, 1: 8.93%
+mitral valve disease nos 0: 96.79%, 1: 3.21%
+edema extremities 0: 66.01%, 1: 33.99%
+pulmonary mass 0: 96.51%, 1: 3.49%
+breast dysplasia 0: 97.77%, 1: 2.23%
+phlebitis 0: 95.39%, 1: 4.61%
+lung neoplasms 0: 90.08%, 1: 9.92%
+balance disorder 0: 84.33%, 1: 15.67%
+bone marrow failure 0: 79.83%, 1: 20.17%
+deglutition disorder 0: 78.00%, 1: 22.00%
+adrenal insufficiency 0: 95.32%, 1: 4.68%
+sensory disturbance 0: 93.76%, 1: 6.24%
+polyneuropathy 0: 94.73%, 1: 5.27%
+nephrolithiasis 0: 89.28%, 1: 10.72%
+dysarthria 0: 84.82%, 1: 15.18%
+hypotension orthostatic 0: 89.07%, 1: 10.93%
+scoliosis 0: 96.76%, 1: 3.24%
+autonomic instability 0: 97.82%, 1: 2.18%
+rhabdomyolysis 0: 87.47%, 1: 12.53%
+renal colic 0: 99.15%, 1: 0.85%
+bundle branch block left 0: 93.15%, 1: 6.85%
+apoplexy 0: 76.16%, 1: 23.84%
+malabsorption 0: 97.99%, 1: 2.01%
+aphasia 0: 91.41%, 1: 8.59%
+amnesia 0: 78.25%, 1: 21.75%
+body temperature increased 0: 66.09%, 1: 33.91%
+burning sensation 0: 87.58%, 1: 12.42%
+chill 0: 78.36%, 1: 21.64%
+infection urinary tract 0: 72.32%, 1: 27.68%
+night sweat 0: 89.04%, 1: 10.96%
+keratitis sicca 0: 98.45%, 1: 1.55%
+dehydration 0: 69.88%, 1: 30.12%
+ataxia 0: 94.11%, 1: 5.89%
+transient ischaemic attack 0: 84.68%, 1: 15.32%
+cerebral haemorrhage 0: 91.79%, 1: 8.21%
+mod 0: 83.35%, 1: 16.65%
+elevated cholesterol 0: 77.99%, 1: 22.01%
+heart rate increased 0: 72.52%, 1: 27.48%
+eye swelling 0: 94.30%, 1: 5.70%
+psychosexual disorder 0: 95.96%, 1: 4.04%
+anxiety 0: 70.34%, 1: 29.66%
+facial palsy 0: 93.31%, 1: 6.69%
+ureteral obstruction 0: 96.19%, 1: 3.81%
+disorder renal 0: 86.19%, 1: 13.81%
+nephrosclerosis 0: 91.76%, 1: 8.24%
+psoriatic arthritis 0: 98.28%, 1: 1.72%
+post traumatic stress disorder 0: 96.74%, 1: 3.26%
+laryngitis 0: 95.09%, 1: 4.91%
+angiopathy 0: 91.68%, 1: 8.32%
+flu 0: 89.83%, 1: 10.17%
+coeliac disease 0: 97.88%, 1: 2.12%
+adjustment disorder 0: 98.62%, 1: 1.38%
+carcinoid syndrome 0: 96.30%, 1: 3.70%
+nausea 0: 60.84%, 1: 39.16%
+dysphasia 0: 95.03%, 1: 4.97%
+drug withdrawal 0: 87.67%, 1: 12.33%
+pleural effusion 0: 73.61%, 1: 26.39%
+sinusitis 0: 80.13%, 1: 19.87%
+bilirubinaemia 0: 88.42%, 1: 11.58%
+amentia 0: 93.76%, 1: 6.24%
+cerebral atrophy 0: 92.99%, 1: 7.01%
+cervicalgia 0: 84.43%, 1: 15.57%
+hyperlipaemia 0: 86.06%, 1: 13.94%
+metabolic encephalopathy 0: 95.73%, 1: 4.27%
+diabetic nephropathy 0: 97.88%, 1: 2.12%
+encephalitis 0: 97.04%, 1: 2.96%
+intervertebral disc herniation 0: 89.20%, 1: 10.80%
+atherosclerosis 0: 94.88%, 1: 5.12%
+aortic regurgitation 0: 91.51%, 1: 8.49%
+neuralgia 0: 91.67%, 1: 8.33%
+hemiplegia 0: 95.08%, 1: 4.92%
+pneumonia klebsiella 0: 97.19%, 1: 2.81%
+emphysema 0: 92.41%, 1: 7.59%
+afib 0: 75.92%, 1: 24.08%
+postherpetic neuralgia 0: 98.43%, 1: 1.57%
+eosinophil count increased 0: 93.29%, 1: 6.71%
+neuritis 0: 95.90%, 1: 4.10%
+abnormal ecg 0: 91.53%, 1: 8.47%
+bone fracture spontaneous 0: 96.46%, 1: 3.54%
+gingivitis 0: 91.61%, 1: 8.39%
+soft tissue infection 0: 98.74%, 1: 1.26%
+floaters 0: 96.93%, 1: 3.07%
+thyroid neoplasia 0: 97.04%, 1: 2.96%
+dental abscess 0: 93.29%, 1: 6.71%
+dental pain 0: 92.66%, 1: 7.34%
+aseptic necrosis bone 0: 86.60%, 1: 13.40%
+bruxism 0: 83.72%, 1: 16.28%
+retinal bleeding 0: 96.60%, 1: 3.40%
+gingival pain 0: 96.06%, 1: 3.94%
+bone inflammation 0: 97.91%, 1: 2.09%
+candidiasis of mouth 0: 89.09%, 1: 10.91%
+tooth disease 0: 91.84%, 1: 8.16%
+mouth pain 0: 91.44%, 1: 8.56%
+arthropathy 0: 88.09%, 1: 11.91%
+pericardial effusion 0: 86.43%, 1: 13.57%
+lung neoplasm malignant 0: 93.69%, 1: 6.31%
+infection 0: 79.54%, 1: 20.46%
+blindness 0: 90.42%, 1: 9.58%
+herpes simplex 0: 93.67%, 1: 6.33%
+blood in urine 0: 85.92%, 1: 14.08%
+acute myeloblastic leukemia 0: 95.98%, 1: 4.02%
+abnormal eeg 0: 95.82%, 1: 4.18%
+gastric inflammation 0: 82.97%, 1: 17.03%
+transfusion reaction 0: 98.10%, 1: 1.90%
+abortion spontaneous 0: 97.63%, 1: 2.37%
+urosepsis 0: 93.73%, 1: 6.27%
+eating disorder 0: 90.59%, 1: 9.41%
+schizophrenia 0: 97.90%, 1: 2.10%
+cardiac murmur 0: 90.09%, 1: 9.91%
+cardiac enlargement 0: 82.88%, 1: 17.12%
+proteinuria 0: 92.70%, 1: 7.30%
+increased platelet count 0: 88.92%, 1: 11.08%
+odynophagia 0: 95.13%, 1: 4.87%
+multiple sclerosis 0: 91.93%, 1: 8.07%
+intraocular inflammation 0: 98.79%, 1: 1.21%
+weight gain 0: 73.36%, 1: 26.64%
+convulsions grand mal 0: 91.15%, 1: 8.85%
+enuresis 0: 98.50%, 1: 1.50%
+bundle branch block right 0: 91.45%, 1: 8.55%
+personality disorder 0: 96.53%, 1: 3.47%
+salivary gland inflammation 0: 98.08%, 1: 1.92%
+cervicitis 0: 98.55%, 1: 1.45%
+hernia hiatal 0: 87.78%, 1: 12.22%
+cervical dysplasia 0: 98.76%, 1: 1.24%
+adenitis 0: 97.58%, 1: 2.42%
+ecchymoses 0: 90.79%, 1: 9.21%
+tardive dyskinesia 0: 96.95%, 1: 3.05%
+blood pressure abnormal 0: 96.19%, 1: 3.81%
+muscle strain 0: 95.23%, 1: 4.77%
+ejaculation premature 0: 98.83%, 1: 1.17%
+excessive thirst 0: 90.86%, 1: 9.14%
+ear ache 0: 92.12%, 1: 7.88%
+elevated erythrocyte sedimentation rate 0: 94.18%, 1: 5.82%
+blood calcium increased 0: 90.39%, 1: 9.61%
+joint stiffness 0: 94.58%, 1: 5.42%
+esophagitis 0: 85.48%, 1: 14.52%
+nephrotic syndrome 0: 96.96%, 1: 3.04%
+proctalgia 0: 96.05%, 1: 3.95%
+bone pain 0: 87.76%, 1: 12.24%
+contracture 0: 97.15%, 1: 2.85%
+proctitis 0: 98.56%, 1: 1.44%
+spondylitis 0: 98.76%, 1: 1.24%
+spondylosis 0: 98.49%, 1: 1.51%
+dyspareunia 0: 99.18%, 1: 0.82%
+hyperparathyroidism 0: 97.40%, 1: 2.60%
+sleep apnea 0: 86.01%, 1: 13.99%
+raynauds phenomenon 0: 96.90%, 1: 3.10%
+wound dehiscence 0: 95.57%, 1: 4.43%
+portal vein thrombosis 0: 98.35%, 1: 1.65%
+head injury 0: 89.93%, 1: 10.07%
+arachnoiditis 0: 98.74%, 1: 1.26%
+synovitis 0: 97.22%, 1: 2.78%
+hyperhidrosis 0: 79.65%, 1: 20.35%
+nystagmus 0: 96.33%, 1: 3.67%
+gastrointestinal bleed 0: 81.51%, 1: 18.49%
+apraxia 0: 98.57%, 1: 1.43%
+amyloidosis 0: 98.66%, 1: 1.34%
+drug addiction 0: 88.78%, 1: 11.22%
+prostatitis 0: 97.27%, 1: 2.73%
+femoral neck fracture 0: 98.02%, 1: 1.98%
+sleep walking 0: 94.89%, 1: 5.11%
+monoclonal gammopathy 0: 98.33%, 1: 1.67%
+bruise 0: 83.08%, 1: 16.92%
+scar 0: 89.96%, 1: 10.04%
+cardiac disease 0: 82.22%, 1: 17.78%
+pain pelvic 0: 94.55%, 1: 5.45%
+hip fracture 0: 93.99%, 1: 6.01%
+difficulty in walking 0: 89.04%, 1: 10.96%
+panic disorder 0: 95.31%, 1: 4.69%
+atrial septal defect 0: 97.83%, 1: 2.17%
+tendinitis 0: 93.29%, 1: 6.71%
+obstructive uropathy 0: 97.93%, 1: 2.07%
+colpitis 0: 96.56%, 1: 3.44%
+rhagades 0: 97.79%, 1: 2.21%
+bone spur 0: 93.93%, 1: 6.07%
+pancreatitis 0: 82.96%, 1: 17.04%
+allergic rhinitis 0: 92.54%, 1: 7.46%
+otitis media 0: 95.40%, 1: 4.60%
+intestinal functional disorder 0: 97.70%, 1: 2.30%
+faecal incontinence 0: 92.22%, 1: 7.78%
+carpal tunnel 0: 90.70%, 1: 9.30%
+haematochezia 0: 86.84%, 1: 13.16%
+adh inappropriate 0: 95.39%, 1: 4.61%
+neuropathy 0: 71.85%, 1: 28.15%
+chest infection 0: 93.60%, 1: 6.40%
+radiculopathy 0: 94.94%, 1: 5.06%
+dysphonia 0: 90.81%, 1: 9.19%
+myelopathy 0: 97.43%, 1: 2.57%
+black stools 0: 90.85%, 1: 9.15%
+dysuria 0: 86.62%, 1: 13.38%
+flashing lights 0: 97.65%, 1: 2.35%
+electrolyte disorder 0: 90.73%, 1: 9.27%
+decreased hearing 0: 93.58%, 1: 6.42%
+mitral valve prolapse 0: 95.83%, 1: 4.17%
+fatty liver 0: 86.55%, 1: 13.45%
+mouth bleeding 0: 96.42%, 1: 3.58%
+bipolar disorder 0: 91.75%, 1: 8.25%
+embolism 0: 95.77%, 1: 4.23%
+duodenitis 0: 95.27%, 1: 4.73%
+malignant melanoma 0: 96.61%, 1: 3.39%
+ear infection 0: 94.48%, 1: 5.52%
+sinus bradycardia 0: 91.38%, 1: 8.62%
+atrial ectopic beats 0: 94.13%, 1: 5.87%
+external ear infection 0: 96.87%, 1: 3.13%
+muscle inflammation 0: 94.78%, 1: 5.22%
+cervical vertebral fracture 0: 99.10%, 1: 0.90%
+hydronephrosis 0: 93.86%, 1: 6.14%
+dental caries 0: 92.54%, 1: 7.46%
+elevated prostate specific antigen 0: 97.46%, 1: 2.54%
+mouth ulcer 0: 91.84%, 1: 8.16%
+gastroduodenal ulcer 0: 93.30%, 1: 6.70%
+fistula 0: 94.18%, 1: 5.82%
+acute bronchitis 0: 91.59%, 1: 8.41%
+gynaecomastia 0: 96.92%, 1: 3.08%
+hypophosphataemia 0: 95.61%, 1: 4.39%
+excess potassium 0: 86.21%, 1: 13.79%
+esophageal ulcer 0: 96.04%, 1: 3.96%
+renal tubular acidosis 0: 98.56%, 1: 1.44%
+phlebothrombosis 0: 85.49%, 1: 14.51%
+dysaesthesia 0: 97.63%, 1: 2.37%
+goiter 0: 95.24%, 1: 4.76%
+metabolic alkalosis 0: 94.76%, 1: 5.24%
+adenopathy 0: 86.00%, 1: 14.00%
+tympanic membrane perforation 0: 98.81%, 1: 1.19%
+arrhythmia 0: 80.50%, 1: 19.50%
+hepatic failure 0: 86.58%, 1: 13.42%
+hyperalimentation 0: 92.74%, 1: 7.26%
+spinal fracture 0: 94.77%, 1: 5.23%
+parkinson 0: 97.24%, 1: 2.76%
+movement disorder 0: 93.08%, 1: 6.92%
+macula lutea degeneration 0: 97.11%, 1: 2.89%
+musculoskeletal pain 0: 90.15%, 1: 9.85%
+cardiac ischemia 0: 85.67%, 1: 14.33%
+paranoia 0: 92.25%, 1: 7.75%
+chronic sinusitis 0: 95.80%, 1: 4.20%
+ulcer 0: 91.56%, 1: 8.44%
+rib fracture 0: 92.27%, 1: 7.73%
+rotator cuff syndrome 0: 91.57%, 1: 8.43%
+impetigo 0: 99.25%, 1: 0.75%
+fractured pelvis nos 0: 96.73%, 1: 3.27%
+infection upper respiratory 0: 85.54%, 1: 14.46%
+angioedema 0: 92.71%, 1: 7.29%
+sick sinus syndrome 0: 95.74%, 1: 4.26%
+hyperthyroidism 0: 94.96%, 1: 5.04%
+cardiac failure 0: 85.40%, 1: 14.60%
+atrioventricular block second degree 0: 97.23%, 1: 2.77%
+pharyngeal inflammation 0: 91.79%, 1: 8.21%
+adenoma 0: 96.75%, 1: 3.25%
+epilepsy 0: 95.38%, 1: 4.62%
+sinus arrest 0: 98.95%, 1: 1.05%
+angina 0: 85.00%, 1: 15.00%
+muscle disorder 0: 91.59%, 1: 8.41%
+bundle branch block 0: 97.67%, 1: 2.33%
+tachycardia ventricular 0: 89.11%, 1: 10.89%
+melanocytic naevus 0: 96.63%, 1: 3.37%
+cramp 0: 93.79%, 1: 6.21%
+atrial flutter 0: 93.20%, 1: 6.80%
+cardiovascular collapse 0: 86.55%, 1: 13.45%
+hypernatraemia 0: 92.84%, 1: 7.16%
+hive 0: 87.88%, 1: 12.12%
+mpd 0: 99.16%, 1: 0.84%
+syncope vasovagal 0: 95.17%, 1: 4.83%
+streptococcal infection 0: 94.42%, 1: 5.58%
+aspergillosis 0: 95.70%, 1: 4.30%
+light sensitivity 0: 94.34%, 1: 5.66%
+enteritis 0: 96.72%, 1: 3.28%
+bone marrow transplant 0: 96.71%, 1: 3.29%
+sclc 0: 98.77%, 1: 1.23%
+colitis 0: 90.41%, 1: 9.59%
+elevated triglycerides 0: 94.37%, 1: 5.63%
+glucose intolerance 0: 96.98%, 1: 3.02%
+multiple myeloma 0: 93.11%, 1: 6.89%
+duodenal ulcer haemorrhage 0: 97.88%, 1: 2.12%
+cmv infection 0: 94.52%, 1: 5.48%
+hemiparesis 0: 89.94%, 1: 10.06%
+polymyositis 0: 98.02%, 1: 1.98%
+bacteraemia 0: 88.87%, 1: 11.13%
+onychomycosis 0: 96.68%, 1: 3.32%
+carcinoma of the colon 0: 97.01%, 1: 2.99%
+myocarditis 0: 97.12%, 1: 2.88%
+cardiac valvulopathy 0: 92.36%, 1: 7.64%
+endocarditis 0: 95.75%, 1: 4.25%
+atrioventricular block complete 0: 95.39%, 1: 4.61%
+ventricular fibrillation 0: 91.78%, 1: 8.22%
+gangrene 0: 95.53%, 1: 4.47%
+ischaemia 0: 93.07%, 1: 6.93%
+adverse drug effect 0: 92.89%, 1: 7.11%
+defaecation urgency 0: 98.79%, 1: 1.21%
+cirrhosis 0: 91.26%, 1: 8.74%
+trigeminal neuralgia 0: 95.00%, 1: 5.00%
+hordeolum 0: 98.96%, 1: 1.04%
+polyuria 0: 94.75%, 1: 5.25%
+periodontal disease 0: 96.51%, 1: 3.49%
+obesity 0: 90.21%, 1: 9.79%
+glucosuria 0: 95.42%, 1: 4.58%
+basal cell carcinoma 0: 95.36%, 1: 4.64%
+pulmonary arrest 0: 90.50%, 1: 9.50%
+haematemesis 0: 89.35%, 1: 10.65%
+granuloma 0: 94.29%, 1: 5.71%
+insulin dependent diabetes mellitus 0: 94.66%, 1: 5.34%
+failure to thrive 0: 94.84%, 1: 5.16%
+cardiac tamponade 0: 97.47%, 1: 2.53%
+ankle fracture 0: 94.86%, 1: 5.14%
+hepatitis toxic 0: 96.60%, 1: 3.40%
+endocrine disorder 0: 95.27%, 1: 4.73%
+sinus headache 0: 97.54%, 1: 2.46%
+diverticulitis 0: 89.41%, 1: 10.59%
+dermatitis exfoliative 0: 96.02%, 1: 3.98%
+distended bladder 0: 99.03%, 1: 0.97%
+pancreatitis relapsing 0: 93.38%, 1: 6.62%
+thrombophlebitis 0: 97.16%, 1: 2.84%
+shoulder pain 0: 93.79%, 1: 6.21%
+abnormal laboratory findings 0: 90.24%, 1: 9.76%
+duodenal ulcer perforation 0: 98.41%, 1: 1.59%
+joint effusion 0: 96.01%, 1: 3.99%
+ventricular septal defect 0: 98.61%, 1: 1.39%
+gouty arthritis 0: 98.46%, 1: 1.54%
+supraventricular tachycardia 0: 90.79%, 1: 9.21%
+respiratory alkalosis 0: 98.38%, 1: 1.62%
+haemorrhage intracranial 0: 95.64%, 1: 4.36%
+major depression 0: 93.39%, 1: 6.61%
+excessive sleepiness 0: 91.66%, 1: 8.34%
+lymphoma 0: 94.60%, 1: 5.40%
+substance abuse 0: 99.21%, 1: 0.79%
+animal bite 0: 98.91%, 1: 1.09%
+cerebral vascular disorder 0: 96.16%, 1: 3.84%
+dry eye 0: 95.49%, 1: 4.51%
+ovarian cyst 0: 94.77%, 1: 5.23%
+micturition urgency 0: 94.51%, 1: 5.49%
+stress incontinence 0: 96.37%, 1: 3.63%
+hesitancy 0: 96.82%, 1: 3.18%
+bone fracture 0: 95.55%, 1: 4.45%
+nodule 0: 94.82%, 1: 5.18%
+cyst 0: 92.49%, 1: 7.51%
+abdominal hernia 0: 95.83%, 1: 4.17%
+scleroderma 0: 97.40%, 1: 2.60%
+cor pulmonale 0: 97.54%, 1: 2.46%
+excessive salivation 0: 96.37%, 1: 3.63%
+right heart failure 0: 95.35%, 1: 4.65%
+subarachnoid haemorrhage 0: 95.33%, 1: 4.67%
+cancer 0: 95.32%, 1: 4.68%
+soft tissue injuries 0: 99.06%, 1: 0.94%
+colitis pseudomembranous 0: 97.93%, 1: 2.07%
+heavy menstrual period 0: 96.72%, 1: 3.28%
+premature menopause 0: 97.62%, 1: 2.38%
+umbilical hernia 0: 97.13%, 1: 2.87%
+psoriasis 0: 94.40%, 1: 5.60%
+contact dermatitis 0: 96.98%, 1: 3.02%
+blepharoptosis 0: 96.90%, 1: 3.10%
+bleeding gums 0: 94.43%, 1: 5.57%
+epicondylitis 0: 98.66%, 1: 1.34%
+ingrowing nail 0: 98.49%, 1: 1.51%
+dermatitis seborrheic 0: 98.04%, 1: 1.96%
+candidiasis of vagina 0: 97.59%, 1: 2.41%
+spinal compression fracture 0: 94.01%, 1: 5.99%
+palsies 0: 93.47%, 1: 6.53%
+petit mal 0: 95.07%, 1: 4.93%
+gout 0: 92.84%, 1: 7.16%
+cerebral ischaemia 0: 93.05%, 1: 6.95%
+eyelid diseases 0: 97.97%, 1: 2.03%
+gastric ulcer 0: 90.22%, 1: 9.78%
+periodontitis 0: 97.79%, 1: 2.21%
+lyell 0: 92.20%, 1: 7.80%
+seborrhoeic keratosis 0: 97.96%, 1: 2.04%
+actinic keratosis 0: 96.94%, 1: 3.06%
+choking 0: 95.96%, 1: 4.04%
+dyshidrosis 0: 99.27%, 1: 0.73%
+aortic stenosis 0: 93.76%, 1: 6.24%
+coughing blood 0: 88.15%, 1: 11.85%
+glossitis 0: 97.76%, 1: 2.24%
+bacterial pneumonia 0: 94.65%, 1: 5.35%
+alcohol consumption 0: 95.75%, 1: 4.25%
+squamous cell carcinoma of skin 0: 98.29%, 1: 1.71%
+pancreatic cancer 0: 97.96%, 1: 2.04%
+tenosynovitis 0: 98.10%, 1: 1.90%
+liver abscess 0: 98.42%, 1: 1.58%
+myelodysplasia 0: 94.92%, 1: 5.08%
+rectal polyp 0: 98.05%, 1: 1.95%
+brain concussion 0: 97.69%, 1: 2.31%
+cutaneous ulcer 0: 89.33%, 1: 10.67%
+face pain 0: 94.97%, 1: 5.03%
+atrioventricular block 0: 94.94%, 1: 5.06%
+breast enlargement 0: 98.52%, 1: 1.48%
+eustachian tube disorder 0: 98.76%, 1: 1.24%
+acute sinusitis 0: 95.50%, 1: 4.50%
+pelvic inflammatory disease 0: 98.68%, 1: 1.32%
+altered bowel function 0: 97.42%, 1: 2.58%
+antinuclear antibody positive 0: 95.29%, 1: 4.71%
+galactorrhea 0: 98.81%, 1: 1.19%
+schizoaffective disorder 0: 98.39%, 1: 1.61%
+borderline personality disorder 0: 99.19%, 1: 0.81%
+injury of neck 0: 95.95%, 1: 4.05%
+pharyngitis streptococcal 0: 96.88%, 1: 3.12%
+nephrogenic diabetes insipidus 0: 98.20%, 1: 1.80%
+hepatic necrosis 0: 95.83%, 1: 4.17%
+portal hypertension 0: 97.01%, 1: 2.99%
+diabetic neuropathy 0: 91.70%, 1: 8.30%
+brain neoplasm 0: 97.57%, 1: 2.43%
+reflux esophagitis 0: 95.00%, 1: 5.00%
+breakthrough bleeding 0: 96.25%, 1: 3.75%
+hair disease 0: 98.62%, 1: 1.38%
+seroma 0: 97.31%, 1: 2.69%
+trigger finger 0: 98.56%, 1: 1.44%
+interstitial nephritis 0: 95.25%, 1: 4.75%
+nail disorder 0: 96.80%, 1: 3.20%
+allergic vasculitis 0: 96.90%, 1: 3.10%
+lichen planus 0: 98.49%, 1: 1.51%
+carotid artery stenosis 0: 91.35%, 1: 8.65%
+gastric polyps 0: 97.42%, 1: 2.58%
+hyperkeratosis 0: 95.71%, 1: 4.29%
+toxic shock 0: 98.81%, 1: 1.19%
+essential hypertension 0: 96.68%, 1: 3.32%
+hepatitis b 0: 98.32%, 1: 1.68%
+congenital heart disease 0: 98.65%, 1: 1.35%
+colon neoplasm 0: 98.99%, 1: 1.01%
+cholecystectomies 0: 94.01%, 1: 5.99%
+carcinoma of prostate 0: 95.06%, 1: 4.94%
+orthopnea 0: 94.71%, 1: 5.29%
+renal mass 0: 98.09%, 1: 1.91%
+breast disorder 0: 98.43%, 1: 1.57%
+disseminated lupus erythematosus 0: 93.88%, 1: 6.12%
+breast tenderness 0: 98.21%, 1: 1.79%
+breast discharge 0: 99.07%, 1: 0.93%
+disorder peripheral vascular 0: 91.85%, 1: 8.15%
+hyperprolactinaemia 0: 99.02%, 1: 0.98%
+acute psychosis 0: 98.71%, 1: 1.29%
+ketoacidosis 0: 97.93%, 1: 2.07%
+sarcoidosis 0: 97.52%, 1: 2.48%
+detached retina 0: 96.82%, 1: 3.18%
+eosinophilic pneumonia 0: 99.10%, 1: 0.90%
+chest wall pain 0: 96.31%, 1: 3.69%
+hyperpigmentation 0: 97.53%, 1: 2.47%
+costochondritis 0: 97.20%, 1: 2.80%
+agoraphobia 0: 98.27%, 1: 1.73%
+cheilosis 0: 97.56%, 1: 2.44%
+easy bruisability 0: 96.30%, 1: 3.70%
+optic neuritis 0: 97.43%, 1: 2.57%
+eye injury 0: 98.34%, 1: 1.66%
+scotoma 0: 95.34%, 1: 4.66%
+eczema 0: 94.69%, 1: 5.31%
+tracheostomy 0: 98.58%, 1: 1.42%
+erysipelas 0: 98.28%, 1: 1.72%
+paraparesis 0: 98.83%, 1: 1.17%
+hepatorenal syndrome 0: 97.37%, 1: 2.63%
+hepatitis c 0: 94.88%, 1: 5.12%
+eye infection 0: 96.08%, 1: 3.92%
+ebv infection 0: 98.02%, 1: 1.98%
+caesarean section 0: 97.39%, 1: 2.61%
+agranulocytoses 0: 93.08%, 1: 6.92%
+petechia 0: 93.65%, 1: 6.35%
+hematoma subdural 0: 95.00%, 1: 5.00%
+pyoderma gangrenosum 0: 98.60%, 1: 1.40%
+benign intracranial hypertension 0: 99.00%, 1: 1.00%
+cerebral artery embolism 0: 98.03%, 1: 1.97%
+hydrocephalus 0: 95.69%, 1: 4.31%
+hypogammaglobulinaemia 0: 98.58%, 1: 1.42%
+acne 0: 94.74%, 1: 5.26%
+malignant hypertension 0: 97.77%, 1: 2.23%
+post nasal drip 0: 97.24%, 1: 2.76%
+labyrinthitis 0: 97.65%, 1: 2.35%
+nodule skin 0: 96.71%, 1: 3.29%
+atrophy of skin 0: 98.83%, 1: 1.17%
+neck mass 0: 98.44%, 1: 1.56%
+tracheitis 0: 98.59%, 1: 1.41%
+vitamin d deficiency 0: 98.76%, 1: 1.24%
+kidney pain 0: 96.50%, 1: 3.50%
+hyperuricaemia 0: 94.47%, 1: 5.53%
+splenectomy 0: 99.18%, 1: 0.82%
+atypical mycobacterial infection 0: 99.08%, 1: 0.92%
+parotitis 0: 98.81%, 1: 1.19%
+choreoathetosis 0: 98.62%, 1: 1.38%
+disorder retinal 0: 96.84%, 1: 3.16%
+pericarditis 0: 95.33%, 1: 4.67%
+cerumen impaction 0: 98.64%, 1: 1.36%
+paronychia 0: 98.51%, 1: 1.49%
+colostomy 0: 98.93%, 1: 1.07%
+tooth impacted 0: 99.03%, 1: 0.97%
+thyroid disease 0: 93.95%, 1: 6.05%
+aortic aneurysm 0: 95.07%, 1: 4.93%
+dermatomyositis 0: 98.74%, 1: 1.26%
+hyperaesthesia 0: 96.89%, 1: 3.11%
+als 0: 98.74%, 1: 1.26%
+bronchiectasis 0: 96.89%, 1: 3.11%
+aplasia pure red cell 0: 96.42%, 1: 3.58%
+anaemia hypochromic 0: 99.20%, 1: 0.80%
+furuncle 0: 97.18%, 1: 2.82%
+birth defect 0: 95.88%, 1: 4.12%
+autonomic neuropathy 0: 98.84%, 1: 1.16%
+corneal disorder 0: 99.16%, 1: 0.84%
+polymyalgia rheumatica 0: 98.18%, 1: 1.82%
+diaphragmatic hernia 0: 98.52%, 1: 1.48%
+lymphedema 0: 96.52%, 1: 3.48%
+coronary artery bypass graft 0: 98.01%, 1: 1.99%
+pleural fibrosis 0: 97.33%, 1: 2.67%
+temporal arteritis 0: 98.96%, 1: 1.04%
+polyarthritis 0: 97.07%, 1: 2.93%
+phimosis 0: 99.09%, 1: 0.91%
+fecal occult blood 0: 96.50%, 1: 3.50%
+cholecystitis acute 0: 96.86%, 1: 3.14%
+inflammatory bowel disease 0: 97.82%, 1: 2.18%
+tendon injury 0: 96.30%, 1: 3.70%
+hiccough 0: 96.45%, 1: 3.55%
+serum sickness 0: 98.24%, 1: 1.76%
+anemia aplastic 0: 97.34%, 1: 2.66%
+brain abscess 0: 98.63%, 1: 1.37%
+synovial cyst 0: 96.95%, 1: 3.05%
+pneumonia primary atypical 0: 97.85%, 1: 2.15%
+ovarian cancer 0: 98.02%, 1: 1.98%
+lung adenocarcinoma 0: 98.80%, 1: 1.20%
+gastric cancer 0: 98.21%, 1: 1.79%
+varicose vein 0: 97.26%, 1: 2.74%
+aphthous stomatitis 0: 95.99%, 1: 4.01%
+intestinal ulcer 0: 98.78%, 1: 1.22%
+cutaneous mycosis 0: 98.28%, 1: 1.72%
+humerus fracture 0: 97.18%, 1: 2.82%
+volvulus 0: 99.03%, 1: 0.97%
+vaginal discharge 0: 97.55%, 1: 2.45%
+primary biliary cirrhosis 0: 98.93%, 1: 1.07%
+left ventricular hypertrophy 0: 96.91%, 1: 3.09%
+anosmia 0: 96.34%, 1: 3.66%
+abnormal cervical smear 0: 99.25%, 1: 0.75%
+haemangioma 0: 97.62%, 1: 2.38%
+incisional hernia 0: 98.26%, 1: 1.74%
+abnormal mammogram 0: 98.97%, 1: 1.03%
+arthritis bacterial 0: 97.70%, 1: 2.30%
+splenic infarction 0: 97.96%, 1: 2.04%
+hernia inguinal 0: 97.88%, 1: 2.12%
+meningioma 0: 97.70%, 1: 2.30%
+pneumocystis carinii pneumonia 0: 98.63%, 1: 1.37%
+phlebitis superficial 0: 99.07%, 1: 0.93%
+hypovitaminosis 0: 99.19%, 1: 0.81%
+hepatic encephalopathy 0: 95.38%, 1: 4.62%
+dyspnoea paroxysmal nocturnal 0: 97.46%, 1: 2.54%
+carotid bruit 0: 97.69%, 1: 2.31%
+vitamin b 12 deficiency 0: 97.53%, 1: 2.47%
+normal pressure hydrocephalus 0: 99.19%, 1: 0.81%
+paraplegia 0: 97.44%, 1: 2.56%
+aseptic meningitis 0: 98.45%, 1: 1.55%
+alcoholic intoxication 0: 97.73%, 1: 2.27%
+causalgia 0: 98.68%, 1: 1.32%
+irritation skin 0: 98.02%, 1: 1.98%
+bradyarrhythmia 0: 98.33%, 1: 1.67%
+conversion disorder 0: 98.30%, 1: 1.70%
+epidural abscess 0: 98.72%, 1: 1.28%
+cholecystitis chronic 0: 96.42%, 1: 3.58%
+swollen scrotum 0: 99.12%, 1: 0.88%
+hay fever 0: 97.63%, 1: 2.37%
+myasthenia gravis 0: 98.06%, 1: 1.94%
+fibroids 0: 95.25%, 1: 4.75%
+superior vena cava syndrome 0: 98.89%, 1: 1.11%
+mediastinal disorder 0: 98.54%, 1: 1.46%
+bladder cancer 0: 97.41%, 1: 2.59%
+quadriplegia 0: 98.96%, 1: 1.04%
+breast swelling 0: 99.01%, 1: 0.99%
+histoplasmosis 0: 98.45%, 1: 1.55%
+telangiectases 0: 98.99%, 1: 1.01%
+neurodermatitis 0: 99.02%, 1: 0.98%
+ganglion 0: 98.96%, 1: 1.04%
+bacterial vaginitis 0: 99.20%, 1: 0.80%
+hirsuitism 0: 99.28%, 1: 0.72%
+sjogrens syndrome 0: 98.31%, 1: 1.69%
+vitreous detachment 0: 98.98%, 1: 1.02%
+vitreous haemorrhage 0: 97.95%, 1: 2.05%
+venous insufficiency 0: 96.92%, 1: 3.08%
+carcinoma of the cervix 0: 99.15%, 1: 0.85%
+burns second degree 0: 98.85%, 1: 1.15%
+tension headache 0: 98.34%, 1: 1.66%
+night cramps 0: 99.10%, 1: 0.90%
+pigmentation disorder 0: 98.33%, 1: 1.67%
+keratitis 0: 98.66%, 1: 1.34%
+kidney transplant 0: 97.72%, 1: 2.28%
+diabetes insipidus 0: 98.21%, 1: 1.79%
+fracture nonunion 0: 99.10%, 1: 0.90%
+carbuncle 0: 99.19%, 1: 0.81%
+folliculitis 0: 98.14%, 1: 1.86%
+empyema 0: 98.14%, 1: 1.86%
+gastric ulcer perforated 0: 98.82%, 1: 1.18%
+platelet disorder 0: 98.58%, 1: 1.42%
+allergic alveolitis 0: 98.05%, 1: 1.95%
+cutaneous candidiasis 0: 98.98%, 1: 1.02%
+chronic ulcerative colitis 0: 96.96%, 1: 3.04%
+meningitis viral 0: 98.75%, 1: 1.25%
+anal fistula 0: 98.46%, 1: 1.54%
+esophageal cancer 0: 98.37%, 1: 1.63%
+neurogenic bladder 0: 97.20%, 1: 2.80%
+nasal polyp 0: 99.17%, 1: 0.83%
+uterine bleeding 0: 98.46%, 1: 1.54%
+uterine polyp 0: 98.84%, 1: 1.16%
+tonsillitis 0: 98.92%, 1: 1.08%
+hyperacusia 0: 98.69%, 1: 1.31%
+enterocolitis 0: 97.21%, 1: 2.79%
+motor retardation 0: 98.74%, 1: 1.26%
+cryptococcosis 0: 98.32%, 1: 1.68%
+epidural hematoma 0: 99.09%, 1: 0.91%
+retinal artery occlusion 0: 98.96%, 1: 1.04%
+chronic hepatitis 0: 98.16%, 1: 1.84%
+food intolerance 0: 98.30%, 1: 1.70%
+cluster headache 0: 99.24%, 1: 0.76%
+mycosis fungoides 0: 99.07%, 1: 0.93%
+connective tissue disease 0: 98.52%, 1: 1.48%
+macrocytosis 0: 98.64%, 1: 1.36%
+anisocoria 0: 98.49%, 1: 1.51%
+calculus ureteric 0: 98.17%, 1: 1.83%
+hiv disease 0: 99.17%, 1: 0.83%
+menstrual disorder 0: 98.25%, 1: 1.75%
+dysphemia 0: 98.54%, 1: 1.46%
+oophorectomy 0: 99.39%, 1: 0.61%
+irregular menstrual cycle 0: 98.50%, 1: 1.50%
+infectious mononucleosis 0: 99.01%, 1: 0.99%
+methaemoglobinaemia 0: 99.06%, 1: 0.94%
+pancreatic pseudocyst 0: 98.53%, 1: 1.47%
+cerebral thrombosis 0: 99.10%, 1: 0.90%
+lyme disease 0: 99.14%, 1: 0.86%
+lung abscess 0: 98.80%, 1: 1.20%
+testicular swelling 0: 98.82%, 1: 1.18%
+pneumoconiosis 0: 99.25%, 1: 0.75%
+coronary angioplasty 0: 98.96%, 1: 1.04%
+skin striae 0: 98.89%, 1: 1.11%
+corneal ulcer 0: 98.64%, 1: 1.36%
+hyperphosphatemia 0: 97.93%, 1: 2.07%
+panniculitis 0: 99.06%, 1: 0.94%
+status epilepticus 0: 97.01%, 1: 2.99%
+sacroiliitis 0: 98.66%, 1: 1.34%
+tracheobronchitis 0: 98.64%, 1: 1.36%
+pyuria 0: 98.38%, 1: 1.62%
+fibrosing alveolitis 0: 98.90%, 1: 1.10%
+optic atrophy 0: 98.80%, 1: 1.20%
+breast inflammation 0: 98.67%, 1: 1.33%
+xerosis 0: 98.53%, 1: 1.47%
+postmenopausal bleeding 0: 98.44%, 1: 1.56%
+food poisoning 0: 98.99%, 1: 1.01%
+rectal prolapse 0: 98.92%, 1: 1.08%
+multifocal leukoencephalopathy 0: 98.24%, 1: 1.76%
+mumps 0: 99.18%, 1: 0.82%
+encephalitis viral 0: 98.87%, 1: 1.13%
+megacolon 0: 98.83%, 1: 1.17%
+haemarthrosis 0: 98.99%, 1: 1.01%
+fasciitis 0: 99.15%, 1: 0.85%
+tinea pedis 0: 98.83%, 1: 1.17%
+hypogonadism 0: 99.09%, 1: 0.91%
+hydroureter 0: 98.85%, 1: 1.15%
+collagen disease 0: 99.13%, 1: 0.87%
+hepatitis a 0: 99.09%, 1: 0.91%
+testes pain 0: 98.42%, 1: 1.58%
+colonic obstruction 0: 98.89%, 1: 1.11%
+esophageal stenosis 0: 97.71%, 1: 2.29%
+parotid gland enlargement 0: 98.77%, 1: 1.23%
+epididymitis 0: 98.73%, 1: 1.27%
+chicken pox 0: 99.08%, 1: 0.92%
+bronchiolitis 0: 99.03%, 1: 0.97%
+coccydynia 0: 99.26%, 1: 0.74%
+dysmenorrhea 0: 98.89%, 1: 1.11%
+corneal abrasion 0: 99.06%, 1: 0.94%
+night blindness 0: 99.13%, 1: 0.87%
+glioblastoma multiforme 0: 98.83%, 1: 1.17%
+bunion 0: 98.31%, 1: 1.69%
+sarcoma 0: 99.21%, 1: 0.79%
+lymphocytosis 0: 98.98%, 1: 1.02%
+exophthalmos 0: 99.22%, 1: 0.78%
+viral pharyngitis 0: 98.65%, 1: 1.35%
+cystitis interstitial 0: 98.21%, 1: 1.79%
+viral pneumonia 0: 98.58%, 1: 1.42%
+asthenopia 0: 98.94%, 1: 1.06%
+endometriosis 0: 99.03%, 1: 0.97%
+myelitis 0: 98.88%, 1: 1.12%
+folate deficiency 0: 99.09%, 1: 0.91%
+hypermetropia 0: 99.16%, 1: 0.84%
+balanitis 0: 99.15%, 1: 0.85%
+[UNK] 0: 60.22%, 1: 39.78%
+Total size = 39,631 | train size = 39,631 | val size = 11,606 | test size = 12,236
+Building model 0
+MoleculeModel(
+  (sigmoid): Sigmoid()
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.2, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+      (1): MPNEncoder(
+        (dropout_layer): Dropout(p=0.2, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+    )
+    (ft_layers): ModuleList(
+      (0): feature_layer(
+        (ft_layer): Linear(in_features=3791, out_features=256, bias=True)
+      )
+      (1): feature_layer(
+        (ft_layer): Linear(in_features=3791, out_features=256, bias=True)
+      )
+    )
+  )
+  (ffn): Sequential(
+    (0): Dropout(p=0.2, inplace=False)
+    (1): Linear(in_features=556, out_features=300, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.2, inplace=False)
+    (4): Linear(in_features=300, out_features=964, bias=True)
+  )
+)
+Number of parameters = 1,692,616
+Moving model to cuda
+  0%|          | 0/25 [00:00<?, ?it/s]Epoch 0
+
+  0%|          | 0/155 [00:00<?, ?it/s][A
+  1%|          | 1/155 [00:02<06:54,  2.69s/it][A
+  1%|▏         | 2/155 [00:03<03:36,  1.42s/it][A
+  2%|▏         | 3/155 [00:05<04:43,  1.86s/it][A
+  3%|▎         | 4/155 [00:06<03:31,  1.40s/it][A
+  3%|▎         | 5/155 [00:08<03:51,  1.54s/it][A
+  4%|▍         | 6/155 [00:08<03:09,  1.27s/it][A
+  5%|▍         | 7/155 [00:11<04:09,  1.69s/it][A
+  5%|▌         | 8/155 [00:11<03:04,  1.25s/it][A
+  6%|▌         | 9/155 [00:13<03:19,  1.37s/it][ALoss = 6.6286e-01, PNorm = 46.7039, GNorm = 0.1787, lr_0 = 2.7500e-04
+
+  6%|▋         | 10/155 [00:13<02:33,  1.06s/it][A
+  7%|▋         | 11/155 [00:14<02:06,  1.14it/s][A
+  8%|▊         | 12/155 [00:15<02:13,  1.07it/s][A
+  8%|▊         | 13/155 [00:16<02:37,  1.11s/it][A
+  9%|▉         | 14/155 [00:17<02:06,  1.11it/s][A
+ 10%|▉         | 15/155 [00:17<02:00,  1.16it/s][A
+ 10%|█         | 16/155 [00:19<02:34,  1.11s/it][A
+ 11%|█         | 17/155 [00:21<02:45,  1.20s/it][A
+ 12%|█▏        | 18/155 [00:22<02:44,  1.20s/it][A
+ 12%|█▏        | 19/155 [00:23<02:31,  1.11s/it][ALoss = 4.5605e-01, PNorm = 46.8429, GNorm = 0.2055, lr_0 = 4.3409e-04
+
+ 13%|█▎        | 20/155 [00:24<02:48,  1.25s/it][A
+ 14%|█▎        | 21/155 [00:26<03:11,  1.43s/it][A
+ 14%|█▍        | 22/155 [00:28<03:12,  1.44s/it][A
+ 15%|█▍        | 23/155 [00:28<02:31,  1.15s/it][A
+ 15%|█▌        | 24/155 [00:29<02:38,  1.21s/it][A
+ 16%|█▌        | 25/155 [00:30<02:25,  1.12s/it][A
+ 17%|█▋        | 26/155 [00:33<03:13,  1.50s/it][A
+ 17%|█▋        | 27/155 [00:33<02:29,  1.17s/it][A
+ 18%|█▊        | 28/155 [00:34<02:38,  1.25s/it][A
+ 19%|█▊        | 29/155 [00:35<02:11,  1.04s/it][ALoss = 2.8439e-01, PNorm = 46.9475, GNorm = 0.0639, lr_0 = 5.9318e-04
+
+ 19%|█▉        | 30/155 [00:38<03:23,  1.63s/it][A
+ 20%|██        | 31/155 [00:38<02:35,  1.25s/it][A
+ 21%|██        | 32/155 [00:40<02:50,  1.39s/it][A
+ 21%|██▏       | 33/155 [00:40<02:12,  1.09s/it][A
+ 22%|██▏       | 34/155 [00:42<02:24,  1.19s/it][A
+ 23%|██▎       | 35/155 [00:42<01:49,  1.09it/s][A
+ 23%|██▎       | 36/155 [00:44<02:19,  1.17s/it][A
+ 24%|██▍       | 37/155 [00:44<01:50,  1.07it/s][A
+ 25%|██▍       | 38/155 [00:45<01:45,  1.10it/s][A
+ 25%|██▌       | 39/155 [00:46<01:30,  1.29it/s][ALoss = 2.4918e-01, PNorm = 46.9829, GNorm = 0.0368, lr_0 = 7.5227e-04
+
+ 26%|██▌       | 40/155 [00:49<03:02,  1.59s/it][A
+ 26%|██▋       | 41/155 [00:50<02:21,  1.24s/it][A
+ 27%|██▋       | 42/155 [00:51<02:24,  1.28s/it][A
+ 28%|██▊       | 43/155 [00:51<01:51,  1.00it/s][A
+ 28%|██▊       | 44/155 [00:53<02:26,  1.32s/it][A
+ 29%|██▉       | 45/155 [00:54<01:53,  1.03s/it][A
+ 30%|██▉       | 46/155 [00:55<01:52,  1.03s/it][A
+ 30%|███       | 47/155 [00:55<01:28,  1.23it/s][A
+ 31%|███       | 48/155 [00:57<01:59,  1.11s/it][A
+ 32%|███▏      | 49/155 [00:57<01:38,  1.08it/s][ALoss = 2.2605e-01, PNorm = 47.0743, GNorm = 0.0281, lr_0 = 9.1136e-04
+
+ 32%|███▏      | 50/155 [00:59<02:00,  1.14s/it][A
+ 33%|███▎      | 51/155 [00:59<01:34,  1.10it/s][A
+ 34%|███▎      | 52/155 [01:02<02:25,  1.41s/it][A
+ 34%|███▍      | 53/155 [01:02<01:51,  1.09s/it][A
+ 35%|███▍      | 54/155 [01:05<02:26,  1.45s/it][A
+ 35%|███▌      | 55/155 [01:05<01:49,  1.10s/it][A
+ 36%|███▌      | 56/155 [01:08<02:41,  1.63s/it][A
+ 37%|███▋      | 57/155 [01:08<02:05,  1.28s/it][A
+ 37%|███▋      | 58/155 [01:09<01:46,  1.10s/it][A
+ 38%|███▊      | 59/155 [01:09<01:25,  1.12it/s][ALoss = 2.1920e-01, PNorm = 47.1942, GNorm = 0.0255, lr_0 = 1.0705e-03
+
+ 39%|███▊      | 60/155 [01:10<01:17,  1.23it/s][A
+ 39%|███▉      | 61/155 [01:12<01:55,  1.23s/it][A
+ 40%|████      | 62/155 [01:13<01:32,  1.00it/s][A
+ 41%|████      | 63/155 [01:13<01:30,  1.02it/s][A
+ 41%|████▏     | 64/155 [01:16<02:02,  1.34s/it][A
+ 42%|████▏     | 65/155 [01:16<01:42,  1.14s/it][A
+ 43%|████▎     | 66/155 [01:17<01:22,  1.08it/s][A
+ 43%|████▎     | 67/155 [01:19<02:02,  1.39s/it][A
+ 44%|████▍     | 68/155 [01:21<01:58,  1.36s/it][A
+ 45%|████▍     | 69/155 [01:21<01:34,  1.10s/it][ALoss = 2.1447e-01, PNorm = 47.3039, GNorm = 0.0384, lr_0 = 1.2295e-03
+
+ 45%|████▌     | 70/155 [01:22<01:23,  1.02it/s][A
+ 46%|████▌     | 71/155 [01:23<01:40,  1.20s/it][A
+ 46%|████▋     | 72/155 [01:24<01:32,  1.11s/it][A
+ 47%|████▋     | 73/155 [01:25<01:19,  1.03it/s][A
+ 48%|████▊     | 74/155 [01:26<01:12,  1.12it/s][A
+ 48%|████▊     | 75/155 [01:27<01:17,  1.04it/s][A
+ 49%|████▉     | 76/155 [01:28<01:24,  1.07s/it][A
+ 50%|████▉     | 77/155 [01:29<01:09,  1.12it/s][A
+ 50%|█████     | 78/155 [01:29<01:05,  1.17it/s][A
+ 51%|█████     | 79/155 [01:31<01:25,  1.12s/it][ALoss = 2.1144e-01, PNorm = 47.4361, GNorm = 0.0239, lr_0 = 1.3886e-03
+
+ 52%|█████▏    | 80/155 [01:32<01:09,  1.08it/s][A
+ 52%|█████▏    | 81/155 [01:33<01:12,  1.02it/s][A
+ 53%|█████▎    | 82/155 [01:35<01:47,  1.48s/it][A
+ 54%|█████▎    | 83/155 [01:36<01:32,  1.28s/it][A
+ 54%|█████▍    | 84/155 [01:37<01:17,  1.09s/it][A
+ 55%|█████▍    | 85/155 [01:39<01:29,  1.28s/it][A
+ 55%|█████▌    | 86/155 [01:41<01:43,  1.50s/it][A
+ 56%|█████▌    | 87/155 [01:41<01:24,  1.24s/it][A
+ 57%|█████▋    | 88/155 [01:42<01:11,  1.06s/it][A
+ 57%|█████▋    | 89/155 [01:42<01:00,  1.09it/s][ALoss = 2.0707e-01, PNorm = 47.5665, GNorm = 0.0256, lr_0 = 1.5477e-03
+
+ 58%|█████▊    | 90/155 [01:43<00:51,  1.25it/s][A
+ 59%|█████▊    | 91/155 [01:45<01:18,  1.23s/it][A
+ 59%|█████▉    | 92/155 [01:46<01:17,  1.23s/it][A
+ 60%|██████    | 93/155 [01:47<01:07,  1.09s/it][A
+ 61%|██████    | 94/155 [01:48<01:00,  1.01it/s][A
+ 61%|██████▏   | 95/155 [01:49<01:01,  1.02s/it][A
+ 62%|██████▏   | 96/155 [01:50<00:56,  1.05it/s][A
+ 63%|██████▎   | 97/155 [01:51<00:54,  1.07it/s][A
+ 63%|██████▎   | 98/155 [01:52<00:53,  1.06it/s][A
+ 64%|██████▍   | 99/155 [01:54<01:23,  1.49s/it][ALoss = 2.0675e-01, PNorm = 47.7082, GNorm = 0.0223, lr_0 = 1.7068e-03
+
+ 65%|██████▍   | 100/155 [01:55<01:07,  1.23s/it][A
+ 65%|██████▌   | 101/155 [01:56<01:04,  1.19s/it][A
+ 66%|██████▌   | 102/155 [01:58<01:10,  1.32s/it][A
+ 66%|██████▋   | 103/155 [01:58<00:57,  1.11s/it][A
+ 67%|██████▋   | 104/155 [01:59<00:51,  1.00s/it][A
+ 68%|██████▊   | 105/155 [02:00<00:46,  1.08it/s][A
+ 68%|██████▊   | 106/155 [02:01<00:51,  1.06s/it][A
+ 69%|██████▉   | 107/155 [02:02<00:44,  1.07it/s][A
+ 70%|██████▉   | 108/155 [02:03<00:48,  1.02s/it][A
+ 70%|███████   | 109/155 [02:04<00:45,  1.02it/s][ALoss = 2.0783e-01, PNorm = 47.8580, GNorm = 0.0344, lr_0 = 1.8659e-03
+
+ 71%|███████   | 110/155 [02:05<00:43,  1.03it/s][A
+ 72%|███████▏  | 111/155 [02:06<00:46,  1.06s/it][A
+ 72%|███████▏  | 112/155 [02:07<00:45,  1.07s/it][A
+ 73%|███████▎  | 113/155 [02:09<00:49,  1.17s/it][A
+ 74%|███████▎  | 114/155 [02:10<00:49,  1.21s/it][A
+ 74%|███████▍  | 115/155 [02:10<00:38,  1.04it/s][A
+ 75%|███████▍  | 116/155 [02:11<00:36,  1.07it/s][A
+ 75%|███████▌  | 117/155 [02:13<00:40,  1.07s/it][A
+ 76%|███████▌  | 118/155 [02:15<00:57,  1.56s/it][A
+ 77%|███████▋  | 119/155 [02:16<00:43,  1.21s/it][ALoss = 2.0165e-01, PNorm = 48.0605, GNorm = 0.0360, lr_0 = 2.0250e-03
+
+ 77%|███████▋  | 120/155 [02:16<00:36,  1.06s/it][A
+ 78%|███████▊  | 121/155 [02:18<00:35,  1.05s/it][A
+ 79%|███████▊  | 122/155 [02:18<00:32,  1.02it/s][A
+ 79%|███████▉  | 123/155 [02:19<00:28,  1.11it/s][A
+ 80%|████████  | 124/155 [02:20<00:29,  1.04it/s][A
+ 81%|████████  | 125/155 [02:21<00:29,  1.01it/s][A
+ 81%|████████▏ | 126/155 [02:22<00:30,  1.04s/it][A
+ 82%|████████▏ | 127/155 [02:23<00:25,  1.09it/s][A
+ 83%|████████▎ | 128/155 [02:26<00:41,  1.54s/it][A
+ 83%|████████▎ | 129/155 [02:27<00:33,  1.27s/it][ALoss = 2.0344e-01, PNorm = 48.2797, GNorm = 0.0245, lr_0 = 2.1841e-03
+
+ 84%|████████▍ | 130/155 [02:29<00:38,  1.54s/it][A
+ 85%|████████▍ | 131/155 [02:29<00:29,  1.23s/it][A
+ 85%|████████▌ | 132/155 [02:30<00:25,  1.12s/it][A
+ 86%|████████▌ | 133/155 [02:31<00:25,  1.18s/it][A
+ 86%|████████▋ | 134/155 [02:32<00:23,  1.12s/it][A
+ 87%|████████▋ | 135/155 [02:33<00:18,  1.06it/s][A
+ 88%|████████▊ | 136/155 [02:34<00:15,  1.23it/s][A
+ 88%|████████▊ | 137/155 [02:35<00:16,  1.10it/s][A
+ 89%|████████▉ | 138/155 [02:35<00:14,  1.17it/s][A
+ 90%|████████▉ | 139/155 [02:37<00:18,  1.14s/it][ALoss = 2.0352e-01, PNorm = 48.4830, GNorm = 0.0291, lr_0 = 2.3432e-03
+
+ 90%|█████████ | 140/155 [02:38<00:13,  1.08it/s][A
+ 91%|█████████ | 141/155 [02:38<00:12,  1.10it/s][A
+ 92%|█████████▏| 142/155 [02:39<00:09,  1.34it/s][A
+ 92%|█████████▏| 143/155 [02:41<00:13,  1.10s/it][A
+ 93%|█████████▎| 144/155 [02:42<00:11,  1.04s/it][A
+ 94%|█████████▎| 145/155 [02:42<00:09,  1.08it/s][A
+ 94%|█████████▍| 146/155 [02:43<00:08,  1.12it/s][A
+ 95%|█████████▍| 147/155 [02:45<00:10,  1.27s/it][A
+ 95%|█████████▌| 148/155 [02:46<00:07,  1.09s/it][A
+ 96%|█████████▌| 149/155 [02:48<00:07,  1.29s/it][ALoss = 2.0711e-01, PNorm = 48.7409, GNorm = 0.0233, lr_0 = 2.5023e-03
+
+ 97%|█████████▋| 150/155 [02:48<00:05,  1.12s/it][A
+ 97%|█████████▋| 151/155 [02:49<00:04,  1.00s/it][A
+ 98%|█████████▊| 152/155 [02:50<00:02,  1.08it/s][A
+ 99%|█████████▊| 153/155 [02:51<00:02,  1.04s/it][A
+ 99%|█████████▉| 154/155 [02:52<00:00,  1.14it/s][A
+100%|██████████| 155/155 [02:52<00:00,  1.39it/s][A
+                                                 [A
+  0%|          | 0/46 [00:00<?, ?it/s][A
+  2%|▏         | 1/46 [00:03<02:52,  3.84s/it][A
+  4%|▍         | 2/46 [00:04<01:20,  1.82s/it][A
+  7%|▋         | 3/46 [00:04<00:52,  1.23s/it][A
+  9%|▊         | 4/46 [00:05<00:35,  1.17it/s][A
+ 11%|█         | 5/46 [00:07<00:52,  1.29s/it][A
+ 13%|█▎        | 6/46 [00:07<00:37,  1.07it/s][A
+ 15%|█▌        | 7/46 [00:08<00:35,  1.09it/s][A
+ 17%|█▋        | 8/46 [00:08<00:29,  1.27it/s][A
+ 20%|█▉        | 9/46 [00:11<00:49,  1.34s/it][A
+ 22%|██▏       | 10/46 [00:11<00:35,  1.01it/s][A
+ 24%|██▍       | 11/46 [00:12<00:35,  1.01s/it][A
+ 26%|██▌       | 12/46 [00:12<00:26,  1.27it/s][A
+ 28%|██▊       | 13/46 [00:14<00:38,  1.18s/it][A
+ 30%|███       | 14/46 [00:15<00:30,  1.04it/s][A
+ 33%|███▎      | 15/46 [00:17<00:39,  1.27s/it][A
+ 37%|███▋      | 17/46 [00:18<00:28,  1.04it/s][A
+ 39%|███▉      | 18/46 [00:18<00:22,  1.26it/s][A
+ 41%|████▏     | 19/46 [00:22<00:40,  1.49s/it][A
+ 46%|████▌     | 21/46 [00:22<00:24,  1.02it/s][A
+ 48%|████▊     | 22/46 [00:23<00:19,  1.20it/s][A
+ 50%|█████     | 23/46 [00:24<00:23,  1.04s/it][A
+ 52%|█████▏    | 24/46 [00:25<00:17,  1.26it/s][A
+ 54%|█████▍    | 25/46 [00:26<00:18,  1.13it/s][A
+ 57%|█████▋    | 26/46 [00:26<00:16,  1.21it/s][A
+ 59%|█████▊    | 27/46 [00:28<00:20,  1.09s/it][A
+ 61%|██████    | 28/46 [00:29<00:16,  1.06it/s][A
+ 63%|██████▎   | 29/46 [00:30<00:16,  1.05it/s][A
+ 65%|██████▌   | 30/46 [00:30<00:13,  1.19it/s][A
+ 67%|██████▋   | 31/46 [00:32<00:18,  1.20s/it][A
+ 70%|██████▉   | 32/46 [00:33<00:13,  1.03it/s][A
+ 72%|███████▏  | 33/46 [00:34<00:12,  1.08it/s][A
+ 74%|███████▍  | 34/46 [00:34<00:08,  1.34it/s][A
+ 76%|███████▌  | 35/46 [00:36<00:11,  1.03s/it][A
+ 78%|███████▊  | 36/46 [00:36<00:07,  1.26it/s][A
+ 80%|████████  | 37/46 [00:38<00:10,  1.15s/it][A
+ 83%|████████▎ | 38/46 [00:38<00:06,  1.20it/s][A
+ 85%|████████▍ | 39/46 [00:40<00:08,  1.24s/it][A
+ 87%|████████▋ | 40/46 [00:40<00:05,  1.01it/s][A
+ 89%|████████▉ | 41/46 [00:42<00:05,  1.08s/it][A
+ 91%|█████████▏| 42/46 [00:42<00:03,  1.26it/s][A
+ 93%|█████████▎| 43/46 [00:44<00:03,  1.31s/it][A
+ 98%|█████████▊| 45/46 [00:45<00:00,  1.33it/s][A
+                                               [AValidation auc = 0.735371, N_iter = 39631
+Validation prc-auc = 0.184702, N_iter = 39631
+Validation accuracy = 0.920338, N_iter = 39631
+Validation ap50 = 0.185771, N_iter = 39631
+  4%|▍         | 1/25 [04:57<1:59:07, 297.80s/it]Epoch 1
+passed
+
+  0%|          | 0/155 [00:00<?, ?it/s][A
+  1%|          | 1/155 [00:03<09:55,  3.87s/it][A
+  1%|▏         | 2/155 [00:04<04:34,  1.79s/it][A
+  2%|▏         | 3/155 [00:05<04:25,  1.75s/it][A
+  3%|▎         | 4/155 [00:06<03:04,  1.22s/it][A
+  3%|▎         | 5/155 [00:07<03:20,  1.34s/it][ALoss = 2.0055e-01, PNorm = 49.0450, GNorm = 0.0312, lr_0 = 2.6773e-03
+
+  4%|▍         | 6/155 [00:08<02:30,  1.01s/it][A
+  5%|▍         | 7/155 [00:10<03:54,  1.58s/it][A
+  5%|▌         | 8/155 [00:11<02:57,  1.21s/it][A
+  6%|▌         | 9/155 [00:13<03:14,  1.34s/it][A
+  6%|▋         | 10/155 [00:13<02:28,  1.02s/it][A
+  7%|▋         | 11/155 [00:16<03:49,  1.59s/it][A
+  8%|▊         | 12/155 [00:16<02:55,  1.23s/it][A
+  8%|▊         | 13/155 [00:18<03:28,  1.47s/it][A
+  9%|▉         | 14/155 [00:19<02:40,  1.14s/it][A
+ 10%|▉         | 15/155 [00:19<02:13,  1.05it/s][ALoss = 2.0013e-01, PNorm = 49.3759, GNorm = 0.0301, lr_0 = 2.8364e-03
+
+ 10%|█         | 16/155 [00:20<02:13,  1.04it/s][A
+ 11%|█         | 17/155 [00:21<01:58,  1.17it/s][A
+ 12%|█▏        | 18/155 [00:22<02:09,  1.06it/s][A
+ 12%|█▏        | 19/155 [00:23<02:25,  1.07s/it][A
+ 13%|█▎        | 20/155 [00:24<02:22,  1.06s/it][A
+ 14%|█▎        | 21/155 [00:25<02:05,  1.07it/s][A
+ 14%|█▍        | 22/155 [00:26<02:30,  1.13s/it][A
+ 15%|█▍        | 23/155 [00:27<02:10,  1.01it/s][A
+ 15%|█▌        | 24/155 [00:28<02:03,  1.06it/s][A
+ 16%|█▌        | 25/155 [00:30<02:35,  1.20s/it][ALoss = 2.0348e-01, PNorm = 49.7623, GNorm = 0.0357, lr_0 = 2.9955e-03
+
+ 17%|█▋        | 26/155 [00:31<02:48,  1.31s/it][A
+ 17%|█▋        | 27/155 [00:33<03:05,  1.45s/it][A
+ 18%|█▊        | 28/155 [00:33<02:22,  1.12s/it][A
+ 19%|█▊        | 29/155 [00:35<02:39,  1.27s/it][A
+ 19%|█▉        | 30/155 [00:36<02:13,  1.07s/it][A
+ 20%|██        | 31/155 [00:37<02:20,  1.14s/it][A
+ 21%|██        | 32/155 [00:39<02:58,  1.45s/it][A
+ 21%|██▏       | 33/155 [00:40<02:22,  1.17s/it][A
+ 22%|██▏       | 34/155 [00:40<02:10,  1.08s/it][A
+ 23%|██▎       | 35/155 [00:41<01:58,  1.02it/s][ALoss = 2.0246e-01, PNorm = 50.1553, GNorm = 0.0277, lr_0 = 3.1545e-03
+
+ 23%|██▎       | 36/155 [00:42<01:42,  1.16it/s][A
+ 24%|██▍       | 37/155 [00:44<02:22,  1.21s/it][A
+ 25%|██▍       | 38/155 [00:44<01:57,  1.01s/it][A
+ 25%|██▌       | 39/155 [00:47<02:43,  1.41s/it][A
+ 26%|██▌       | 40/155 [00:48<02:29,  1.30s/it][A
+ 26%|██▋       | 41/155 [00:48<02:05,  1.10s/it][A
+ 27%|██▋       | 42/155 [00:50<02:21,  1.25s/it][A
+ 28%|██▊       | 43/155 [00:51<02:23,  1.28s/it][A
+ 28%|██▊       | 44/155 [00:52<01:55,  1.04s/it][A
+ 29%|██▉       | 45/155 [00:53<01:43,  1.07it/s][ALoss = 2.0853e-01, PNorm = 50.5919, GNorm = 0.0263, lr_0 = 3.3136e-03
+
+ 30%|██▉       | 46/155 [00:53<01:27,  1.25it/s][A
+ 30%|███       | 47/155 [00:54<01:36,  1.11it/s][A
+ 31%|███       | 48/155 [00:55<01:24,  1.26it/s][A
+ 32%|███▏      | 49/155 [00:57<02:11,  1.24s/it][A
+ 32%|███▏      | 50/155 [00:57<01:44,  1.01it/s][A
+ 33%|███▎      | 51/155 [01:00<02:23,  1.38s/it][A
+ 34%|███▎      | 52/155 [01:00<01:52,  1.09s/it][A
+ 34%|███▍      | 53/155 [01:01<01:57,  1.15s/it][A
+ 35%|███▍      | 54/155 [01:03<02:20,  1.39s/it][A
+ 35%|███▌      | 55/155 [01:04<01:52,  1.12s/it][ALoss = 2.0504e-01, PNorm = 51.0636, GNorm = 0.0660, lr_0 = 3.4727e-03
+
+ 36%|███▌      | 56/155 [01:05<01:49,  1.11s/it][A
+ 37%|███▋      | 57/155 [01:05<01:31,  1.08it/s][A
+ 37%|███▋      | 58/155 [01:08<02:06,  1.30s/it][A
+ 38%|███▊      | 59/155 [01:08<01:52,  1.18s/it][A
+ 39%|███▊      | 60/155 [01:09<01:26,  1.10it/s][A
+ 39%|███▉      | 61/155 [01:09<01:14,  1.27it/s][A
+ 40%|████      | 62/155 [01:10<01:06,  1.39it/s][A
+ 41%|████      | 63/155 [01:12<01:56,  1.27s/it][A
+ 41%|████▏     | 64/155 [01:13<01:35,  1.05s/it][A
+ 42%|████▏     | 65/155 [01:14<01:45,  1.17s/it][ALoss = 2.0104e-01, PNorm = 51.5995, GNorm = 0.0421, lr_0 = 3.6318e-03
+
+ 43%|████▎     | 66/155 [01:15<01:22,  1.07it/s][A
+ 43%|████▎     | 67/155 [01:17<02:03,  1.40s/it][A
+ 44%|████▍     | 68/155 [01:18<01:37,  1.12s/it][A
+ 45%|████▍     | 69/155 [01:19<01:52,  1.31s/it][A
+ 45%|████▌     | 70/155 [01:20<01:27,  1.03s/it][A
+ 46%|████▌     | 71/155 [01:22<01:59,  1.43s/it][A
+ 46%|████▋     | 72/155 [01:23<01:40,  1.21s/it][A
+ 47%|████▋     | 73/155 [01:24<01:42,  1.25s/it][A
+ 48%|████▊     | 74/155 [01:26<01:59,  1.47s/it][A
+ 48%|████▊     | 75/155 [01:28<01:57,  1.47s/it][ALoss = 2.0230e-01, PNorm = 52.2066, GNorm = 0.0335, lr_0 = 3.7909e-03
+
+ 49%|████▉     | 76/155 [01:28<01:39,  1.26s/it][A
+ 50%|████▉     | 77/155 [01:31<01:57,  1.51s/it][A
+ 50%|█████     | 78/155 [01:31<01:34,  1.22s/it][A
+ 51%|█████     | 79/155 [01:32<01:36,  1.26s/it][A
+ 52%|█████▏    | 80/155 [01:33<01:19,  1.06s/it][A
+ 52%|█████▏    | 81/155 [01:36<02:03,  1.67s/it][A
+ 53%|█████▎    | 82/155 [01:37<01:35,  1.31s/it][A
+ 54%|█████▎    | 83/155 [01:37<01:22,  1.15s/it][A
+ 54%|█████▍    | 84/155 [01:38<01:10,  1.01it/s][A
+ 55%|█████▍    | 85/155 [01:40<01:26,  1.24s/it][ALoss = 2.0425e-01, PNorm = 52.7680, GNorm = 0.0357, lr_0 = 3.9500e-03
+
+ 55%|█████▌    | 86/155 [01:41<01:16,  1.11s/it][A
+ 56%|█████▌    | 87/155 [01:41<01:10,  1.03s/it][A
+ 57%|█████▋    | 88/155 [01:42<00:57,  1.17it/s][A
+ 57%|█████▋    | 89/155 [01:44<01:24,  1.27s/it][A
+ 58%|█████▊    | 90/155 [01:45<01:06,  1.03s/it][A
+ 59%|█████▊    | 91/155 [01:45<01:02,  1.03it/s][A
+ 59%|█████▉    | 92/155 [01:47<01:12,  1.15s/it][A
+ 60%|██████    | 93/155 [01:48<01:15,  1.22s/it][A
+ 61%|██████    | 94/155 [01:49<01:04,  1.06s/it][A
+ 61%|██████▏   | 95/155 [01:50<01:00,  1.00s/it][ALoss = 2.0316e-01, PNorm = 53.3393, GNorm = 0.0355, lr_0 = 4.1091e-03
+
+ 62%|██████▏   | 96/155 [01:51<01:04,  1.10s/it][A
+ 63%|██████▎   | 97/155 [01:52<01:05,  1.13s/it][A
+ 63%|██████▎   | 98/155 [01:53<00:52,  1.09it/s][A
+ 64%|██████▍   | 99/155 [01:55<01:02,  1.12s/it][A
+ 65%|██████▍   | 100/155 [01:55<00:52,  1.05it/s][A
+ 65%|██████▌   | 101/155 [01:57<01:05,  1.21s/it][A
+ 66%|██████▌   | 102/155 [01:57<00:54,  1.03s/it][A
+ 66%|██████▋   | 103/155 [02:01<01:24,  1.63s/it][A
+ 67%|██████▋   | 104/155 [02:01<01:07,  1.32s/it][A
+ 68%|██████▊   | 105/155 [02:03<01:12,  1.45s/it][ALoss = 2.0428e-01, PNorm = 54.0581, GNorm = 0.0343, lr_0 = 4.2682e-03
+
+ 68%|██████▊   | 106/155 [02:03<00:55,  1.13s/it][A
+ 69%|██████▉   | 107/155 [02:05<01:10,  1.46s/it][A
+ 70%|██████▉   | 108/155 [02:06<00:52,  1.11s/it][A
+ 70%|███████   | 109/155 [02:07<00:56,  1.23s/it][A
+ 71%|███████   | 110/155 [02:08<00:44,  1.02it/s][A
+ 72%|███████▏  | 111/155 [02:11<01:14,  1.69s/it][A
+ 72%|███████▏  | 112/155 [02:11<00:56,  1.32s/it][A
+ 73%|███████▎  | 113/155 [02:13<00:57,  1.38s/it][A
+ 74%|███████▎  | 114/155 [02:13<00:45,  1.11s/it][A
+ 74%|███████▍  | 115/155 [02:16<01:02,  1.57s/it][ALoss = 2.0548e-01, PNorm = 54.8377, GNorm = 0.0360, lr_0 = 4.4273e-03
+
+ 75%|███████▍  | 116/155 [02:17<00:47,  1.23s/it][A
+ 75%|███████▌  | 117/155 [02:18<00:48,  1.28s/it][A
+ 76%|███████▌  | 118/155 [02:19<00:46,  1.25s/it][A
+ 77%|███████▋  | 119/155 [02:21<00:49,  1.38s/it][A
+ 77%|███████▋  | 120/155 [02:21<00:39,  1.13s/it][A
+ 78%|███████▊  | 121/155 [02:23<00:43,  1.28s/it][A
+ 79%|███████▊  | 122/155 [02:24<00:43,  1.32s/it][A
+ 79%|███████▉  | 123/155 [02:26<00:48,  1.50s/it][A
+ 80%|████████  | 124/155 [02:27<00:36,  1.19s/it][A
+ 81%|████████  | 125/155 [02:28<00:39,  1.31s/it][ALoss = 2.0197e-01, PNorm = 55.6595, GNorm = 0.0473, lr_0 = 4.5864e-03
+
+ 81%|████████▏ | 126/155 [02:29<00:34,  1.20s/it][A
+ 82%|████████▏ | 127/155 [02:32<00:42,  1.53s/it][A
+ 83%|████████▎ | 128/155 [02:32<00:32,  1.20s/it][A
+ 83%|████████▎ | 129/155 [02:35<00:45,  1.74s/it][A
+ 84%|████████▍ | 130/155 [02:35<00:33,  1.33s/it][A
+ 85%|████████▍ | 131/155 [02:38<00:38,  1.60s/it][A
+ 85%|████████▌ | 132/155 [02:38<00:28,  1.24s/it][A
+ 86%|████████▌ | 133/155 [02:40<00:30,  1.41s/it][A
+ 86%|████████▋ | 134/155 [02:40<00:22,  1.08s/it][A
+ 87%|████████▋ | 135/155 [02:42<00:26,  1.31s/it][ALoss = 2.0636e-01, PNorm = 56.6025, GNorm = 0.0510, lr_0 = 4.7455e-03
+
+ 88%|████████▊ | 136/155 [02:42<00:19,  1.02s/it][A
+ 88%|████████▊ | 137/155 [02:45<00:27,  1.54s/it][A
+ 89%|████████▉ | 138/155 [02:46<00:20,  1.20s/it][A
+ 90%|████████▉ | 139/155 [02:47<00:22,  1.42s/it][A
+ 90%|█████████ | 140/155 [02:48<00:16,  1.10s/it][A
+ 91%|█████████ | 141/155 [02:49<00:16,  1.20s/it][A
+ 92%|█████████▏| 142/155 [02:50<00:12,  1.04it/s][A
+ 92%|█████████▏| 143/155 [02:51<00:12,  1.04s/it][A
+ 93%|█████████▎| 144/155 [02:52<00:11,  1.06s/it][A
+ 94%|█████████▎| 145/155 [02:54<00:13,  1.39s/it][ALoss = 2.0684e-01, PNorm = 57.6849, GNorm = 0.0598, lr_0 = 4.9045e-03
+
+ 94%|█████████▍| 146/155 [02:55<00:10,  1.11s/it][A
+ 95%|█████████▍| 147/155 [02:55<00:07,  1.02it/s][A
+ 95%|█████████▌| 148/155 [02:56<00:05,  1.23it/s][A
+ 96%|█████████▌| 149/155 [02:58<00:07,  1.29s/it][A
+ 97%|█████████▋| 150/155 [02:59<00:05,  1.03s/it][A
+ 97%|█████████▋| 151/155 [02:59<00:03,  1.03it/s][A
+ 98%|█████████▊| 152/155 [03:00<00:02,  1.16it/s][A
+ 99%|█████████▊| 153/155 [03:02<00:02,  1.22s/it][A
+ 99%|█████████▉| 154/155 [03:02<00:00,  1.06it/s][A
+100%|██████████| 155/155 [03:03<00:00,  1.35it/s][A
+                                                 [A
+  0%|          | 0/46 [00:00<?, ?it/s][A
+  2%|▏         | 1/46 [00:04<03:38,  4.85s/it][A
+  7%|▋         | 3/46 [00:06<01:22,  1.92s/it][A
+ 11%|█         | 5/46 [00:09<01:05,  1.59s/it][A
+ 13%|█▎        | 6/46 [00:09<00:47,  1.20s/it][A
+ 15%|█▌        | 7/46 [00:10<00:41,  1.06s/it][A
+ 20%|█▉        | 9/46 [00:12<00:41,  1.12s/it][A
+ 22%|██▏       | 10/46 [00:12<00:31,  1.14it/s][A
+ 24%|██▍       | 11/46 [00:14<00:40,  1.16s/it][A
+ 26%|██▌       | 12/46 [00:14<00:29,  1.14it/s][A
+ 28%|██▊       | 13/46 [00:17<00:44,  1.35s/it][A
+ 30%|███       | 14/46 [00:17<00:32,  1.00s/it][A
+ 33%|███▎      | 15/46 [00:18<00:32,  1.05s/it][A

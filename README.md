@@ -1,6 +1,6 @@
 # Predict drug-pair side effects based on [ChemProp](https://github.com/chemprop/chemprop)
 
-**TODO**: Add dimension reduction (nn, truncated SVD (latent semantic index), or other methods suitable for binary vectors) for single SE feature vector.
+**Important**: Added dimension reduction for additional single SE features, and an option to display train auc, acc, auprc, and ap50. Some default parameters are changed.
 
 ## Installation
 
@@ -28,9 +28,9 @@ A known issue I persoanlly encountered can be referred to [here](https://github.
 
 If you use Option 1 to install the dependencies, Chemprop will also be installed in the environment. In this case, to train this Chemprop-based model, instead of `chemprop_train --data_path <path> --dataset_type <type> --save_dir <dir>`, you should use `python train.py --data_path <path> --dataset_type <type> --save_dir <dir>` in the command line. I've altered the default saving paths of scores to `checkpoint/`. The TensorboardX feature is not integrated in this case. 
 
-Some files in this repo might be confusing because I ran the model several times when it is not completely revised. To get a more complete output, consider outputting the debug logs into a file when starting training in the command line. For example, the simplest command with `nohup` could be `nohup python train.py --data_path data_processed/train_triples.csv --dataset_type classification --separate_val_path data_processed/valid_triples.csv --separate_test_path data_processed/test_triples.csv >> split_triples.out &`.
+Some files in this repo might be confusing because I ran the model several times when it is not completely revised. To get a more complete output, consider outputting the debug logs into a file when starting training in the command line. For example, the simplest command with `nohup` could be `nohup python train.py --data_path data_processed/train_triples.csv --dataset_type classification --separate_val_path data_processed/valid_triples.csv --separate_test_path data_processed/test_triples.csv --feature_dimension_reduction linear-layer >> split_triples.out &`.
 
-Please also note that the data file `train_triples.csv` could not be uploaded due to its large size. 
+Currently, the dimension after reduction of the features are set to be 256. Please also note that the data file `train_triples.csv` could not be uploaded due to its large size. 
 
 Some default params: epoch_num=25, max_lr=5e-3, batch_size=256, drop_out=0.2, calc_train_auc = False, feature_dimension_reduction: None (choose from {'svd', 'linear-layer'})
 
