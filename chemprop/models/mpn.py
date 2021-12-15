@@ -201,8 +201,8 @@ class MPN(nn.Module):
         else:
             self.encoder = nn.ModuleList([MPNEncoder(args, self.atom_fdim, self.bond_fdim)
                                           for _ in range(args.number_of_molecules)])
-        
-        self.ft_layers = nn.ModuleList([feature_layer(args)] * args.number_of_molecules)
+        if self.use_input_features:
+            self.ft_layers = nn.ModuleList([feature_layer(args)] * args.number_of_molecules)
            
     
     def forward(self,
@@ -261,11 +261,13 @@ class MPN(nn.Module):
             else:
                 batch = [mol2graph(b) for b in batch]
 
-        # if self.use_input_features:
-        #     features_batch = torch.from_numpy(np.stack(features_batch)).float().to(self.device)
-
-        #     if self.features_only:
-        #         return features_batch
+        if self.use_input_features and self.features_only:
+            features_batch = [[features[i] for features in features_batch] \
+                              for i in range(len(features_batch[0]))]
+            features_batch_out = [torch.from_numpy(feature_batch).float().to(self.device) \
+                                  for feature_batch in np.stack(features_batch)]
+            output = reduce(lambda x, y: x+y-x*y, features_batch_out)
+            return output
 
         if self.atom_descriptors == 'descriptor':
             if len(batch) > 1:
@@ -275,31 +277,39 @@ class MPN(nn.Module):
             encodings = [enc(ba, atom_descriptors_batch) for enc, ba in zip(self.encoder, batch)]
         else:
             encodings = [enc(ba) for enc, ba in zip(self.encoder, batch)]
-        
+            
         if self.use_input_features:  # Added several lines
             
-            features_batch = [[features[i] for features in features_batch] for i in range(len(features_batch[0]))]
+            features_batch = [[features[i] for features in features_batch] \
+                              for i in range(len(features_batch[0]))]
             # Transpose [[[], []], [[], []], ..., [[], []] style batch to [[[], [], ..., []], [[], [], ..., []]]
-            
             if self.feature_dimension_reduction == 'linear-layer':
                 
                 # Strangely, zipping and iterating self.ft_layers and feature_batch does not iterate feature_batch...
                 # Use below temporarily
-                features_batch_out =  [self.ft_layers[0](features_batch[0]), self.ft_layers[1](features_batch[1])]
+                features_batch_out =  [ftlayer(ftbatch) for ftlayer, ftbatch in \
+                                       zip(self.ft_layers, features_batch)]
                 
             else:
                 
-                features_batch_out = [torch.from_numpy(np.stack(features_batch)[0]).float().to(self.device),
-                                      torch.from_numpy(np.stack(features_batch)[1]).float().to(self.device)]
+                features_batch_out = [torch.from_numpy(feature_batch).float().to(self.device) \
+                                      for feature_batch in np.stack(features_batch)]
                 # Confused about dtype stuff...  Use below temporarily
 #                 features_batch_out = [torch.from_numpy(np.asarray(features_batch[0])).float().to(self.device),
 #                                       torch.from_numpy(np.asarray(features_batch[1])).float().to(self.device)]
-            # if len(features_batch.shape) == 1:
-            #     features_batch = features_batch.view(1, -1)
-            output = [torch.cat([encoding, batch], dim=1) for encoding, batch in zip(encodings, features_batch_out)]
+            
+#             if len(features_batch_out.shape) == 1:
+#                 features_batch_out = features_batch_out.view(1, -1)
+            
+            output = [torch.cat([encoding, batch], dim=1) for encoding, batch in \
+                      zip(encodings, features_batch_out)]
             
             # output = torch.cat([encodings, features_batch], dim=1)  
+            
+            output = reduce(lambda x, y: x+y-x*y, output)  # CHANGED  
         
-            output = reduce(lambda x, y: x+y-x*y, output)  # CAHNGED  
+        else:
+            output = reduce(lambda x, y: x+y-x*y, encodings)
+            return output
         
         return output

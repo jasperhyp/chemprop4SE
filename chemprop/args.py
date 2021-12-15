@@ -4,6 +4,7 @@ from tempfile import TemporaryDirectory
 import pickle
 from typing import List, Optional, Tuple
 from typing_extensions import Literal
+import pandas as pd
 
 import torch
 from tap import Tap  # pip install typed-argument-parser (https://github.com/swansonk14/typed-argument-parser)
@@ -78,7 +79,7 @@ class CommonArgs(Tap):
     """Turn off cuda (i.e., use CPU instead of GPU)."""
     gpu: int = None
     """Which GPU to use."""
-    features_generator: List[str] = ['mono']  # Changed
+    features_generator: List[str] = None  # Changed
     """Method(s) of generating additional features."""
     features_path: List[str] = None
     """Path(s) to features to use in FNN (instead of features_generator)."""
@@ -110,7 +111,7 @@ class CommonArgs(Tap):
     """
     Whether to empty all caches before training or predicting. This is necessary if multiple jobs are run within a single script and the atom or bond features change.
     """
-    mono_path: str = "data/mono.csv"  # Changed
+    mono_path: str = "data_processed/mono_train.csv"  # Changed
     """
     Path to the mono side effect file.
     """
@@ -248,7 +249,8 @@ class TrainArgs(CommonArgs):
     """Path to a file containing a phase mask array, used for excluding particular regions in spectra predictions."""
     data_weights_path: str = None
     """Path to weights for each molecule in the training data, affecting the relative weight of molecules in the loss function"""
-    target_weights: List[float] = None
+    target_weights_path: str = None  # CHANGED!
+    target_weights: List[float] = None 
     """Weights associated with each target, affecting the relative weight of targets in the loss function. Must match the number of target columns."""
     split_type: Literal['random', 'scaffold_balanced', 'predetermined', 'crossval', 'cv', 'cv-no-test', 'index_predetermined', 'random_with_repeated_smiles'] = 'random'
     """Method of splitting the data into train/val/test."""
@@ -280,7 +282,7 @@ class TrainArgs(CommonArgs):
     """
     extra_metrics: List[Metric] = ["prc-auc", "accuracy", "ap50"]  # CHANGED
     """Additional metrics to use to evaluate the model. Not used for early stopping."""
-    save_dir: str = "checkpoint/"  # CHANGED (Ori: None)
+    save_dir: str = None
     """Directory where model checkpoints will be saved."""
     checkpoint_frzn: str = None
     """Path to model checkpoint file to be loaded for overwriting and freezing weights."""
@@ -323,7 +325,7 @@ class TrainArgs(CommonArgs):
     mpn_shared: bool = True  # CHANGED
     """Whether to use the same message passing neural network for all input molecules
     Only relevant if :code:`number_of_molecules > 1`"""
-    dropout: float = 0.2  # CHANGED (Ori: 0)
+    dropout: float = 0  # CHANGED (Ori: 0)
     """Dropout probability."""
     activation: Literal['ReLU', 'LeakyReLU', 'PReLU', 'tanh', 'SELU', 'ELU'] = 'ReLU'
     """Activation function."""
@@ -632,7 +634,11 @@ class TrainArgs(CommonArgs):
 
         if not self.bond_feature_scaling and self.bond_features_path is None:
             raise ValueError('Bond descriptor scaling is only possible if additional bond features are provided.')
-
+        
+        if self.target_weights_path is not None:
+            self.target_weights = pd.read_csv(self.target_weights_path)
+            self.target_weights = self.target_weights.iloc[:, 0].values
+        
         # normalize target weights
         if self.target_weights is not None:
             avg_weight = sum(self.target_weights)/len(self.target_weights)
@@ -753,7 +759,7 @@ class HyperoptArgs(TrainArgs):
 class SklearnTrainArgs(TrainArgs):
     """:class:`SklearnTrainArgs` includes :class:`TrainArgs` along with additional arguments for training a scikit-learn model."""
 
-    model_type: Literal['random_forest', 'svm']
+    model_type: Literal['random_forest', 'svm'] = 'random_forest'
     """scikit-learn model to use."""
     class_weight: Literal['balanced'] = None
     """How to weight classes (None means no class balance)."""
@@ -774,7 +780,7 @@ class SklearnPredictArgs(Tap):
 
     test_path: str
     """Path to CSV file containing testing data for which predictions will be made."""
-    smiles_columns: List[str] = None
+    smiles_columns: List[str] = ['smiles_1', 'smiles_2']
     """List of names of the columns containing SMILES strings.
     By default, uses the first :code:`number_of_molecules` columns."""
     number_of_molecules: int = 1

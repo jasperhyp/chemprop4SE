@@ -19,7 +19,7 @@ from chemprop.features import load_features, load_valid_atom_or_bond_features
 
 def preprocess_smiles_columns(path: str,
                               smiles_columns: Optional[Union[str, List[Optional[str]]]],
-                              number_of_molecules: int = 2) -> List[Optional[str]]: # change from 1 to 2
+                              number_of_molecules: int = 1) -> List[Optional[str]]: # change from 1 to 2
     """
     Preprocesses the :code:`smiles_columns` variable to ensure that it is a list of column
     headings corresponding to the columns in the data file holding SMILES.
@@ -177,7 +177,7 @@ def get_data(path: str,
              args: Union[TrainArgs, PredictArgs] = None,
              data_weights_path: str = None,
              features_path: List[str] = None,
-             features_generator: List[str] = ['mono'],
+             features_generator: List[str] = None,
              phase_features_path: str = None,
              atom_descriptors_path: str = None,
              bond_features_path: str = None,
@@ -229,7 +229,9 @@ def get_data(path: str,
             else args.bond_features_path
         max_data_size = max_data_size if max_data_size is not None else args.max_data_size
         mono_path = mono_path if mono_path is not None else args.mono_path  # Changed
-        feature_dimension_reduction = args.feature_dimension_reduction  # CHANGED
+    
+    feature_dimension_reduction = args.feature_dimension_reduction if args is not None \
+    else None  # CHANGED
 
     if not isinstance(smiles_columns, list):
         smiles_columns = preprocess_smiles_columns(path=path, smiles_columns=smiles_columns)
@@ -365,7 +367,7 @@ def get_data(path: str,
 def get_data_from_smiles(smiles: List[List[str]],
                          skip_invalid_smiles: bool = True,
                          logger: Logger = None,
-                         features_generator: List[str] = ['mono'], 
+                         features_generator: List[str] = None, 
                          mono_path: str = None,
                          feature_dimension_reduction: str = None) -> MoleculeDataset:
     """

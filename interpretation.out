@@ -1,0 +1,78 @@
+WARNING:root:No normalization for BCUT2D_MWHI
+WARNING:root:No normalization for BCUT2D_MWLOW
+WARNING:root:No normalization for BCUT2D_CHGHI
+WARNING:root:No normalization for BCUT2D_CHGLO
+WARNING:root:No normalization for BCUT2D_LOGPHI
+WARNING:root:No normalization for BCUT2D_LOGPLOW
+WARNING:root:No normalization for BCUT2D_MRHI
+WARNING:root:No normalization for BCUT2D_MRLOW
+usage: interpret.py --data_path DATA_PATH [--batch_size BATCH_SIZE]
+                    [--property_id PROPERTY_ID] [--rollout ROLLOUT]
+                    [--c_puct C_PUCT] [--max_atoms MAX_ATOMS]
+                    [--min_atoms MIN_ATOMS] [--prop_delta PROP_DELTA]
+                    [--smiles_columns [SMILES_COLUMNS [SMILES_COLUMNS ...]]]
+                    [--number_of_molecules NUMBER_OF_MOLECULES]
+                    [--checkpoint_dir CHECKPOINT_DIR]
+                    [--checkpoint_path CHECKPOINT_PATH]
+                    [--checkpoint_paths [CHECKPOINT_PATHS [CHECKPOINT_PATHS ...]]]
+                    [--no_cuda] [--gpu {0}]
+                    [--features_generator [{morgan,morgan_count,rdkit_2d,rdkit_2d_normalized,mono} [{morgan,morgan_count,rdkit_2d,rdkit_2d_normalized,mono} ...]]]
+                    [--features_path [FEATURES_PATH [FEATURES_PATH ...]]]
+                    [--phase_features_path PHASE_FEATURES_PATH]
+                    [--no_features_scaling] [--max_data_size MAX_DATA_SIZE]
+                    [--num_workers NUM_WORKERS]
+                    [--atom_descriptors {feature,descriptor}]
+                    [--atom_descriptors_path ATOM_DESCRIPTORS_PATH]
+                    [--bond_features_path BOND_FEATURES_PATH] [--no_cache_mol]
+                    [--empty_cache] [--mono_path MONO_PATH]
+                    [--feature_dimension_reduction FEATURE_DIMENSION_REDUCTION]
+                    [--set_all_ckpt_trainable] [-h]
+interpret.py: error: unrecognized arguments: --checkpoint_frzn checkpoint_units_train_features_data_weighted/fold_0/model_0/model.pt --preds_path interpretation.csv
+WARNING:root:No normalization for BCUT2D_MWHI
+WARNING:root:No normalization for BCUT2D_MWLOW
+WARNING:root:No normalization for BCUT2D_CHGHI
+WARNING:root:No normalization for BCUT2D_CHGLO
+WARNING:root:No normalization for BCUT2D_LOGPHI
+WARNING:root:No normalization for BCUT2D_LOGPLOW
+WARNING:root:No normalization for BCUT2D_MRHI
+WARNING:root:No normalization for BCUT2D_MRLOW
+usage: interpret.py --data_path DATA_PATH [--batch_size BATCH_SIZE]
+                    [--property_id PROPERTY_ID] [--rollout ROLLOUT]
+                    [--c_puct C_PUCT] [--max_atoms MAX_ATOMS]
+                    [--min_atoms MIN_ATOMS] [--prop_delta PROP_DELTA]
+                    [--smiles_columns [SMILES_COLUMNS [SMILES_COLUMNS ...]]]
+                    [--number_of_molecules NUMBER_OF_MOLECULES]
+                    [--checkpoint_dir CHECKPOINT_DIR]
+                    [--checkpoint_path CHECKPOINT_PATH]
+                    [--checkpoint_paths [CHECKPOINT_PATHS [CHECKPOINT_PATHS ...]]]
+                    [--no_cuda] [--gpu {0}]
+                    [--features_generator [{morgan,morgan_count,rdkit_2d,rdkit_2d_normalized,mono} [{morgan,morgan_count,rdkit_2d,rdkit_2d_normalized,mono} ...]]]
+                    [--features_path [FEATURES_PATH [FEATURES_PATH ...]]]
+                    [--phase_features_path PHASE_FEATURES_PATH]
+                    [--no_features_scaling] [--max_data_size MAX_DATA_SIZE]
+                    [--num_workers NUM_WORKERS]
+                    [--atom_descriptors {feature,descriptor}]
+                    [--atom_descriptors_path ATOM_DESCRIPTORS_PATH]
+                    [--bond_features_path BOND_FEATURES_PATH] [--no_cache_mol]
+                    [--empty_cache] [--mono_path MONO_PATH]
+                    [--feature_dimension_reduction FEATURE_DIMENSION_REDUCTION]
+                    [--set_all_ckpt_trainable] [-h]
+interpret.py: error: unrecognized arguments: --preds_path interpretation.csv
+WARNING:root:No normalization for BCUT2D_MWHI
+WARNING:root:No normalization for BCUT2D_MWLOW
+WARNING:root:No normalization for BCUT2D_CHGHI
+WARNING:root:No normalization for BCUT2D_CHGLO
+WARNING:root:No normalization for BCUT2D_LOGPHI
+WARNING:root:No normalization for BCUT2D_LOGPLOW
+WARNING:root:No normalization for BCUT2D_MRHI
+WARNING:root:No normalization for BCUT2D_MRLOW
+Traceback (most recent call last):
+  File "interpret.py", line 7, in <module>
+    chemprop_interpret()
+  File "/home/Yepeng/chem/chemprop/interpret.py", line 353, in chemprop_interpret
+    interpret(args=InterpretArgs().parse_args())
+  File "/home/Yepeng/chem/chemprop/utils.py", line 580, in wrap
+    result = func(*args, **kwargs)
+  File "/home/Yepeng/chem/chemprop/interpret.py", line 308, in interpret
+    raise ValueError("Interpreting is currently only available for single-molecule models.")
+ValueError: Interpreting is currently only available for single-molecule models.

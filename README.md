@@ -1,6 +1,6 @@
 # Predict drug-pair side effects based on [ChemProp](https://github.com/chemprop/chemprop)
 
-**Important**: Added dimension reduction for additional single SE features, and an option to display train auc, acc, auprc, and ap50. Some default parameters are changed.
+An 6.047/6.878 *Computational Biology* course project.
 
 ## Installation
 

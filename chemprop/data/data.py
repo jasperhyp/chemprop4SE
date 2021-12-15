@@ -115,7 +115,10 @@ class MoleculeDatapoint:
                     if not self.is_reaction:
                         # if m is not None and m.GetNumHeavyAtoms() > 0:
                         if m is not None:
-                            self.features.append(features_generator(s, monoSE_dict))  # CHANGED! (and commented)
+                            if fg=='mono':
+                                self.features.append(features_generator(s, monoSE_dict))  # CHANGED! (and commented)
+                            else:
+                                self.features.append(features_generator(m))
                         # for H2
                         # elif m is not None and m.GetNumHeavyAtoms() == 0:
                         #     # not all features are equally long, so use methane as dummy molecule to determine length
