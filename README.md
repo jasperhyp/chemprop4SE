@@ -1,6 +1,6 @@
 # Predict drug-pair side effects based on [ChemProp](https://github.com/chemprop/chemprop)
 
-An 6.047/6.878 *Computational Biology* course project.
+A 6.047/6.878 *Computational Biology* course project.
 
 ## Installation
 
